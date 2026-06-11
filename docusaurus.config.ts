@@ -90,6 +90,29 @@ const config: Config = {
     ]
   ],
 
+  plugins: [
+    function gtagStubPlugin() {
+      return {
+        name: 'gtag-stub-plugin',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  window.gtag = gtag;
+                `,
+              },
+            ],
+          };
+        },
+      };
+    },
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -104,7 +127,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Study Topics',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'practiceSidebar',
+          position: 'left',
+          label: 'Practice Exams',
         },
         {
           href: 'https://github.com/adavoudi/aws-sap',

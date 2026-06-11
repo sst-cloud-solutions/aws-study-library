@@ -1,18 +1,47 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 8rem 0 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: var(--sidebar-card-bg);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 5rem 2rem 4rem;
+  }
+}
+
+.heroTitle {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.35rem;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 996px) {
+  .heroSubtitle {
+    font-size: 1.15rem;
   }
 }
 
@@ -20,4 +49,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1.25rem;
 }
+
+.primaryButton {
+  background-color: var(--ifm-color-primary) !important;
+  color: #FFF !important;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(163, 67, 31, 0.25);
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(163, 67, 31, 0.35);
+  text-decoration: none;
+}
+
+.secondaryButton {
+  background-color: transparent !important;
+  color: var(--ifm-color-primary) !important;
+  border: 2px solid var(--ifm-color-primary) !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem 2.2rem;
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(163, 67, 31, 0.06) !important;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+

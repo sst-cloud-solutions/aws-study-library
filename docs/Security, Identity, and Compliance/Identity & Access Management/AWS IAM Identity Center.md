@@ -32,8 +32,15 @@ AWS IAM Identity Center allows organizations to choose between two primary metho
 The choice between a built-in store and third-party identity providers depends on an organization’s existing infrastructure, compliance requirements, and scalability needs.
 
 ### 3.2. Integrating Active Directory (On-Premises/Cloud)
-
 Active Directory (AD) remains one of the most widely used directory services for managing user identities and access permissions. AWS IAM Identity Center seamlessly integrates with AD, whether it is hosted on-premises or in the cloud. This integration enables organizations to leverage their existing AD infrastructure for user authentication and group management while extending its benefits to AWS resources. By connecting AD with the Identity Center, administrators can synchronize users and groups, ensuring consistency in access control policies across both on-premises systems and cloud environments. This integration is pivotal for enterprises looking to maintain a unified identity management framework without rearchitecting their existing setups.
+
+### 3.3. Automatic User Provisioning via SCIM (Exam Tip)
+For organizations utilizing external Identity Providers (IdPs) like Okta, Microsoft Azure AD (Entra ID), or PingOne, managing users manually is inefficient and insecure.
+- **SCIM (System for Cross-domain Identity Management):** SCIM is an open standard protocol that automates the exchange of user identity information between your IdP and AWS IAM Identity Center.
+- **Key Capabilities & Flow:**
+    1. **Automatic Sync:** When enabled, any changes to users or groups in the external IdP (such as creation, attribute updates, or group membership changes) are pushed automatically to AWS IAM Identity Center via API endpoints.
+    2. **Instant De-provisioning (Security Guardrail):** When an employee leaves the company and is disabled in the corporate directory, the IdP sends an API call via SCIM to instantly disable or delete their user record in AWS. This eliminates the security risk of "orphaned accounts."
+- **Configuration:** Enabling SCIM in the IAM Identity Center console generates a unique **SCIM Endpoint URL** and a **Bearer Access Token**. These values must be configured inside the IdP application settings.
 
 ## 4. Access Workflow
 

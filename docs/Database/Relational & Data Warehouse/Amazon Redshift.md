@@ -134,16 +134,24 @@ Workload Management (WLM) is a mechanism in Amazon Redshift for managing query c
 - **Monitoring and Tuning:** WLM provides insights into query performance, allowing administrators to adjust configurations to optimize resource utilization and query throughput.
 
 ## 8. Concurrency Scaling
-
 Concurrency Scaling is a feature designed to handle spikes in query workloads:
-
 - **Automatic Scaling:** When the main cluster experiences high query concurrency, Redshift automatically adds additional capacity (in the form of transient clusters) to process the extra load.
 - **Seamless Integration:** Queries are transparently routed to the additional capacity, ensuring consistent performance even during peak times.
 - **Cost Efficiency:** You are billed only for the extra capacity used and only when it is active, making it an efficient way to handle temporary spikes in demand.
 - **Use Case:** This is particularly useful for environments where query loads vary widely over time, ensuring that users always experience fast query responses regardless of concurrent activity.  
 
-## 9. Conclusion
+## 9. Redshift Cluster Resizing: Elastic vs. Classic [Exam Tip]
+When scaling a provisioned Redshift cluster, you must select the correct resizing method based on performance constraints and time-to-availability:
 
+| Feature | Elastic Resize (Recommended) | Classic Resize (Legacy/Fallback) |
+| :--- | :--- | :--- |
+| **Duration** | Minutes (typically < 10 mins). | Hours to Days (depends on data size). |
+| **Availability Impact** | Pauses queries during metadata update (~4 min outage). | High. Cluster is in **read-only mode** during final replication/cutover. |
+| **Node Type Change** | **No**. Cannot change node instance family. | **Yes**. Allows upgrading/changing instance types. |
+| **Node Count Flexibility** | **Restricted**. Must stay within specific multiples (e.g., doubling or halving). | **Unrestricted**. Can change to any valid node count. |
+| **How it works** | Reshares disk partition metadata slices across existing nodes. | Spins up a brand-new cluster, copies data, and shifts the DNS endpoint. |
+
+## 10. Conclusion
 Amazon Redshift is a powerful service for large-scale data warehousing and analytics. By leveraging columnar storage, Massive Parallel Processing, flexible workload management, and features such as concurrency scaling, Redshift can accommodate an extensive range of queries and workloads. Snapshots and cross-region replication provide robust disaster recovery options. For organizations looking to integrate quickly with existing AWS data pipelines, Redshift offers multiple data ingestion strategies, making it a core solution for high-performance, enterprise-wide analytics.
 
 For more details, refer to the [official documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html).

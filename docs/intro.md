@@ -6,6 +6,14 @@ sidebar_position: 1
 
 _A comprehensive guide to help you prepare for the AWS Certified Solutions Architect – Professional exam. This structured study plan moves from foundational AWS services to advanced topics, covering all the services in the [exam guide](https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS-Certified-Solutions-Architect-Professional_Exam-Guide.pdf)._
 
+## 🚀 Quick Navigation: Architect's Decision Matrices & Exams
+- [Database Choice: RDS vs. DynamoDB](/aws-sap/docs/Database/NoSQL%20Databases/Amazon%20DynamoDB#6-architects-decision-matrix-dynamodb-vs-rds)
+- [DR Strategies: RPO/RTO Comparison](/aws-sap/docs/Storage/Backup%20&%20Disaster%20Recovery/Disaster%20Recovery%20Strategies#dr-strategies-comparison)
+- [Global Traffic: CloudFront vs. Global Accelerator](/aws-sap/docs/Networking%20and%20Content%20Delivery/CDN%20&%20DNS/Global%20Traffic%20Management#cloudfront-vs-global-accelerator)
+- [Secrets: Parameter Store vs. Secrets Manager](/aws-sap/docs/Management%20and%20Governance/Operations%20&%20Optimization/AWS%20Systems%20Manager#203-parameter-store-vs-secrets-manager)
+- [Migration: The 6R's Decision Matrix](/aws-sap/docs/Migration%20and%20Transfer/Migration%20Tools/Migration%20Strategies#the-6r-strategies)
+- [Practice Assessment: 75-Question SAP-C02 Mock Exam](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam)
+
 ## Phase 1: Foundations & Core Services
 
 ### 1. Compute Fundamentals
@@ -46,10 +54,14 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 #### CDN & DNS
 - [Amazon CloudFront](/aws-sap/docs/Networking%20and%20Content%20Delivery/CDN%20&%20DNS/Amazon%20CloudFront)
 - [AWS Route 53](/aws-sap/docs/Networking%20and%20Content%20Delivery/CDN%20&%20DNS/AWS%20Route%2053)
+- [AWS Global Accelerator](/aws-sap/docs/Networking%20and%20Content%20Delivery/CDN%20&%20DNS/Global%20Traffic%20Management#2-aws-global-accelerator)
+- [Global Traffic Management](/aws-sap/docs/Networking%20and%20Content%20Delivery/CDN%20&%20DNS/Global%20Traffic%20Management)
 
 #### Hybrid Connectivity & Traffic Management
 - [AWS PrivateLink](/aws-sap/docs/Networking%20and%20Content%20Delivery/Hybrid%20Connectivity/AWS%20PrivateLink)
+- [Hybrid Connectivity & RAM](/aws-sap/docs/Networking%20and%20Content%20Delivery/Hybrid%20Connectivity/Hybrid%20Connectivity%20&%20RAM)
 - [AWS Elastic Load Balancing](/aws-sap/docs/Networking%20and%20Content%20Delivery/Traffic%20Management/AWS%20Elastic%20Load%20Balancing)
+- [AWS VPC Lattice](/aws-sap/docs/Networking%20and%20Content%20Delivery/Traffic%20Management/AWS%20VPC%20Lattice)
 
 ### 3. Storage & Database Fundamentals
 
@@ -63,6 +75,7 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 - [AWS Backup](/aws-sap/docs/Storage/Backup%20&%20Disaster%20Recovery/AWS%20Backup)
 - [AWS Elastic Disaster Recovery (DRS)](/aws-sap/docs/Storage/Backup%20&%20Disaster%20Recovery/AWS%20Elastic%20Disaster%20Recovery)
 - [AWS Storage Gateway](/aws-sap/docs/Storage/Backup%20&%20Disaster%20Recovery/AWS%20Storage%20Gateway)
+- [Disaster Recovery Strategies](/aws-sap/docs/Storage/Backup%20&%20Disaster%20Recovery/Disaster%20Recovery%20Strategies)
 
 #### Relational & Data Warehouse
 - [Amazon Aurora](/aws-sap/docs/Database/Relational%20&%20Data%20Warehouse/Amazon%20Aurora)
@@ -84,6 +97,8 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 - [AWS Directory Services](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Identity%20&%20Access%20Management/AWS%20Directory%20Services)
 - [AWS IAM Identity Center](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Identity%20&%20Access%20Management/AWS%20IAM%20Identity%20Center)
 - [AWS Identity and Access Management](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Identity%20&%20Access%20Management/AWS%20Identity%20and%20Access%20Management)
+- [Amazon Verified Permissions](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Identity%20&%20Access%20Management/Amazon%20Verified%20Permissions)
+- [AWS Verified Access](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Identity%20&%20Access%20Management/AWS%20Verified%20Access)
 
 #### Data Protection & Encryption
 - [AWS Certificate Manager](/aws-sap/docs/Security,%20Identity,%20and%20Compliance/Data%20Protection%20&%20Encryption/AWS%20Certificate%20Manager)
@@ -130,6 +145,7 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 - [AWS Compute Optimizer](/aws-sap/docs/Management%20and%20Governance/Operations%20&%20Optimization/AWS%20Compute%20Optimizer)
 - [AWS Systems Manager](/aws-sap/docs/Management%20and%20Governance/Operations%20&%20Optimization/AWS%20Systems%20Manager)
 - [AWS Trusted Advisor](/aws-sap/docs/Management%20and%20Governance/Operations%20&%20Optimization/AWS%20Trusted%20Advisor)
+- [Cost Optimization Tools](/aws-sap/docs/Management%20and%20Governance/Cost%20Management/Cost%20Optimization%20Tools)
 
 ### 2. Application Integration
 
@@ -204,6 +220,7 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 - [AWS DataSync](/aws-sap/docs/Migration%20and%20Transfer/Migration%20Tools/AWS%20DataSync)
 - [AWS Migration Evaluator](/aws-sap/docs/Migration%20and%20Transfer/Migration%20Tools/AWS%20Migration%20Evaluator)
 - [AWS Migration Hub](/aws-sap/docs/Migration%20and%20Transfer/Migration%20Tools/AWS%20Migration%20Hub)
+- [Migration Strategies](/aws-sap/docs/Migration%20and%20Transfer/Migration%20Tools/Migration%20Strategies)
 
 #### Physical & Offline Migration
 - [AWS Snow Family](/aws-sap/docs/Migration%20and%20Transfer/Physical%20&%20Offline%20Migration/AWS%20Snow%20Family)
@@ -231,9 +248,14 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 
 #### Visualization & Search
 - [Amazon OpenSearch](/aws-sap/docs/Analytics/Visualization%20&%20Search/Amazon%20OpenSearch)
+- [Amazon OpenSearch Serverless](/aws-sap/docs/Analytics/Visualization%20&%20Search/Amazon%20OpenSearch%20Serverless)
 - [Amazon QuickSight](/aws-sap/docs/Analytics/Visualization%20&%20Search/Amazon%20QuickSight)
 
-### 2. Machine Learning
+### 2. Machine Learning & AI
+
+#### Generative AI (Latest Trend)
+- [Amazon Bedrock](/aws-sap/docs/Machine%20Learning/Generative%20AI/Amazon%20Bedrock)
+- [Amazon Q](/aws-sap/docs/Machine%20Learning/Generative%20AI/Amazon%20Q)
 
 #### Computer Vision & Document Processing
 - [Amazon Rekognition](/aws-sap/docs/Machine%20Learning/Computer%20Vision%20&%20Document%20Processing/Amazon%20Rekognition)
@@ -274,3 +296,23 @@ _A comprehensive guide to help you prepare for the AWS Certified Solutions Archi
 
 ### 5. Blockchain
 - [Amazon Managed Blockchain](/aws-sap/docs/Blockchain/Amazon%20Managed%20Blockchain)
+
+---
+
+## Phase 4: Practice Exams & Readiness Assessment
+
+Before sitting the official exam, validate your knowledge and time management under realistic conditions using our three full-length practice tests:
+
+- **[SAP-C02 Practice Mock Exams (Overview)](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam)** — Central landing page and syllabus mapping.
+- **🏆 Mock Exam 1 (75 Questions):**
+  - [Part 1: Questions 1 - 25](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%20-%20Part%201) (Domain 1 & 2)
+  - [Part 2: Questions 26 - 50](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%20-%20Part%202) (Domain 2 & 3)
+  - [Part 3: Questions 51 - 75](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%20-%20Part%203) (Domain 3 & 4)
+- **🏆 Mock Exam 2 (75 Questions):**
+  - [Part 1: Questions 1 - 25](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%202%20-%20Part%201) (Domain 1 & 2)
+  - [Part 2: Questions 26 - 50](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%202%20-%20Part%202) (Domain 2 & 3)
+  - [Part 3: Questions 51 - 75](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%202%20-%20Part%203) (Domain 3 & 4)
+- **🌶️ Mock Exam 3 (75 Questions - Advanced Difficulty):**
+  - [Part 1: Questions 1 - 25](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%203%20-%20Part%201) (Domain 1 & 2)
+  - [Part 2: Questions 26 - 50](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%203%20-%20Part%202) (Domain 2 & 3)
+  - [Part 3: Questions 51 - 75](/aws-sap/docs/Practice%20Exams/SAP-C02%20Mock%20Exam%203%20-%20Part%203) (Domain 3 & 4)

@@ -138,6 +138,19 @@ The Network Load Balancer is designed for high performance and ultra-low latency
 
 The NLB is the best choice for applications that demand ultra-low latency, extremely high throughput, and protocols that extend beyond HTTP/HTTPS. For instance, custom TCP-based applications or services requiring UDP communication can benefit significantly from the NLB’s architecture. Furthermore, when the preservation of the client IP is critical for logging or security, the NLB’s capabilities make it an ideal candidate.
 
+### 2.3. Load Balancer Comparison Table
+
+| Feature | ALB (Layer 7) | NLB (Layer 4) | GLB (Layer 3) |
+| :--- | :--- | :--- | :--- |
+| **Protocols** | HTTP, HTTPS, gRPC | TCP, UDP, TLS | IP (all protocols) |
+| **Performance** | High (millisecond latency) | Ultra-high (microsecond latency) | Ultra-high |
+| **Scaling** | Scales based on L7 traffic | Scales based on throughput | Scales based on throughput |
+| **Static IP / EIP** | No (uses DNS name) | Yes (per AZ) | Yes (per AZ) |
+| **Routing** | Path, Host, Query, Headers | Flow hash (L4) | Source/Dest IP, Protocol |
+| **Health Checks** | HTTP, HTTPS, TCP | HTTP, HTTPS, TCP | HTTP, HTTPS, TCP |
+| **Target Types** | IP, Instance, Lambda, ALB | IP, Instance, ALB | IP, Instance |
+| **Sticky Sessions** | Yes (Cookie-based) | No | No |
+
 ## 3. Configuration and Connection Management
 
 Proper configuration and management of connections are paramount for ensuring that your load balancer performs optimally under varying workloads. In this section, we dive into the details of managing connection lifecycles, routing strategies, and cross-zone traffic distribution.

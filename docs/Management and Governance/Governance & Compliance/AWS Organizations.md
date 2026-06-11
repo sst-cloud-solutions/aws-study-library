@@ -49,8 +49,13 @@ Organizational Units, or OUs, are sub-containers within your organization. They 
 
 One of the most powerful features of AWS Organizations is its ability to enforce policies across multiple accounts. These policies come in several types:
 
-- **Service Control Policies (SCPs):** These JSON policies set the maximum permissions for member accounts. They serve as guardrails that restrict actions regardless of the individual IAM policies in the account. For example, an SCP might prevent the use of certain high-risk services or restrict resource creation to approved AWS regions.
-- **Tag Policies:** These help standardize the way resources are tagged across accounts. Enforcing consistent tagging is critical for cost allocation, resource management, and compliance.
+- **Service Control Policies (SCPs):** These JSON policies set the maximum permissions for member accounts. They serve as guardrails that restrict actions regardless of the individual IAM policies in the account.
+    - **Effective Permissions:** The intersection of IAM policies, SCPs, and IAM permissions boundaries.
+    - **Affected Entities:** Affects all users and roles in member accounts, **including the root user**.
+    - **Non-Affected:** Does not affect the management account, resource-based policies directly, or service-linked roles.
+    - **Explicit Allow Required:** Must have an explicit allow; nothing is allowed by default.
+- **Tag Policies:** These help standardize the way resources are tagged across accounts.
+    - **Governance Role:** They play a governance and auditing role, flagging noncompliant resources but **not directly preventing resource creation**.
 
 :::tip
 
@@ -139,6 +144,17 @@ When an AWS Organization is created, all accounts automatically receive a defaul
 - **Boundary Enforcement:** SCPs are applied to all users and roles in the account—even the root user. If an SCP denies a particular action, no user or role in that account can perform it, regardless of what their IAM policies allow.
 - **Non-Granting Nature:** SCPs do not grant permissions by themselves. Even if an SCP allows a service action, the IAM policies in the account must also allow it for the action to succeed.
 - **Inheritance:** Policies attached at a higher level in the hierarchy (such as the root or an OU) automatically apply to all child accounts. This inheritance ensures that a single policy can govern many accounts at once.
+
+### 6.1.1. Service Control Policy Exceptions & Limitations (Exam Tip)
+While SCPs are powerful guardrails, they have critical limitations and exclusions that Solutions Architects must remember for the exam and real-world architectures:
+1. **Management Account Immunity:** SCPs attached to the Root, OUs, or the management account itself **do not apply to the management account**. The root user and all IAM users/roles in the management account remain completely unrestricted.
+2. **Service-Linked Roles Exemption:** SCPs **do not restrict service-linked roles**. These roles are created by AWS services to perform actions in your account on your behalf (e.g., Auto Scaling scaling instances). This ensures that critical service tasks are not accidentally broken by organizational policies.
+3. **Exempt Operations:** Certain operations are natively exempt from SCPs to prevent locking out essential system or support functionalities, including:
+    - Registering or updating Enterprise Support plans.
+    - AWS License Manager operations (exchanging licenses).
+    - Accessing CloudFront key pairs.
+    - Credential management for the root user of the member account.
+4. **Cross-Account Resource Access:** SCPs apply to the *principals* (users/roles) in the account where they are attached. If a user in Account A accesses a resource in Account B (which has an attached SCP), the user is subject to Account A's SCPs, not Account B's. However, the resource policy in Account B must still permit the access.
 
 ### 6.2. Approaches to Using SCPs
 

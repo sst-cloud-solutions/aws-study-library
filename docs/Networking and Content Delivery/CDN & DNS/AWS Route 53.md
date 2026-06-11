@@ -332,7 +332,31 @@ When designing a hybrid DNS architecture, several key design considerations must
 
 The hybrid DNS solution provided by Route 53 Resolvers offers a unified namespace that spans both AWS and on-premises environments, facilitating a consistent experience for internal and external users alike.
 
-## **11. Solution Architectures**
+### 10.3 Route 53 Profiles (Latest Trend)
+
+Route 53 Profiles allow you to manage and share DNS configurations (such as private hosted zones, resolver rules, and DNS Firewall rule groups) across multiple VPCs and AWS accounts.
+
+- **Centralized Management:** Define a standard set of DNS configurations in a "Profile" and associate it with multiple VPCs.
+- **Simplification:** Reduces the need to manually associate each private hosted zone or resolver rule with every VPC.
+- **Organization-wide Consistency:** Ensure that all VPCs in your organization follow the same DNS resolution logic and security rules.
+
+### 10.4. Route 53 Resolver (Hybrid DNS)
+
+Route 53 Resolver allows you to resolve DNS queries between your VPC and on-premises environments.
+
+- **Inbound Endpoints:** Allow on-premises servers to resolve DNS names for resources in your VPC (e.g., EC2 instances or Private Hosted Zones).
+- **Outbound Endpoints:** Allow your VPC resources to resolve DNS names for on-premises servers. You define **Forwarding Rules** to specify which domain names should be sent to on-premises DNS servers.
+- **DNS Firewall:** A managed service that allows you to filter and block DNS queries for known malicious domains.
+
+## **11. Route 53 Application Recovery Controller (ARC)**
+
+Route 53 ARC is a set of capabilities that help you monitor whether your applications are ready for recovery and manage failover across AWS Regions, Availability Zones, and on-premises locations.
+
+- **Readiness Checks:** Continuously audit your AWS resources (e.g., ASGs, ELBs, DBs) to ensure they are configured correctly for recovery.
+- **Routing Control:** Provides high-level "on/off" switches for traffic failover. Unlike standard DNS failover which relies on health checks, routing control gives you manual or automated control over regional failover with zero propagation delay.
+- **Safety Rules:** Prevent accidental failover by defining rules (e.g., "don't fail over if more than 50% of endpoints are unhealthy").
+
+## **12. Solution Architectures**
 
 Designing DNS architectures that are both robust and flexible is critical in today’s dynamic IT environments. In this section, we explore several common scenarios and solution architectures that leverage the full suite of Route 53 capabilities.
 

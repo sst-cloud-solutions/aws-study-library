@@ -105,197 +105,38 @@ Whether you choose a dedicated or hosted connection, the provisioning process fo
 9. **Begin Data Transfer and Monitor Billing:**  
     After successful testing, start using your Direct Connect connection in production. Remember that you will be billed (by port‑hour and data transfer out) as soon as the connection is active.
 
-## 4. Virtual Interfaces (VIFs)
+## 3. Direct Connect Security: MACsec
 
-The physical Direct Connect connection provides the underlying “pipe” from your data center to AWS—but to use it effectively, you create logical interfaces on top of it. These virtual interfaces (VIFs) define how your network traffic is routed between your environment and AWS. In this section, we discuss VIF concepts, configuration parameters, and the three types of VIFs available.
+MACsec (IEEE 802.1AE) provides Layer 2 encryption for Direct Connect links.
 
-### 4.1 Introduction to Direct Connect Virtual Interfaces (VIFs)
+- **Hop-by-Hop:** Encryption occurs between the customer router and the AWS Direct Connect router. It is **not** end-to-end.
+- **High Speed:** Supports 10 Gbps and 100 Gbps speeds without the cryptographic overhead of IPsec.
+- **Key Requirements:** Requires Layer 2 adjacency (a direct physical or pseudo-wire connection) and compatible hardware.
+- **Comparison with IPsec:** Use MACsec for high-speed, line-rate encryption; use IPsec for end-to-end encryption over the internet or DX.
 
-Virtual interfaces are the logical partitions of your Direct Connect connection. They serve two main purposes:
+## 4. Direct Connect Virtual Interfaces (VIFs)
 
-- **Segmentation of Traffic:** By mapping different VLAN tags to different VIFs, you can segregate traffic for distinct purposes (for example, separating access to AWS public services from private connectivity to a VPC).
-- **Routing to Different Endpoints:** VIFs determine whether your traffic will reach public endpoints (e.g., S3, DynamoDB), be routed into your VPC (via a Virtual Private Gateway), or be forwarded to a Transit Gateway for large‑scale VPC interconnectivity.
+VIFs allow you to separate traffic into different Layer 3 networks over a single physical connection.
 
-### 4.2 VIF Configuration Parameters
+- **Private VIF:** Connects to a VPC via a Virtual Private Gateway (VGW). Used for private IP communication.
+- **Public VIF:** Connects to all AWS public services (S3, DynamoDB, etc.) globally.
+- **Transit VIF:** Connects to a Transit Gateway (TGW) via a Direct Connect Gateway. Required for multi-VPC hub-and-spoke architectures.
 
-When creating a VIF, you must provide several key parameters:
+## 5. Direct Connect Gateway (Global Connectivity)
 
-- **Connection Association:** Choose the underlying Direct Connect connection (or LAG) on which to create the VIF.
-- **VIF Type:** Select whether the VIF is public, private, or transit.
-- **VIF Name and Owner:** Assign a friendly name and specify the AWS account that will own the VIF. (In multi‑account or hosted scenarios, the VIF may be created by one account and then “hosted” in another.)
-- **VLAN Tag:** Specify a unique 802.1Q VLAN ID (between 1 and 4094). For dedicated connections, you choose this value; for hosted connections, it is typically pre‑assigned by your Direct Connect partner.
-- **BGP Parameters:** Configure the BGP session settings including:
-    - BGP peer IP addresses (for IPv4 or IPv6). For a public VIF, AWS will allocate public IP addresses (often in a /30 or /31 block). For private VIFs, addresses are typically chosen from the 169.254.0.0/16 range.
-    - The Autonomous System Number (ASN) for your side of the connection. This may be public (if you own one) or private.
-    - MD5 authentication key (optional) for BGP.
-    - Additional parameters such as route advertisement limits (100 prefixes for private VIFs and 1,000 for public VIFs).
-- **MTU and Jumbo Frames:** Decide whether to enable jumbo frames. Public VIFs do not support jumbo frames, but private and transit VIFs support larger MTUs (up to 9,001 bytes on private VIFs and up to 8,500 bytes on transit VIFs).
+A Direct Connect Gateway is a global resource that allows you to connect a single Direct Connect connection to VPCs in any AWS Region.
 
-### 4.3 Types of VIFs
+- **VGW Association:** Connect up to 10 VGWs (10 VPCs) across different regions to a single DX Gateway.
+- **Transit Gateway Association:** Connect a DX Gateway to a TGW (Transit VIF required).
+- **No Transitive Routing:** A DX Gateway does not allow communication between the VPCs attached to it. Communication only occurs between on-premises and the VPCs.
 
-There are three distinct types of virtual interfaces that you can create on top of your Direct Connect connection:
+## 6. Resilience & High Availability
 
-![VIF](../_assets/vif.png)
+For the SAP-C02 exam, always prioritize high availability for DX:
 
-#### 4.3.1 Public VIF: Accessing AWS Public Services
-
-A public VIF allows your on‑premises network to access AWS public endpoints (for example, S3, DynamoDB, and even public IP addresses of AWS resources) using dedicated, private routing. Key points include:
-
-- **Global Reach:** Although your Direct Connect connection is physically located in one facility, a public VIF gives you access to all AWS public IP ranges across regions.
-- **BGP Route Exchange:** You must advertise your customer’s public IP prefixes, and AWS will advertise its public IP ranges. AWS verifies that the prefixes you advertise are ones you own.
-- **Prefix Advertisement Limits:** You can advertise up to 1,000 prefixes via a public VIF.
-- **No Jumbo Frames:** Public VIFs do not support jumbo frames because they are designed for traffic to public endpoints.
-
-#### 4.3.2 Private VIF: Connecting to VPC via Virtual Private Gateway (VGW)
-
-A private VIF is used to access resources inside a VPC. It is attached either directly to a Virtual Private Gateway (VGW) or indirectly via a Direct Connect Gateway that connects to multiple VGWs. Important considerations include:
-
-- **Regional Scope:** A private VIF is bound to a VPC in the same AWS region as the connection termination point (unless you use a Direct Connect Gateway for cross‑region connectivity).
-- **BGP Session:** You exchange BGP routes between your on‑premises router and the VGW. The customer side typically advertises up to 100 routes.
-- **MTU/Jumbo Frames:** Private VIFs support jumbo frames (up to 9,001 bytes) provided that the underlying Direct Connect connection or LAG is configured accordingly.
-- **Security and Routing:** Traffic over a private VIF is kept separate from public Internet traffic. Routes learned via BGP may be automatically propagated into the VPC route tables if route propagation is enabled.
-
-#### 4.3.3 Transit VIF: Integration with Transit Gateway (TGW)
-
-![Transit VIF](../_assets/transit_vif.png)
-
-A transit VIF is used for connectivity between your Direct Connect connection and an AWS Transit Gateway. Transit Gateways allow you to connect hundreds or thousands of VPCs and even interconnect on‑premises networks from different regions. Characteristics include:
-
-- **Indirect Connectivity:** A transit VIF attaches to a Direct Connect Gateway, which in turn connects to one or more Transit Gateways. This configuration enables scalable, large‑scale inter‑VPC communication.
-- **Routing and Aggregation:** Transit VIFs support the aggregation of multiple VPC routes via Transit Gateway, enabling efficient route management.
-- **MTU/Jumbo Frames:** Transit VIFs support jumbo frames (up to 8,500 bytes) which can be beneficial when transferring large amounts of data.
-- **Design Flexibility:** You can attach multiple Transit Gateways (up to six per Direct Connect Gateway) to a single transit VIF, providing redundancy and multi‑regional connectivity.
-
-## 5. Direct Connect Routing Policies and BGP Communities
-
-Routing over Direct Connect involves many layers of decision‑making—from the BGP protocol parameters that govern which route is selected to the specific policies that AWS applies to differentiate between public and private connectivity. In this section we explore these routing policies in depth.
-
-### 5.1 Public VIF Routing Policies and Scenarios
-
-For a public VIF, the routing decisions are primarily based on BGP attributes and the principle of longest prefix match. When traffic flows from your on‑premises network to AWS public endpoints (or vice versa), consider the following:
-
-- **Longest Prefix Match:** BGP always chooses the most specific (longest) prefix. If you advertise both a /24 and a /28 for the same destination, the /28 is preferred.
-- **Static vs. Propagated Routes:** In many scenarios, AWS routes learned via BGP are “propagated” into your routing tables automatically. However, static routes that you manually configure take precedence over dynamically learned routes.
-- **BGP Attributes:** Attributes such as AS_PATH, Multi‑Exit Discriminator (MED), and local preference influence route selection. For example, if two paths to the same destination exist, the one with the shorter AS_PATH will normally be preferred.
-- **Traffic Engineering with BGP Communities:** With a public VIF, BGP community tags can control the scope of route propagation. For instance, you can tag your routes so that they are only advertised within a certain AWS region or continent. AWS uses community tags (e.g., 7224:9100 series) to indicate whether a route is local to the Direct Connect location, confined to a continent, or global.
-- **Inbound Filtering:** When you send routes from your on‑premises router to AWS, you must ensure that the IP prefixes you advertise are ones that you own. AWS uses filtering to prevent mis‑advertised routes from other customers from being accepted.
-- **Outbound Preferences:** For traffic originating from AWS that is destined for your on‑premises network, the BGP attributes on the advertised routes (e.g., AS_PATH length, MED, local preference) determine which Direct Connect connection is used when multiple paths exist (for example, in an active‑active or active‑passive configuration).
-
-### 5.2 Public VIF BGP Communities
-
-BGP communities are used with public VIFs to further refine route propagation. Here are some common scenarios:
-
-- **Controlling Scope:**
-    - By tagging routes with a “local” community (for example, 7224:9100), you can ensure that your routes are only advertised within the AWS Direct Connect region.
-    - Alternatively, a “continent‑level” community (e.g., 7224:9200) can extend route advertisement to all AWS regions on the same continent.
-    - The default behavior (often represented as 7224:9300) is to advertise routes globally.
-- **Inbound and Outbound Policy:**
-    - Inbound, when your router sends routes to AWS, you may set community tags that instruct AWS not to propagate these routes beyond the intended scope.
-    - Outbound, AWS attaches community tags to the routes it advertises to your on‑premises network. You can use these tags on your edge routers to determine which routes to accept or to apply your own routing policies.
-- **Active‑Active vs. Active‑Passive:**
-    - If you have multiple public VIFs, you can engineer your BGP attributes using community tags, local preference, and AS_PATH manipulation to force load balancing (active‑active) or to designate a primary and a backup link (active‑passive).
-
-### 5.3 Private VIF Routing Policies and BGP Communities
-
-For private VIFs (and similarly for transit VIFs), the focus is on ensuring that only routes to your VPC(s) and on‑premises networks are exchanged. Key points include:
-
-- **Longest Prefix Match:**
-    - The same basic principle applies: the most specific prefix is always selected.
-- **Regional Considerations:**
-    - When connecting to a Virtual Private Gateway (VGW) or a Direct Connect Gateway, the routes learned by AWS are automatically propagated into your VPC’s route table (if propagation is enabled).
-- **Prefix Advertisement Limits:**
-    - AWS imposes a limit of 100 routes that can be advertised via a private VIF. Over‑advertising beyond this limit will result in BGP session failure.
-- **Influencing Route Selection:**
-    - In scenarios where multiple private VIFs exist (for example, from different Direct Connect locations within the same region), the default selection is based on the “distance” from the AWS region to the Direct Connect location. If this is not sufficient, you can further influence the decision using BGP attributes (such as AS_PATH) and by setting BGP community tags on your advertised routes.
-- **BGP Communities for Private VIFs:**
-    - Although private VIFs do not require the same scope control as public VIFs, BGP communities can still be used to influence path selection (e.g., to enforce an active‑passive configuration). For instance, you can assign a higher local preference via a community tag to one VIF to designate it as the primary path.
-
-## 6. Scaling and Resiliency
-
-High availability is a crucial consideration for any enterprise network. AWS Direct Connect offers several mechanisms to ensure that your connectivity is resilient, scalable, and able to recover quickly from failures.
-
-### 6.1 Link Aggregation Groups (LAGs): Combining Connections
-
-![Link Aggregation Groups](../_assets/link_aggregation_groups.png)
-
-Link Aggregation Groups (LAGs) allow you to combine multiple Direct Connect connections into a single logical connection. This has two main benefits:
-
-- **Increased Bandwidth:** By aggregating, for example, four 1 Gbps connections, you can create an effective pipe with 4 Gbps of throughput.
-- **Improved Resiliency:** If one member of the LAG fails, the remaining links continue to carry traffic. You can define operational thresholds (for example, the minimum number of active links) to control whether the LAG is considered “up.”
-
-When creating a LAG, keep in mind:
-
-- All connections in the LAG must be of the same speed (e.g., all 1 Gbps or all 10 Gbps).
-- They must terminate at the same AWS Direct Connect location (and ideally on the same device).
-- LAGs are supported only on dedicated connections—not on hosted connections.
-- The Link Aggregation Control Protocol (LACP) is used to manage the group, ensuring that traffic is evenly distributed and that failures are detected promptly.
-
-### 6.2 Connection Resiliency: Designing for High Availability
-
-To minimize downtime, your Direct Connect architecture should be designed for resiliency. Options include:
-
-- **Dual Connections at a Single Location:**  
-    Provision two Direct Connect connections from your data center to the same Direct Connect location but terminating on different AWS devices. This guards against a failure in a single device.
-- **Multiple Direct Connect Locations:**  
-    For even greater resiliency, deploy connections in geographically distinct Direct Connect locations. This way, if one location experiences an outage (for example, due to a fiber cut or power failure), your backup connection in another location will continue to operate.
-- **Redundant Virtual Interfaces:**  
-    On a dedicated connection, you can create multiple VIFs. In an active‑passive configuration, one VIF may be designated as the primary path, with a secondary VIF taking over if the primary fails. BGP attributes (such as a longer AS_PATH or lower local preference) can be used to “deprioritize” the backup path.
-- **VPN as a Backup:**  
-    If cost is a concern or if only a minimal level of resiliency is required, you can configure a VPN connection as a backup. Although VPN traffic goes over the public Internet and typically has higher latency, it provides an extra layer of redundancy.
-
-### 6.3 Failure Detection with BFD (Bidirectional Forwarding Detection)
-
-BFD is a lightweight protocol that can detect link failures in less than one second. By enabling BFD on your Direct Connect interfaces:
-
-- **Rapid Failover:**  
-    Should the primary connection fail, BFD allows your network to detect the failure almost immediately and trigger failover to a backup path.
-- **Increased Uptime:**  
-    With BFD in place, your Direct Connect architecture is more resilient to transient outages, ensuring that your applications remain available.
-
-## 7. Gateway Integration
-
-For many organizations, the challenge isn’t just connecting to AWS—it’s connecting to multiple VPCs across regions, sometimes owned by different business units. AWS provides two main gateway solutions that help you integrate Direct Connect into a large‑scale network: the Direct Connect Gateway and the Transit Gateway.
-
-### 7.1 Direct Connect Gateway: Private VIF and VGW Architecture
-
-A Direct Connect Gateway (DXGW) allows you to connect your Direct Connect connection to one or more Virtual Private Gateways (VGWs) attached to VPCs, even if those VPCs are in different regions. Key aspects include:
-
-- **Global Connectivity:**  
-    A DXGW is a global resource. By connecting your private VIF to a DXGW, you can associate VGWs from multiple AWS regions (provided the VPC CIDRs do not overlap).
-- **Simplified Management:**  
-    Rather than creating a separate private VIF for each VPC, you can create a single VIF that connects to a DXGW, which then connects to many VPCs.
-- **BGP Session:**  
-    There is a BGP session between your on‑premises router and the DXGW. Routes from your VPCs (via their VGWs) are exchanged over this session.
-- **Limitations:**  
-    The VPCs connected to a DXGW must have non‑overlapping CIDRs. Also, while DXGW enables connectivity to multiple VPCs, it does not support transitive routing between those VPCs.
-
-### 7.2 Transit Gateway Integration: Transit VIF and TGW Architecture
-
-The AWS Transit Gateway (TGW) is a regional hub that connects your VPCs and on‑premises networks. When combined with Direct Connect, the architecture looks like this:
-
-- **Transit VIF Creation:**  
-    First, you create a transit VIF on your Direct Connect connection. This transit VIF attaches to a Direct Connect Gateway.
-- **Direct Connect Gateway to TGW:**  
-    The DXGW is then associated with one or more Transit Gateways. This enables your on‑premises network to communicate with multiple VPCs that are attached to the Transit Gateway.
-- **Scalability and Flexibility:**  
-    Transit Gateway supports hundreds of VPC attachments, and you can even peer Transit Gateways across regions for inter‑regional connectivity.
-- **Cost Considerations:**  
-    Note that Transit Gateways incur additional per‑GB data processing charges. In high‑throughput environments, these costs can add up, so careful architecture design is essential.
-
-### 7.3 Direct Connect SiteLink: Simplifying Multi‑Site Connectivity
-
-![Direct Connect SiteLink](../_assets/direct_connect_sitelink.png)
-
-Direct Connect SiteLink is a relatively new feature that streamlines multi‑site connectivity:
-
-- **Purpose:**  
-    It allows you to interconnect multiple on‑premises locations via AWS’s global backbone network without having to route traffic through an AWS region.
-- **How It Works:**  
-    Once SiteLink is enabled on your Direct Connect VIF (private or transit), traffic between your geographically disparate sites can flow over the Direct Connect location and across the AWS Backbone. This can reduce latency and simplify network design.
-- **Flexibility:**  
-    SiteLink works across different connection types—even when the port speeds or connection ownership (dedicated vs. hosted) vary.
-- **Cost Implications:**  
-    While SiteLink simplifies architecture, it introduces additional hourly and data transfer charges. It is best suited for organizations that require high‑capacity, low‑latency inter‑site connectivity.
+- **Maximum Resilience:** Two DX connections in two different DX locations, with two different on-premises routers.
+- **High Resilience:** Two DX connections in a single DX location, using two different AWS devices.
+- **Backup:** Use a Site-to-Site VPN as a lower-cost backup for a Direct Connect connection.
 
 ## 8. Security and Performance
 

@@ -49,10 +49,22 @@ At the heart of S3’s design are buckets and objects:
 
 AWS S3 offers several storage classes tailored to different access patterns and cost requirements. Each class provides the same 11 nines of durability but differs in availability, retrieval time, and pricing:
 
-![S3 Storage Classes](../_assets/s3_storage_classes.png)
+| Storage Class | Durability | Availability | AZs | Min Duration | Min Obj Size | Retrieval Fee |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **S3 Standard** | 99.999999999% | 99.99% | >= 3 | None | None | None |
+| **S3 Intelligent-Tiering** | 99.999999999% | 99.9% | >= 3 | None | None | None |
+| **S3 Standard-IA** | 99.999999999% | 99.9% | >= 3 | 30 days | 128 KB | Per GB |
+| **S3 One Zone-IA** | 99.999999999% | 99.5% | 1 | 30 days | 128 KB | Per GB |
+| **S3 Glacier Instant** | 99.999999999% | 99.9% | >= 3 | 90 days | 128 KB | Per GB |
+| **S3 Glacier Flexible** | 99.999999999% | 99.99% | >= 3 | 90 days | 40 KB | Per GB |
+| **S3 Glacier Deep Archive** | 99.999999999% | 99.99% | >= 3 | 180 days | 40 KB | Per GB |
+| **S3 Express One Zone** | 99.999999999% | 99.9% | 1 | None | None | None |
 
 - **S3 Standard – General Purpose:**  
-    Designed for frequently accessed data, it offers low latency and high throughput with a 99.99% availability SLA. Use cases include dynamic websites, mobile and gaming applications, and big data analytics.
+    Designed for frequently accessed data, it offers low latency and high throughput.
+
+- **S3 Express One Zone (Latest Trend):**  
+    A high-performance, single-zone storage class designed to deliver consistent, single-digit millisecond latency for your most latency-sensitive applications. It is up to 10x faster than S3 Standard and can handle millions of requests per minute. Ideal for machine learning training, interactive analytics, and financial modeling.
 
 - **S3 Intelligent-Tiering:**  
 	This class automatically moves objects between tiers based on changing access patterns. It offers cost savings without performance impact by monitoring object usage and optimizing storage costs. A small monthly monitoring fee applies, but there are no retrieval charges.
@@ -591,9 +603,17 @@ S3 RTC incurs additional charges beyond standard replication:
 - **Metrics Charges**: S3 Replication metrics are billed as Amazon CloudWatch custom metrics at standard custom‑metric rates 
 
 
-### 6.3. S3 Lifecycle Rules
+### 6.4. S3 Performance Optimization
 
-Lifecycle rules in Amazon S3 automate the management of objects over time. These rules help you transition objects between storage classes and eventually expire (delete) objects that are no longer needed, thereby optimizing storage costs and simplifying data management.
+Amazon S3 is highly performant out of the box, but there are techniques to scale it further for high-throughput workloads.
+
+- **Request Rates:**  
+    - **PUT/COPY/POST/DELETE:** 3,500 requests per second per prefix.
+    - **GET/HEAD:** 5,500 requests per second per prefix.
+- **Prefix Scaling:** To increase total performance, distribute your objects across multiple prefixes. There is no limit to the number of prefixes you can have.
+- **Multi-Part Upload:** Recommended for objects larger than 100 MB and **required** for objects larger than 5 GB.
+- **Byte-Range Fetches:** To speed up downloads, use the `Range` HTTP header to fetch specific parts of an object in parallel.
+- **S3 Transfer Acceleration (S3TA):** Enables fast, easy, and secure transfers of files over long distances by leveraging Amazon CloudFront’s globally distributed edge locations.
 
 ![S3 Lifecycle Rules](../_assets/s3_lifecycle_rules.png)
 

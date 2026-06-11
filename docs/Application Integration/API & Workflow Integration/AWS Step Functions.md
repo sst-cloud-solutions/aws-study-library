@@ -16,6 +16,7 @@ Key features:
 - **Conditions and Timeouts**: Branch logic based on data or time constraints.
 - **Built-in Error Handling**: Automatically retry failed tasks or catch and redirect errors.
 - **Task Integration**: Call AWS Lambda, start AWS Batch jobs, send events to Amazon SNS or Amazon SQS, run Amazon EMR, AWS Glue, or Amazon SageMaker jobs, and more.
+- **Distributed Map (Latest Trend)**: A high-concurrency state for iterating over millions of objects (e.g., in S3). It can run up to 10,000 parallel child workflow executions, making it ideal for large-scale data processing.
 - **Human Approval Steps**: Extend long-running workflows by adding steps requiring manual confirmation.
 - **Maximum Duration**: Standard workflows can run for up to one year, making them suitable for extended processes, while Express workflows handle shorter-lived tasks (up to five minutes).
 
@@ -70,7 +71,19 @@ When permanent failures do occur, you can configure rules so that an event is em
 
 This approach offers proactive visibility into long-running or critical workflows.
 
-## 5. Common Use Cases
+## 5. Distributed Map
+
+The **Distributed Map** state is a significant enhancement to Step Functions that allows you to write workflows that coordinate large-scale parallel processing.
+
+- **Scale**: It can iterate over millions of objects in an S3 bucket or items in a JSON array, launching up to 10,000 parallel child workflow executions.
+- **S3 Integration**: Directly read from S3 inventory files or list objects in a bucket.
+- **Concurrency Control**: Fine-tune how many child executions run simultaneously to avoid overwhelming downstream services.
+- **Use Cases**: 
+    - Processing millions of logs or images in S3.
+    - Large-scale data transformations (ETL).
+    - Analyzing massive datasets without managing a cluster.
+
+## 6. Common Use Cases
 
 - **Microservices Orchestration**: Chain multiple microservices to handle parallel tasks, condition-based flows, and error handling in a single, transparent workflow.
 - **Data Processing Pipelines**: Trigger big data jobs in AWS Glue or Amazon EMR, waiting for them to complete, and then proceed based on success or failure.

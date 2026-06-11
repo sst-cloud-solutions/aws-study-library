@@ -6,35 +6,90 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  /* Core brand colors - Sepia Editorial Accent / Links */
+  --ifm-color-primary: #A3431F; /* Terracotta */
+  --ifm-color-primary-dark: #923c1c;
+  --ifm-color-primary-darker: #8a391a;
+  --ifm-color-primary-darkest: #722f16;
+  --ifm-color-primary-light: #b44a22;
+  --ifm-color-primary-lighter: #bc5025;
+  --ifm-color-primary-lightest: #cf5b2d;
+
+  /* Typography & Layout */
+  --ifm-font-color-base: #2C2621; /* Dark chocolate body text */
+  --ifm-background-color: #FAF7F2; /* Cream canvas background */
+
+  /* Sidebar, Cards, and Containers */
+  --sidebar-card-bg: #F3EFE9; /* Warm grey/cream fill */
+  --ifm-card-background-color: var(--sidebar-card-bg);
+  --ifm-navbar-background-color: var(--sidebar-card-bg);
+
+  /* Code Block styling */
+  --ifm-pre-background: #1C1917; /* Earthy dark code block fill */
+  --ifm-code-background: #F3EFE9; /* Inline code fill */
+  --ifm-code-color: #A3431F; /* Inline code text accent */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-code-font-size: 95%;
+  --ifm-toc-border-color: #EBE5DF;
+  --ifm-menu-color-active: #A3431F;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark Mode color overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Core brand colors - Accent / Links */
+  --ifm-color-primary: #E06D43; /* Warm Terracotta */
+  --ifm-color-primary-dark: #da5c2f;
+  --ifm-color-primary-darker: #d75425;
+  --ifm-color-primary-darkest: #b74116;
+  --ifm-color-primary-light: #e67e57;
+  --ifm-color-primary-lighter: #e88761;
+  --ifm-color-primary-lightest: #ef9f7f;
+
+  /* Typography & Layout */
+  --ifm-font-color-base: #EBE5DF; /* Pale warm cream text */
+  --ifm-background-color: #181614; /* Dark brown canvas background */
+
+  /* Sidebar, Cards, and Containers */
+  --sidebar-card-bg: #23201D; /* Darker warm sidebar fill */
+  --ifm-card-background-color: var(--sidebar-card-bg);
+  --ifm-navbar-background-color: var(--sidebar-card-bg);
+
+  /* Code Block styling */
+  --ifm-pre-background: #0C0A09; /* Deep earthy black code block fill */
+  --ifm-code-background: #23201D; /* Inline code fill */
+  --ifm-code-color: #E06D43; /* Inline code text accent */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  --ifm-toc-border-color: #2C2621;
+  --ifm-menu-color-active: #E06D43;
+}
+
+/* Sidebar and Navbar layout overrides for cohesive background fills */
+.theme-doc-sidebar-container {
+  background-color: var(--sidebar-card-bg) !important;
+  border-right: 1px solid var(--ifm-toc-border-color);
 }
 
 .navbar {
-  position: absolute;
+  position: fixed !important;
   top: 0px;
   width: 100%;
+  background-color: var(--sidebar-card-bg);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  z-index: 100;
 }
 
 .main-wrapper {
   padding-top: var(--ifm-navbar-height);
 }
+
+/* Premium active state highlights */
+.menu__link--active {
+  background-color: rgba(163, 67, 31, 0.08) !important;
+}
+
+[data-theme='dark'] .menu__link--active {
+  background-color: rgba(224, 109, 67, 0.12) !important;
+}
+

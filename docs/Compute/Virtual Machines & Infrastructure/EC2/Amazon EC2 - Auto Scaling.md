@@ -247,7 +247,24 @@ Here's a comparison table summarizing the different EC2 Auto Scaling methods:
 
 Amazon EC2 Auto Scaling continuously monitors the health status of instances in an Auto Scaling group to maintain the desired capacity.
 
-Amazon EC2 Auto Scaling can determine the health status of an `InService` instance by using **one or more** of the following health checks:
+### 8.3. Termination Policies
+
+When an Auto Scaling group needs to scale in, it uses a termination policy to decide which instances to terminate first.
+
+**Termination Precedence (Decreasing Order):**
+1. **AZ Rebalancing:** Determine which AZ has the most instances and at least one instance that isn't protected from scale-in.
+2. **Allocation Strategy:** Determine which instances to terminate to align with the allocation strategy for On-Demand/Spot instances.
+3. **Oldest Launch Template/Config:** Choose instances using the oldest launch configuration or template version.
+4. **Closest to Billing Hour:** Determine which instances are closest to the next billing hour (primarily for instances billed by the hour).
+5. **Random:** If all else is equal, an instance is chosen at random.
+
+**Common Policies:**
+- **Default:** Follows the precedence rules above.
+- **OldestInstance:** Terminate the oldest instance in the group.
+- **NewestInstance:** Terminate the newest instance in the group.
+- **OldestLaunchConfiguration:** Terminate instances using the oldest launch configuration.
+- **ClosestToNextInstanceHour:** Terminate instances that are closest to the next billing hour.
+- **AllocationStrategy:** Align with the desired Spot/On-Demand split.
 
 | Health check type                                   | What it checks                                                                                                                                                                                                              |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

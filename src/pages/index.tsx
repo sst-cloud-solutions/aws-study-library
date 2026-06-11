@@ -11,18 +11,25 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={styles.heroBanner}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.primaryButton}
             to="/docs/intro">
             Start Learning
           </Link>
+          <a
+            className={styles.secondaryButton}
+            href="https://github.com/adavoudi/aws-sap"
+            target="_blank"
+            rel="noopener noreferrer">
+            View on GitHub
+          </a>
         </div>
       </div>
     </header>

@@ -1,11 +1,51 @@
 .features {
+  padding: 5rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.featureCard {
+  background-color: var(--sidebar-card-bg);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  margin: 1rem 0;
+  height: calc(100% - 2rem);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(44, 38, 33, 0.06);
+  border-color: var(--ifm-color-primary);
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 120px;
+  width: 120px;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
+
+.featureCard:hover .featureSvg {
+  transform: scale(1.05);
+}
+
+.featureTitle {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.featureDesc {
+  color: var(--ifm-font-color-base);
+  opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+

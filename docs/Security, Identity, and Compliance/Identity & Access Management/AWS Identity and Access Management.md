@@ -3,6 +3,7 @@
 ## 1. Introduction
 
 In today’s cloud-first environment, securing infrastructure is paramount. AWS Identity and Access Management (IAM) is the cornerstone of AWS security, providing a flexible and powerful mechanism for controlling access to AWS resources. Whether you are managing a small project or a large enterprise environment, IAM enables you to define who (or what) can access your resources, how they can access them, and under what conditions.
+
 ## 2. Core IAM Concepts
 
 The heart of IAM lies in its ability to define who can do what on which resources. In this section, we explain the core components of IAM policies and the different types of policies available in AWS. A deep understanding of these basics is essential before moving on to advanced design considerations.
@@ -245,9 +246,6 @@ ABAC leverages two types of tags:
     
 - **Principal Tags:**  
     Tags that are associated with IAM users or roles. These might include attributes such as department, job role, or region.
-    
-
-When using ABAC, policies typically include conditions that compare resource tags with principal tags. For example, the following policy statement allows an EC2 instance to perform actions on a resource only if the resource tag `Project` has the value `DataAnalytics` and the principal tag `Department` equals `Data`:
 
 ```json
 {
@@ -267,6 +265,17 @@ When using ABAC, policies typically include conditions that compare resource tag
 In this case, the policy does not list every permitted resource explicitly. Instead, it dynamically evaluates permissions based on tags attached to both the resource and the user’s identity. This approach simplifies the management of permissions when there are large numbers of resources and users.
 
 ABAC is especially useful in organizations with dynamic environments where resource configurations and team structures frequently change. It reduces the administrative overhead of maintaining numerous static policies and allows permissions to adjust automatically as tags change.
+
+### 3.4 IAM Policy Evaluation Logic
+
+Understanding how AWS evaluates policies is critical for architecting complex access controls.
+
+1. **Explicit Deny:** If any policy (IAM, SCP, Resource-based) contains an explicit `Deny`, the request is denied.
+2. **Organizations SCP:** If an SCP exists and doesn't allow the action, the request is denied.
+3. **IAM Permissions Boundary:** If a boundary is set and doesn't allow the action, the request is denied.
+4. **Session Policy:** If a session policy (from `AssumeRole`) exists and doesn't allow the action, the request is denied.
+5. **Explicit Allow:** If none of the above deny the request, and there is an explicit `Allow` in an IAM policy or resource-based policy, the request is allowed.
+6. **Implicit Deny:** If no explicit `Allow` is found, the request is denied by default.
 
 ## 4. IAM Security Boundaries
 
@@ -301,34 +310,6 @@ If an identity’s attached policy also includes permissions for IAM actions (fo
 Permission boundaries are particularly useful in scenarios where you delegate policy management to non-administrators. For instance, you might allow developers to manage their own permissions while ensuring that they cannot escalate their privileges beyond what is defined by the organization’s security requirements.
 
 Permission boundaries also work well in conjunction with AWS Organizations’ Service Control Policies (SCPs). While SCPs limit what actions can be performed at the account or organizational unit level, permission boundaries ensure that even within those boundaries, identities cannot acquire unintended privileges.
-
-### 4.2 IAM Policy Evaluation Logic: How AWS Decides Access
-
-AWS evaluates policies in a defined order to determine whether a request should be allowed or denied. Understanding the evaluation logic is critical when troubleshooting access issues and designing policies that work together harmoniously.
-
-The simplified evaluation process is as follows:
-
-1. **Default Deny:**  
-    By default, every request is implicitly denied unless an explicit allow is specified. The root user is an exception and has full access by default.
-2. **Explicit Allow:**  
-    If a policy explicitly allows an action, that permission overrides the default deny.
-3. **Explicit Deny:**  
-    If any policy explicitly denies an action, the request is immediately denied, regardless of any allows.
-4. **Permission Boundaries, SCPs, and Session Policies:**  
-    When using permission boundaries, service control policies (SCPs), or session policies, an explicit allow in an identity-based or resource-based policy is not enough; the action must also be allowed by the boundary or SCP.
-
-For example, consider a scenario with the following policy statements:
-
-- An identity-based policy that allows `sqs:DeleteQueue`
-- A resource-based policy that denies `sqs:*`
-
-Even though the identity-based policy explicitly allows the deletion of a queue, the resource-based policy’s explicit deny takes precedence. Thus, `sqs:DeleteQueue` is effectively denied.
-
-When cross-account access is involved, both the identity-based policy (from the requester’s account) and the resource-based policy (on the target resource) must explicitly allow the action. If either one denies or fails to allow the request, the final decision is a deny.
-
-The following diagram summarizes the evaluation logic:
-
-![iam evaluation logic](../_assets/iam_evaluation_logic.png)
 
 ## 5. Managing IAM Roles and Credentials
 
@@ -427,105 +408,89 @@ Another advanced use of MFA is with the condition `aws:MultiFactorAuthAge`, whic
 }
 ```
 
-MFA is also critical for protecting sensitive IAM operations. There is a known edge case with the deletion of virtual MFA devices, where users may receive errors even when permissions appear correct. In such cases, an administrator might need to intervene via the AWS CLI or API to remove the inactive MFA device.
-
 By enforcing MFA, you add an extra layer of security that is essential in a robust IAM strategy.
 
 ## 6. AWS Security Token Service (STS)
 
-The AWS Security Token Service (STS) is the backbone for granting temporary, limited-privilege credentials to users and services. STS enables federation, cross-account access, and enhanced security through temporary credentials. In this section, we explore how STS works, the differences between its versions, the use of external IDs, and techniques for revoking temporary credentials.
+The AWS Security Token Service (STS) is the backbone for granting temporary, limited-privilege credentials to users and services. STS enables federation, cross-account access, and enhanced security through temporary credentials. In this section, we explore how STS works and the use of temporary credentials for secure access.
 
-### 6.1 STS Overview: Temporary Credentials and Federation
+### 6.1 STS AssumeRole for Cross-Account Access
 
-STS allows you to issue temporary security credentials that grant access to AWS resources for a limited period. These credentials are ideal for scenarios where long-term credentials pose a risk. STS is widely used in the following cases:
+The `AssumeRole` API returns a set of temporary security credentials that you can use to access AWS resources.
 
-- **AssumeRole:**  
-    When a user or service needs to assume a role, the `AssumeRole` API is called. This returns temporary credentials with a limited lifetime, ensuring that even if credentials are compromised, their usefulness is constrained.
-    
-- **AssumeRoleWithSAML:**  
-    This operation allows federated users authenticated by a SAML-compliant identity provider to obtain temporary credentials.
-    
-- **AssumeRoleWithWebIdentity:**  
-    This method supports authentication via third-party identity providers that use OpenID Connect (OIDC), such as Google or Facebook. Note that AWS now recommends using Amazon Cognito as a more integrated solution.
-    
-- **GetSessionToken:**  
-    This operation is used to obtain temporary credentials for users who have already authenticated using MFA. It provides a short-lived token that enhances security for high-risk operations.
-    
+**3-Step Process for Cross-Account Access:**
+1. **Create a Role in Account B:** Define a trust policy that allows Account A (or a specific user/role in Account A) to assume the role. Attach permissions to this role.
+2. **Grant Permissions in Account A:** The user or role in Account A must have the `sts:AssumeRole` permission for the ARN of the role in Account B.
+3. **Assume the Role:** The user in Account A calls `AssumeRole`. STS returns temporary credentials. The user then uses these credentials to make requests to Account B.
 
-For example, when an EC2 instance needs to access S3, it might call `AssumeRole` to obtain temporary credentials. These credentials are then used for API calls until they expire, at which point a new set must be generated.
+**Key Features:**
+- **Max Session Duration:** Up to 12 hours (configurable).
+- **Session Policies:** You can pass an optional policy during the `AssumeRole` call to further restrict the permissions of the temporary session.
+- **Identity Federation:** STS is the underlying service used for Web Identity Federation (Cognito) and SAML-based federation.
 
-### 6.2 STS Versions: Comparing v1 and v2
+### 6.2 IAM Roles for EC2: Instance Profiles
 
-AWS STS issues tokens in two formats: Version 1 and Version 2. Understanding the differences is important for compatibility and performance:
+When you assign an IAM role to an EC2 instance, you are actually using an **Instance Profile**.
 
-- **STS Version 1 Tokens:**  
-    These tokens are issued by the global STS endpoint (typically in `us-east-1`). They have been in use for many years but come with some limitations, especially with newer AWS regions.
-    
-- **STS Version 2 Tokens:**  
-    Version 2 tokens are issued by regional STS endpoints. They offer benefits such as reduced latency, increased session duration, and better support for new regions (e.g., `me-south-1`). Even though they are obtained from a regional endpoint, Version 2 tokens are valid across all AWS regions.
-    
+- **Definition:** An instance profile is a container for an IAM role.
+- **Trusted Entity:** The role must have a trust policy that allows the `ec2.amazonaws.com` service to assume it.
+- **Usage:** One instance profile can contain only one IAM role. If you create a role in the console for EC2, AWS creates the instance profile automatically with the same name.
 
-AWS recommends using STS Version 2 tokens wherever possible because they provide enhanced performance and reliability, particularly in geographically distributed architectures.
+### 6.3 SAML 2.0 WebSSO Federation Flow
+For enterprise identity federation, SAML 2.0 enables Single Sign-On (SSO) to the AWS Management Console:
+1. **User Request:** The user navigates to the enterprise portal (Identity Provider / IdP, such as Okta, Ping, or ADFS).
+2. **Authentication:** The IdP authenticates the user against the corporate directory (Active Directory).
+3. **Assertion Generation:** The IdP generates a SAML assertion—an XML document containing attributes (claims) about the user, including the AWS IAM Role(s) they are authorized to assume.
+4. **SAML Post:** The IdP redirects the user's browser to the AWS SAML endpoint (`https://signin.aws.amazon.com/saml`) with the SAML assertion payload.
+5. **Token Exchange:** The AWS sign-in endpoint validates the signature of the SAML assertion and calls the STS **`AssumeRoleWithSAML`** API under the hood. STS generates temporary security credentials.
+6. **Redirection:** AWS redirects the user's browser to the AWS Console using a signed console login URL, granting access.
 
-### 6.3 STS External ID: Securing Cross-Account Access
+### 6.4 AWS Directory Services Options
+When integrating Active Directory (AD) with AWS, choose the correct service model:
+- **AWS Managed Microsoft AD:**
+    - A fully managed Microsoft Active Directory running in the AWS Cloud.
+    - **Trust Relationships:** You can establish a **one-way or two-way trust relationship** between this directory and your on-premises AD forest. This allows users to access AWS resources using their on-premises credentials.
+    - **Use Case:** Best when you need directory-aware workloads in the cloud (e.g., RDS SQL Server Windows Authentication) or have more than 5,000 users.
+- **AD Connector:**
+    - A directory gateway that **redirects/proxies AD requests** to your on-premises Active Directory.
+    - **No cloud caching:** It does not store or cache user credentials in the cloud.
+    - **Use Case:** Low maintenance gateway for federating on-premises users into AWS IAM Identity Center or WorkSpaces.
+- **Simple AD:**
+    - A standalone Samba 4-compatible directory in the cloud.
+    - **No trust relationships:** Cannot be joined to or trust an on-premises Active Directory.
+    - **Use Case:** Small, cloud-only workloads with fewer than 5,000 users requiring basic directory services.
 
-When you enable cross-account access, the risk of the confused deputy problem arises. In this scenario, a third party (the “deputy”) may be tricked into accessing resources in an account without the owner’s intent. To mitigate this risk, you can require an external ID in your trust policies.
-
-The external ID is a unique value that must be provided in the `AssumeRole` API call. Only if the external ID in the request matches the one defined in the role’s trust policy will the request be accepted. This mechanism is particularly useful when granting third-party vendors or service providers access to your AWS resources.
-
-A trust policy that enforces an external ID might look like this:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "TrustWithExternalID",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::987654321098:root"
-      },
-      "Action": "sts:AssumeRole",
+### 6.5 The Confused Deputy Problem & External ID
+The **Confused Deputy Problem** is a security vulnerability where a third-party SaaS provider (authorized to act on your behalf in your AWS account) is tricked by another client into accessing your resources.
+- **Mechanism:** The SaaS provider assumes an IAM Role in your account. If the role's trust policy only specifies the SaaS provider's AWS account as the principal, any of their clients could instruct them to assume your role.
+- **Resolution:** AWS enforces the use of the **`sts:ExternalId`** parameter.
+    - The SaaS provider generates a unique, random External ID for your integration.
+    - You add a condition in your IAM Role's trust policy requiring this External ID:
+      ```json
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": "56789"
+          "sts:ExternalId": "Unique_SaaS_Client_ID_12345"
         }
       }
-    }
-  ]
-}
-```
+      ```
+    - When the SaaS provider calls `AssumeRole` on your account, they must supply this ID, preventing other clients from hijacking the connection.
 
-In this example, the IAM role trusts only those calls that include the external ID `56789`. This prevents unauthorized parties from exploiting the trust relationship.
-
-### 6.4 Revoking Temporary Credentials: Emergency Access Control
-
-Temporary credentials are designed to be ephemeral; however, if they are compromised, it is imperative to have a mechanism to revoke them immediately. AWS provides a method to force the revocation of temporary credentials by applying an inline policy that explicitly denies all actions if the credentials were issued before a specified time.
-
-For example, consider a scenario where a security breach has potentially exposed temporary credentials. An administrator can attach a policy similar to the following to an IAM role to revoke access for any session with a token issued before the current time:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "RevokeOlderSessions",
-      "Effect": "Deny",
-      "Action": "*",
-      "Resource": "*",
-      "Condition": {
-        "DateLessThan": {
-          "aws:TokenIssueTime": "2025-03-09T12:00:00Z"
-        }
-      }
-    }
-  ]
-}
-```
-
-In this policy, any credentials issued before the specified timestamp are explicitly denied access. This mechanism allows you to revoke compromised credentials promptly while allowing new sessions to continue operating.
-
-The ability to revoke temporary credentials is a critical emergency response tool in the IAM arsenal, ensuring that even if a breach occurs, damage can be minimized.
+### 6.6 KMS Key Policies & Lockout Prevention
+KMS Customer Managed Keys (CMKs) must be secured using Key Policies (resource-based policies).
+- **Critical Policy Rule:** A key policy must explicitly grant the AWS account root principal full administrative control over the key:
+  ```json
+  {
+    "Sid": "Enable IAM User Permissions",
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::123456789012:root"
+    },
+    "Action": "kms:*",
+    "Resource": "*"
+  }
+  ```
+- **Why it matters:** If you delete or misconfigure this statement and have no other IAM users explicitly defined as Key Administrators in the policy, **you will lock yourself out of the KMS key permanently**. The root principal permission allows IAM policies to delegate access to the key.
+- **Cross-Account Key Access:** To allow Account B to use a KMS key in Account A, Account A's key policy must explicitly allow Account B's root or specific IAM identities in Account B. Account B's administrators must then attach corresponding IAM policies allowing their users to call the key actions.
 
 ## 7. Monitoring and Auditing IAM
 
@@ -533,41 +498,12 @@ Monitoring and auditing IAM activity is essential for maintaining a secure AWS e
 
 ### 7.1 IAM Access Analyzer: Identifying Resource Exposure
 
-![IAM Access Analyzer](../_assets/iam_access_analyzer.png)
-
 IAM Access Analyzer is a service that helps you identify resources that are shared with external entities. This tool reviews resource policies (attached to S3 buckets, IAM roles, KMS keys, Lambda functions, SQS queues, and Secrets Manager secrets) to detect unintended access.
-
-For example, if you inadvertently configure an S3 bucket policy that allows access from an external account, IAM Access Analyzer will flag this as a potential security risk. It establishes a “zone of trust” (usually your AWS account or organization), and any access outside that zone is reported as a finding.
-
-In addition to identifying exposures, IAM Access Analyzer also offers policy validation features. It examines your policies against best practices and AWS policy grammar, issuing warnings, errors, and actionable recommendations. Furthermore, it can generate policies based on API call activity logged in CloudTrail, ensuring that the generated policies are as restrictive as possible while still permitting legitimate access.
 
 ### 7.2 IAM Access Advisor: Reviewing Service Permissions
 
-![IAM Access Advisor](../_assets/iam_access_advisor.png)
-
 IAM Access Advisor is another critical tool, but it operates at the individual user level. It provides detailed information about which AWS services have been accessed by a specific IAM user, along with the timestamp of the last access. This granularity allows you to identify unused permissions and reduce a user’s permissions in accordance with the principle of least privilege.
-
-For example, if a user’s IAM Access Advisor shows that they have permissions for 40 services but have only ever accessed a few, you may choose to tighten their permissions. By reviewing the advisor’s data, administrators can eliminate unnecessary access and reduce the potential attack surface.
-
-IAM Access Advisor is particularly useful for ongoing operational security, as it offers an actionable insight into how IAM policies are being used in practice. This helps ensure that every IAM user only has the permissions they need.
-
-### 7.3 IAM Credentials Report: Auditing User and Role Keys
-
-![IAM Credentials Report](../_assets/iam_credentials_report.png)
-
-The IAM Credentials Report is a comprehensive CSV file that provides an overview of all IAM users in your account and the status of their credentials. This report includes details such as:
-
-- The creation date of users
-- The status of their passwords (enabled or disabled)
-- Information about access keys (creation date, last used, and rotation details)
-- MFA status for each user
-
-Administrators can download this report via the AWS Management Console, the API, or the CLI. Although the report is generated on a scheduled basis (typically once every four hours), it serves as an important audit tool for identifying dormant credentials, enforcing rotation policies, and ensuring that all users comply with security best practices.
-
-For example, if the report indicates that a particular user’s access keys have not been rotated for more than 90 days, you may trigger an AWS Config rule (such as `access-key-rotated`) to remediate this by notifying the user or even automatically rotating the keys.
-
-Auditing IAM credentials regularly is essential for preventing unauthorized access and ensuring that security policies are enforced across the entire account.
 
 ## 8. Conclusion
 
-This chapter has provided an in-depth exploration of AWS Identity and Access Management (IAM), covering a wide range of topics from the fundamentals of IAM policies to advanced security measures and auditing tools. 
+This chapter has provided an in-depth exploration of AWS Identity and Access Management (IAM), covering a wide range of topics from the fundamentals of IAM policies to advanced security measures and auditing tools.

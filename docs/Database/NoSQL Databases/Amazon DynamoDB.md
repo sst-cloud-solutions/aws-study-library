@@ -306,10 +306,37 @@ Amazon DynamoDB security is built on a robust, multi-layered framework that help
 - **Compliance Certifications:** DynamoDB meets several industry standards and compliance programs (e.g., HIPAA, PCI DSS, GDPR).
 - **Monitoring and Logging:** AWS services like CloudTrail, Config, and Security Hub help monitor and audit access to DynamoDB, ensuring ongoing compliance and security.
 
-## 20. Conclusion
+## 5. Advanced Architectures
 
-Amazon DynamoDB is a cornerstone of AWS’s NoSQL offerings, providing a highly available, scalable, and secure database solution that is fully managed and optimized for modern application requirements. Whether you need consistent performance at scale, support for flexible data models, or integration with other AWS services, DynamoDB is engineered to meet these needs while abstracting away much of the complexity of managing distributed databases.
+### 5.1. Global Tables (Multi-Region, Multi-Active)
+- **Mechanism:** Provides multi-master, cross-region replication. You can read and write to any region.
+- **Conflict Resolution:** Uses **"Last Writer Wins"**.
+- **Consistency:** Provides sub-second replication latency. Strongly consistent reads are only supported in the same region as the write.
+- **Use Case:** Global applications requiring low-latency access and high availability/DR.
 
-For further details, refer to the official [AWS resources](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html).
+### 5.2. DynamoDB Accelerator (DAX)
+- **Mechanism:** An in-memory, write-through cache for DynamoDB.
+- **Performance:** Reduces response times from milliseconds to microseconds.
+- **Architecture:** Deployed within a VPC. Applications must also be in the VPC.
+- **Use Case:** "Read-heavy" workloads or applications with "hot keys" that cause throttling.
+
+### 5.3. DynamoDB Streams & Lambda
+- **Mechanism:** Captures item-level changes (Insert, Update, Delete) and stores them for 24 hours.
+- **Triggers:** Use Lambda to process stream events for real-time data aggregation, cross-table replication, or notifications.
+
+### 5.4. Time to Live (TTL)
+- **Mechanism:** Automatically deletes items after a specified timestamp (epoch format) expires.
+- **Benefit:** Reduces storage costs and simplifies data lifecycle management without consuming WCU.
+
+## 6. Architect's Decision Matrix: DynamoDB vs. RDS
+
+| Requirement | DynamoDB (NoSQL) | RDS (Relational) |
+| :--- | :--- | :--- |
+| **Schema** | Flexible / Schema-less | Rigid / Structured |
+| **Scaling** | Horizontal (virtually infinite) | Vertical (plus Read Replicas) |
+| **Queries** | Simple (PK/SK based) | Complex (Joins, Aggregations) |
+| **Transactions** | Supports ACID (but complex) | Native ACID support |
+| **Latency** | Consistent single-digit ms | Variable (depending on load) |
+| **Maintenance** | Serverless (Zero overhead) | Managed (Patching/Backups) |
 
 

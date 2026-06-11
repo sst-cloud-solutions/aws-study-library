@@ -351,6 +351,33 @@ After resolving an incident, Incident Manager facilitates a structured post‑in
 - Do post-incident analyses (blameless post-mortems ideally) through Incident Manager or otherwise, to identify root causes and preventative actions.
 - Secure SSM operations: use least-privilege IAM roles for all SSM actions (for example, restrict Run Command so only approved documents can be run, restrict who can terminate instances or update patches, etc.). Use logging (CloudTrail, session logs) to audit changes.
 
-## 20. Conclusion
+## 20. Advanced Automation & Operations
+
+### 20.1. Session Manager
+- **Mechanism:** Provides secure, auditable instance management without the need to open inbound ports (SSH/RDP) or maintain bastion hosts.
+- **Security:** Communication is encrypted and channeled through the SSM Agent. All sessions are logged to **CloudWatch Logs** or **S3**.
+- **IAM Integration:** Control who can start a session and which instances they can access using IAM policies.
+
+### 20.2. Patch Manager & Maintenance Windows
+- **Mechanism:** Automates the process of patching managed instances with both security-related and other types of updates.
+- **Patch Baseline:** Defines which patches are approved for installation.
+- **Maintenance Windows:** Defines a recurring schedule of when patching should occur to minimize impact on availability.
+
+### 20.3. Parameter Store vs. Secrets Manager
+
+| Feature | SSM Parameter Store | AWS Secrets Manager |
+| :--- | :--- | :--- |
+| **Primary Use** | Configuration data & non-rotating secrets. | Secrets requiring rotation (DB passwords, API keys). |
+| **Rotation** | Manual. | **Automatic rotation** (built-in integration with RDS/Lambda). |
+| **Cost** | Standard is free; Advanced is paid. | Per secret per month + per API call. |
+| **Cross-Account** | Not native (requires RAM or custom logic). | Native cross-account access. |
+| **Integration** | Deep integration with ECS/Lambda/EC2. | Deep integration with RDS/Redshift/DocumentDB. |
+
+## 21. Exam Tips (SAP-C02)
+- **Bastion Host Replacement:** If the exam asks for a secure way to manage private instances without SSH, the answer is **Session Manager**.
+- **Secret Rotation:** If the requirement involves automatic password rotation for a database, choose **Secrets Manager**.
+- **Hybrid Management:** SSM is the primary tool for managing a hybrid fleet (EC2 + On-premises) from a single pane of glass.
+
+## 22. Conclusion
 
 AWS Systems Manager is a powerful solution for any organization seeking enhanced visibility and control over its cloud and on-premises environments. From patching fleets of servers to securely accessing instances and centrally managing operational incidents, it plays a vital role in streamlining operations.

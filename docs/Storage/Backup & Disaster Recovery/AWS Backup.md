@@ -27,12 +27,30 @@ Key aspects include:
 - **Unified Control:** A single dashboard to monitor, manage, and automate backups across supported AWS services.
 - **Operational Simplicity:** Reduction in manual intervention through automated processes, ensuring consistency and adherence to backup policies.
 
-### 3.2. Cross-Region and Cross-Account Backups
-
+### 3.2. Cross-Region and Cross-Account Backups (Exam Tip)
 For organizations with a multi-region or multi-account strategy, AWS Backup offers robust support for:
-
-- **Cross-Region Backups:** By replicating backups to different AWS regions, organizations can implement effective disaster recovery strategies. This ensures that in the event of a regional outage, data can be restored quickly from an alternate region.
-- **Cross-Account Backups:** For enterprises that operate with multiple AWS accounts, AWS Backup enables centralized management while maintaining separation between accounts. This feature is particularly useful for segregating environments such as production and development or for complying with organizational policies.
+- **Cross-Region Backups:** Automatically copy backups to another AWS region within a backup plan. This is a critical pattern for regional disaster recovery (DR).
+- **Cross-Account Backups (Replication):** Centrally aggregate and copy backups from member accounts to a secure, isolated central backup account within an AWS Organization.
+- **Setup Requirements for Cross-Account Copying:**
+    1. **Organizations Integration:** Enable cross-account backup capabilities in the AWS Backup console under Settings.
+    2. **Destination Vault Access Policy:** The destination backup vault in Account B must have a resource-based **Vault Access Policy** allowing the `backup:CopyIntoBackupVault` action from the source account (Account A) or the organization:
+       ```json
+       {
+         "Version": "2012-10-17",
+         "Statement": [
+           {
+             "Sid": "AllowCopyFromSourceAccount",
+             "Effect": "Allow",
+             "Principal": {
+               "AWS": "arn:aws:iam::Source_Account_A_ID:root"
+             },
+             "Action": "backup:CopyIntoBackupVault",
+             "Resource": "*"
+           }
+         ]
+       }
+       ```
+    3. **KMS Encryption sharing:** Since backups are encrypted using KMS keys, you must share the KMS key of the source vault with the destination account, or use a custom KMS key that both accounts have permissions to use. Note that default AWS-managed keys (`aws/backup`) **cannot** be shared across accounts; you must use a **Customer Managed Key (CMK)**.
 
 ### 3.3. On-Demand, Scheduled, and Point-in-Time Recovery
 
@@ -49,13 +67,13 @@ AWS Backup supports sophisticated backup strategies through the use of tag-based
 - **Tag-Based Policies:** Apply tags (such as “production” or other business-specific labels) to selectively target resources for backup. This ensures that only the most critical data is backed up according to organizational priorities.
 - **Backup Plans:** Define comprehensive backup policies that include parameters such as backup frequency, backup window, transition policies to cold storage, and retention periods. These plans enable granular control over how, when, and where backups are stored and retained, ensuring that data protection strategies align with compliance and operational requirements.
 
-### 3.5. Vault Lock and the WORM Policy
-
-Data immutability is a cornerstone of a secure backup strategy. AWS Backup incorporates a Vault Lock feature that enforces a Write Once Read Many (WORM) policy. This feature offers robust safeguards by:
-
-- **Immutability Guarantee:** Once a backup is stored in a Backup Vault with Vault Lock enabled, it cannot be modified or deleted. This immutability is essential for meeting regulatory requirements and ensuring data integrity.
-- **Protection Against Deletion:** The Vault Lock policy prevents inadvertent or malicious deletion of backups, even by privileged users. This added layer of security ensures that backups remain intact over their entire retention period.
-- **Operational Assurance:** With Vault Lock in place, organizations can confidently adhere to retention policies, knowing that the integrity and availability of backups are preserved regardless of administrative actions.
+### 3.5. Vault Lock and the WORM Policy (WORM Compliance)
+Data immutability is essential to protect backups from ransomware and malicious insider deletion. AWS Backup **Vault Lock** enforces a Write-Once-Read-Many (WORM) policy on backup vaults.
+- **Two Vault Lock Modes:**
+    - **Governance Mode:** Locks the vault but allows users with specific IAM administrative permissions (`backup:DeleteBackupVault`, `backup:PutBackupVaultLockConfiguration`) to delete recovery points or remove the lock. This is ideal for testing and administrative flexibility.
+    - **Compliance Mode:** Permanently locks the vault. **No one, including the AWS account root user or AWS Support, can delete the backups or remove the lock** once it is locked. 
+- **Grace Period (Cool-down Period):** When configuring Compliance Mode, you specify a cool-down period (minimum 3 days). During this period, the lock can be deleted or modified. After the cool-down period expires, **the lock becomes permanent and irreversible**.
+- **Retention Guardrails:** You configure a minimum and maximum retention period on the vault. AWS Backup will reject any backup job or manual copy that specifies a retention period outside these boundaries, preventing users from bypassing the lock by creating backups that expire immediately.
 
 ## 4. Conclusion
 
