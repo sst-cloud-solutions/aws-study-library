@@ -47,5 +47,28 @@
   opacity: 0.8;
   font-size: 0.95rem;
   line-height: 1.6;
+  margin-bottom: 2rem;
 }
+
+.cardButton {
+  margin-top: auto;
+  background-color: var(--ifm-color-primary) !important;
+  color: #FFF !important;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border-radius: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(163, 67, 31, 0.15);
+  text-decoration: none;
+}
+
+.cardButton:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(163, 67, 31, 0.25);
+  text-decoration: none;
+}
+
 

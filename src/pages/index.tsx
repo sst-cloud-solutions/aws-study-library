@@ -14,14 +14,17 @@ function HomepageHeader() {
     <header className={styles.heroBanner}>
       <div className="container">
         <Heading as="h1" className={styles.heroTitle}>
-          {siteConfig.title}
+          The AWS Study Library
         </Heading>
-        <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+        <p className={styles.heroSubtitle}>
+          A premium, structured reading environment for mastering AWS cloud engineering and architecture.
+          Transition from IT foundations to advanced certifications.
+        </p>
         <div className={styles.buttons}>
           <Link
             className={styles.primaryButton}
-            to="/docs/intro">
-            Start Learning
+            to="/docs/foundation-bridge/intro">
+            Start IT Foundations
           </Link>
           <a
             className={styles.secondaryButton}
@@ -41,7 +44,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="AWS Pro Architect Prep | Master AWS and pass the AWS Certified Solutions Architect – Professional exam">
+      description="AWS Study Library | Master AWS cloud engineering and architecture - IT foundations to advanced certifications">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

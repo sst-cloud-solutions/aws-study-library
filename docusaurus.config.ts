@@ -6,15 +6,15 @@ import sidebars from './sidebars';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AWS Pro Architect Prep',
-  tagline: 'Master AWS and pass the AWS Certified Solutions Architect – Professional exam',
+  title: 'AWS Study Library',
+  tagline: 'A premium, structured reading environment for mastering AWS cloud engineering and architecture.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://adavoudi.info',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/aws-sap/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -94,6 +94,9 @@ const config: Config = {
     function gtagStubPlugin() {
       return {
         name: 'gtag-stub-plugin',
+        getClientModules() {
+          return [require.resolve('./src/gtag-stub.js')];
+        },
         injectHtmlTags() {
           return {
             headTags: [
@@ -106,6 +109,28 @@ const config: Config = {
                   window.gtag = gtag;
                 `,
               },
+              {
+                tagName: 'link',
+                attributes: {
+                  rel: 'preconnect',
+                  href: 'https://fonts.googleapis.com',
+                },
+              },
+              {
+                tagName: 'link',
+                attributes: {
+                  rel: 'preconnect',
+                  href: 'https://fonts.gstatic.com',
+                  crossorigin: 'anonymous',
+                },
+              },
+              {
+                tagName: 'link',
+                attributes: {
+                  rel: 'stylesheet',
+                  href: 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap',
+                },
+              },
             ],
           };
         },
@@ -117,23 +142,57 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'AWS Pro Architect Prep',
+      title: 'AWS Study Library',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'AWS Study Library Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          to: '/',
+          label: 'Home',
           position: 'left',
-          label: 'Study Topics',
+          exact: true,
         },
         {
           type: 'docSidebar',
-          sidebarId: 'practiceSidebar',
+          sidebarId: 'foundationSidebar',
+          label: '00 / IT Foundation',
           position: 'left',
-          label: 'Practice Exams',
+        },
+        {
+          type: 'dropdown',
+          label: '01 / Developer Associate (DVA-C02)',
+          position: 'left',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'dvaSidebar',
+              label: 'Study Topics',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'dvaPracticeSidebar',
+              label: 'Practice Exams',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: '02 / Solutions Architect Professional (SAP-C02)',
+          position: 'left',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'tutorialSidebar',
+              label: 'Study Topics',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'practiceSidebar',
+              label: 'Practice Exams',
+            },
+          ],
         },
         {
           href: 'https://github.com/adavoudi/aws-sap',
@@ -149,7 +208,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} AWS Pro Architect Prep. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AWS Study Library. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

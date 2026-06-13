@@ -1,4 +1,4 @@
-# AWS Pro Architect Prep
+# AWS Study Library
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
 The official study guide and reference site for mastering AWS and passing the **AWS Certified Solutions Architect – Professional** exam. Built with [Docusaurus](https://docusaurus.io/), it offers in-depth coverage of AWS services, best practices, and architectural guidance.
@@ -9,7 +9,7 @@ The official study guide and reference site for mastering AWS and passing the **
 
 ## Introduction
 
-This repository powers the AWS Pro Architect Prep website, organizing content according to the key domains of the Solutions Architect Professional certification. You'll find concise explanations, visual diagrams, and practical examples covering everything from Compute and Networking to Security and Disaster Recovery.
+This repository powers the AWS Study Library website, organizing content according to the key domains of the Solutions Architect Professional and Developer Associate certifications. You'll find concise explanations, visual diagrams, and practical examples covering everything from IT fundamentals to advanced cloud architecture.
 
 Whether you're reviewing a specific service or studying end-to-end architectural patterns, this site is designed for efficient self-study.
 

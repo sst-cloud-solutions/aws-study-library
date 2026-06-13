@@ -6,6 +6,9 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: 'Lora', Georgia, serif;
+  --ifm-heading-font-family: 'Outfit', 'Inter', sans-serif;
+
   /* Core brand colors - Sepia Editorial Accent / Links */
   --ifm-color-primary: #A3431F; /* Terracotta */
   --ifm-color-primary-dark: #923c1c;
