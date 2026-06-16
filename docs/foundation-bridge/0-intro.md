@@ -11,6 +11,32 @@ This **Foundation Bridge Syllabus** is designed to build enough IT knowledge tha
 
 ---
 
+## 🏗️ The Three Pillars of Infrastructure: Compute, Storage, & Network
+
+Every IT system—whether a physical desktop, an enterprise server in a local datacenter, or a virtual machine in the public cloud (like AWS)—is built upon three fundamental resource pillars. Understanding how these pillars work physically is the key to understanding how they behave when virtualized:
+
+```text
+       [Compute (The Brain)] ◄─── Processes instructions and logic
+                 │
+                 ▼
+       [Storage (The Memory)] ◄── Keeps data persistently
+                 │
+                 ▼
+       [Network (The Communicator)] ◄── Routes data between hosts
+```
+
+1.  **Compute (The Processing Engine):** 
+    *   **What it represents:** The CPU and RAM. It executes application code instructions, performs mathematical and logical operations, and schedules active tasks.
+    *   **Cloud Equivalent:** Virtual CPUs (vCPUs) on EC2 instances, containers, or serverless execution runs (Lambda).
+2.  **Storage (The Persistence Layer):**
+    *   **What it represents:** Solid State Drives (SSDs), Hard Disk Drives (HDDs), network file shares, and database storage systems. It preserves raw data, software code, operating systems, and logs even when power is turned off (non-volatile memory).
+    *   **Cloud Equivalent:** Elastic Block Store (EBS) volumes, Amazon EFS shares, and Amazon S3 object stores.
+3.  **Network (The Transport System):**
+    *   **What it represents:** Physical network adapters (NICs), copper/fiber optic cables, switches, routers, IP addresses, and routing tables. It acts as the pipeline that allows compute resources to request or send data to other systems and users.
+    *   **Cloud Equivalent:** Virtual Private Clouds (VPCs), subnets, route tables, and security groups.
+
+---
+
 ## 📅 3-Week Action Plan
 
 ### 🚀 Week 1: Computers, Linux, & Networking

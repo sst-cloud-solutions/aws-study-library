@@ -69,6 +69,30 @@ Enterprise server storage falls into three primary architectures:
 *   **Network File Storage:** Shares files over a local network. Multiple servers can mount the same share, making it ideal for shared application state or assets.
 *   **Object Storage:** Stores data as isolated "objects" containing the binary payload, unique identifiers, and metadata tags. Perfect for storing un-structured files (media, backups, logs).
 
+### 7.2.1 Deep Dive: The Storage Pillar Mechanics
+
+Storage infrastructure determines both data durability and application performance. A deep dive reveals how data is physically and logically managed:
+
+*   **Physical Disk Interfaces:**
+    *   **SATA (Serial ATA):** The legacy standard interface designed for HDDs. SATA III caps speed at 6 Gbps (~550 MB/s).
+    *   **SAS (Serial Attached SCSI):** An enterprise-class interface. SAS supports faster spin speeds (up to 15K RPM for HDDs), higher reliability, and dual-port configurations for high-availability path redundancy.
+    *   **NVMe (Non-Volatile Memory Express):** Designed specifically for solid-state storage. Instead of using legacy storage command queues, NVMe connects directly to the CPU over high-speed **PCIe lanes**, allowing massive parallelism (up to 64,000 queues with 64,000 commands per queue, compared to SATA's single queue of 32 commands).
+*   **RAID Configurations (Redundant Array of Independent Disks):**
+    To protect data against disk failure and increase speed, physical servers group multiple disks into a logical array using **RAID**:
+    *   **RAID 0 (Striping):** Splits (stripes) data across two or more disks.
+        *   *Pros/Cons:* Doubles read/write speeds, but provides **zero redundancy**. If one disk fails, the entire array's data is lost.
+    *   **RAID 1 (Mirroring):** Duplicates identical data onto two or more disks.
+        *   *Pros/Cons:* High fault tolerance (can lose half the drives) but expensive because storage capacity is cut by 50%.
+    *   **RAID 5 (Striping with Distributed Parity):** Stripes data across three or more disks, writing mathematical "parity" data across all drives.
+        *   *Pros/Cons:* Can tolerate a single disk failure without data loss. Rebuilding a failed disk is CPU-intensive.
+    *   **RAID 10 (1+0 - Mirroring + Striping):** Combines mirroring and striping across four or more disks.
+        *   *Pros/Cons:* Offers the high performance of RAID 0 and the high redundancy of RAID 1, but requires at least 4 disks and has 50% capacity overhead.
+*   **Ephemeral vs. Persistent Storage:**
+    *   **Ephemeral (Temporary) Storage:** Disk volumes physically attached to the server chassis hosting the virtual machine (like AWS Instance Store).
+        *   *Characteristics:* Ultra-high IOPS and throughput, but data is volatile. If the virtual machine is stopped or migrated to another physical host, the data is permanently erased.
+    *   **Persistent Storage:** Network-attached storage arrays (like SAN/NAS or AWS EBS) that exist independently of the compute instance life cycle.
+        *   *Characteristics:* Slightly higher network transit latency, but data is durable. If the host hardware fails, the persistent volume can be unmounted and attached to another healthy server node without data loss.
+
 ---
 
 ## 7.3 High Availability (HA) & Load Balancing
