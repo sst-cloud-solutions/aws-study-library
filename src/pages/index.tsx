@@ -26,13 +26,6 @@ function HomepageHeader() {
             to="/docs/foundation-bridge/intro">
             Start IT Foundations
           </Link>
-          <a
-            className={styles.secondaryButton}
-            href="https://github.com/adavoudi/aws-sap"
-            target="_blank"
-            rel="noopener noreferrer">
-            View on GitHub
-          </a>
         </div>
       </div>
     </header>
