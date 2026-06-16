@@ -186,15 +186,45 @@ In practice, network partitions (P) are unavoidable in distributed systems. Ther
 
 As datasets scale to millions of rows, default tables become slow. Developers use three main tuning tools:
 
-### 5.4.1 Database Indexes
-An index is a separate, structured reference table containing pointers to physical rows. 
-*   **B-Tree Indexes:** Organize data into a balanced search tree, reducing lookup complexity from $O(N)$ (scanning the whole table) to $O(\log N)$ (quick binary-style checks).
-*   *Trade-off:* Indexes speed up read queries (`SELECT`), but slow down write operations (`INSERT`, `UPDATE`, `DELETE`) because the index file must be re-sorted on every change.
+### 5.4.1 Database Indexes & B-Trees Internals
+An index is a separate, structured reference table containing sorted keys and physical memory pointers to rows in the main table.
+*   **B-Tree Internals:** RDBMS engines organize indexes using a **Balanced Tree (B-Tree)** structure. In a B-Tree, the data is structured into a hierarchical tree of nodes:
+    *   *Root Node:* The entry point of the tree.
+    *   *Internal Nodes:* Map ranges of keys to child nodes, allowing binary search navigation down the tree.
+    *   *Leaf Nodes:* The lowest level nodes, which contain the actual index keys and pointers to the physical page blocks on disk (Row IDs / RIDs) containing the full records.
+    *   *Branching Factor:* B-Trees have a high branching factor (hundreds of child pointers per node). This allows the database to traverse billions of records and locate any target row in just 3 to 4 disk read operations ($O(\log N)$ complexity).
+*   *Index Trade-off:* Indexes speed up read queries (`SELECT` statements with `WHERE` or `JOIN` filters), but slow down write operations (`INSERT`, `UPDATE`, `DELETE`) because the database engine must execute additional I/O operations to split/re-balance B-Tree nodes and update the index files.
 
-### 5.4.2 Sharding (Horizontal Partitioning)
-Splits a single massive database table across multiple independent physical server nodes. Data is distributed using a **Partition Key** (like a hashing function of a user's ID).
+### 5.4.2 Query Optimization & Execution Plans
+When you execute a SQL query, the database's **Query Planner/Optimizer** evaluates multiple ways to fetch the data and selects the plan with the lowest computational cost.
+*   **Execution Plans:** You can inspect the chosen query path by prepending the query with the `EXPLAIN` (or `EXPLAIN ANALYZE`) keyword:
+    *   *Sequential Scan (Seq Scan / Table Scan):* The database reads every single page block on disk from start to finish. This is highly inefficient for large tables ($O(N)$).
+    *   *Index Scan:* The database traverses the B-Tree index to locate the specific pointer, then fetches only the target block. Extremely fast.
+*   **Optimization Techniques:**
+    *   Avoid wildcard selects (`SELECT *`) to reduce network payload and allow the optimizer to use *Covering Indexes* (where all requested columns exist within the index itself, avoiding disk reads to the main table).
+    *   Ensure foreign keys are indexed to speed up table relationships during `JOIN` operations.
 
-### 5.4.3 Caching
+### 5.4.3 Partitioning vs. Sharding (Horizontal Scaling)
+As data grows into terabytes, a single database instance experiences resource limits:
+*   **Partitioning (Within a Single Host):** Splits a massive table into smaller logical chunks (partitions) *within the same database engine*:
+    *   *Horizontal Partitioning:* Splits rows into partitions based on a criteria (e.g., partitioning a transaction table by year: `transactions_2025`, `transactions_2026`).
+    *   *Vertical Partitioning:* Splits columns into separate tables (e.g., moving large binary columns like profile photos to a secondary table).
+*   **Sharding (Across Multiple Hosts):** Splits and distributes table partitions across **multiple independent physical server nodes** (database shards). A **Shard Key** determines which shard holds which record (e.g., using a hash of the `user_id`). Sharding allows horizontal scaling of both storage capacity and write throughput, but makes complex multi-shard joins extremely slow and difficult.
+
+### 5.4.4 Database Replication Topologies
+To prevent data loss from hardware failure and scale read capacity, databases replicate data across multiple servers:
+*   **Leader/Follower (Active-Passive / Read Replicas):** All write queries are sent to a single designated **Leader** node. The leader writes the changes to its local database and replicates the transaction log stream to one or more **Follower** nodes. Read queries can be sent to any follower to scale read capacity.
+    *   *Synchronous Replication:* The leader waits for followers to confirm the write before responding to the client. Guarantees zero data loss, but increases write latency.
+    *   *Asynchronous Replication:* The leader writes locally and immediately returns success to the client, replicating to followers in the background. Highly performant, but introduces a replication lag window.
+*   **Multi-Leader (Active-Active):** Multiple database nodes act as write leaders. Writes can be sent to any leader, and changes are replicated to other leaders. Useful for multi-region configurations, but requires complex conflict resolution algorithms (like "Last Write Wins" or Vector Clocks).
+*   **Leaderless (Peer-to-Peer):** Every node can accept writes and reads (used in Cassandra or DynamoDB). Clients write to multiple replica nodes simultaneously. The system uses a **Quorum** model to resolve conflicts ($W + R > N$, where $W$ is write quorum, $R$ is read quorum, and $N$ is replica count).
+
+### 5.4.5 Eventual Consistency Models
+In distributed database systems, data replication delays mean different nodes may return different values at the same millisecond:
+*   **Strong Consistency:** Guarantees that any read operation immediately following a write will return the new written value. Requires locking nodes during writes, sacrificing performance and availability.
+*   **Eventual Consistency:** System updates are replicated in the background. The database guarantees that if no new writes occur, all replicas will eventually sync and return the same data. During the replication window, a client query might read stale data.
+
+### 5.4.6 Caching
 Placing an in-memory datastore (like Redis) in front of the main database to serve popular queries instantly, reducing CPU load on the RDBMS.
 
 ---

@@ -144,9 +144,165 @@ A reverse proxy acts as an intermediary, sitting in front of application servers
     }
     ```
 
+## 6.6 Web Application Security, State Management, & JWT Auth
+
+Modern web applications must protect data integrity, prevent unauthorized resource access, and secure user states across stateless HTTP requests.
+
+### 6.6.1 Web Security Foundations: OWASP Top 10
+The Open Worldwide Application Security Project (OWASP) lists the most critical security vulnerabilities found in web applications:
+*   **SQL Injection (SQLi):** An attacker injects malicious SQL statements into input fields (like a login username box). If the application code concatenates the string directly into a query (e.g. `SELECT * FROM users WHERE user = '` + input + `'`), the database executes the injected command, potentially exposing or deleting the entire database.
+    *   *Mitigation:* Use parameterized queries (Prepared Statements) or Object-Relational Mappings (ORMs).
+*   **Cross-Site Scripting (XSS):** An attacker injects malicious client-side JavaScript scripts into a website, which then executes in the browsers of unsuspecting users. XSS is used to steal session cookies or credentials.
+    *   *Mitigation:* Sanitize and escape all user inputs before rendering them in the DOM. Use Content Security Policies (CSP).
+*   **Cross-Site Request Forgery (CSRF):** Tricking a user's browser into executing an unwanted action on a trusted site where the user is currently authenticated (e.g. initiating a bank transfer on a tab while logged into your bank account).
+    *   *Mitigation:* Use CSRF tokens (unique, random tokens verified on every state-changing request) and set cookie attributes to `SameSite=Strict`.
+*   **Broken Authentication:** Weak session management or credential validation that allows attackers to compromise accounts or hijack active sessions.
+
+### 6.6.2 CORS (Cross-Origin Resource Sharing)
+By default, web browsers enforce the **Same-Origin Policy**, prohibiting a web page from one domain (e.g. `example.com`) from making API requests to another domain (e.g. `api.example.com`).
+*   **How CORS works:** When a cross-origin HTTP request is made, the browser automatically sends a pre-flight request (`OPTIONS` verb) to the API server. The server must respond with specific headers allowing the origin:
+    *   `Access-Control-Allow-Origin: https://example.com` (Allows only this domain to read responses).
+    *   `Access-Control-Allow-Methods: GET, POST, OPTIONS` (Permitted HTTP verbs).
+    *   `Access-Control-Allow-Headers: Content-Type, Authorization` (Permitted request headers).
+*   If the headers match, the browser allows the actual request to proceed; otherwise, it blocks the response in user space.
+
+### 6.6.3 Session State & Authentication Models
+Because HTTP is a **stateless protocol** (each request is treated as independent with no memory of prior calls), applications must explicitly track login states:
+*   **Session/Cookie-Based Authentication:**
+    1.  User logs in with credentials.
+    2.  The server validates credentials, creates a unique session record in its database/memory store, and returns a `session_id` in a `Set-Cookie` header to the browser.
+    3.  The browser automatically attaches this cookie to all subsequent requests.
+    4.  The server queries its session store on every request to validate the login state.
+*   **Token-Based (JWT) Authentication:**
+    1.  User logs in with credentials.
+    2.  The server validates credentials and generates a signed **JSON Web Token (JWT)** containing user metadata (claims) and an expiration time. The token is cryptographically signed using a private key on the server.
+    3.  The token is returned to the browser. The browser stores it in memory or storage.
+    4.  The client attaches the JWT to the `Authorization: Bearer <token>` header of every API request.
+    5.  The server verifies the cryptographic signature of the token without needing to query a database, allowing stateless, distributed authentication.
+
+### 6.6.4 How It Works: Client-Server JWT Authentication Flow
+The following sequence diagram illustrates the stateless request-response verification cycle using JSON Web Tokens:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Client as Client Browser
+    participant Server as API Web Server
+    participant DB as User Database
+
+    Client->>Server: HTTP POST /login (username & password)
+    Server->>DB: Query user records & verify hash
+    DB-->>Server: User validated successfully
+    Note over Server: Server signs JWT token<br/>using private secret key
+    Server-->>Client: HTTP 200 OK with JWT token payload
+    Note over Client: Stores JWT in local memory
+    Client->>Server: HTTP GET /dashboard (with Authorization: Bearer JWT)
+    Note over Server: Server validates signature<br/>statically (no database query)
+    Server-->>Client: HTTP 200 OK with dashboard data
+```
+
 ---
 
-## 6.6 Official Web Documentation & References
+## 6.7 Hands-On Lab: Run a Local Web Server & Test CORS
+
+### Overview
+In this lab, you will write a complete Python script that runs a local HTTP Web Server. The server will host two routes: a static homepage and an API endpoint that demonstrates dynamic JSON responses and custom CORS headers.
+
+### Step 1: Create the Web Server Script
+Create a new file named `web_server.py` in your workspace and paste the following code:
+
+```python
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import json
+
+class WebServerHandler(BaseHTTPRequestHandler):
+    # Handle GET requests
+    def do_GET(self):
+        # 1. Route for static welcome page
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.end_headers()
+            
+            html_content = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>AWS Learning Web Lab</title>
+                <style>
+                    body { font-family: sans-serif; text-align: center; padding: 50px; background: #faf8f5; }
+                    h1 { color: #c05c3d; }
+                </style>
+            </head>
+            <body>
+                <h1>Welcome to the Local Web Server Lab</h1>
+                <p>Verify API connection: <a href="/api/status">/api/status</a></p>
+            </body>
+            </html>
+            """
+            self.wfile.write(html_content.encode("utf-8"))
+            
+        # 2. Route for API status endpoint
+        elif self.path == "/api/status":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            
+            # CORS Headers - allow requests from any origin for testing
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+            self.end_headers()
+            
+            payload = {
+                "status": "healthy",
+                "version": "1.0.0",
+                "message": "Hello from your local Python server!"
+            }
+            self.wfile.write(json.dumps(payload).encode("utf-8"))
+            
+        # 3. Fallback route for non-existent pages (404)
+        else:
+            self.send_response(404)
+            self.send_header("Content-Type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
+
+    # Handle OPTIONS requests (CORS preflight checks)
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
+def run_server(port=8080):
+    server_address = ("", port)
+    httpd = HTTPServer(server_address, WebServerHandler)
+    print(f"Starting local server on port {port}... Access at http://localhost:{port}/")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nStopping web server. Lab completed.")
+        httpd.server_close()
+
+if __name__ == "__main__":
+    run_server()
+```
+
+### Step 2: Execute the Server
+Run the web server from your terminal:
+```bash
+python web_server.py
+```
+
+### Step 3: Test Web Server Response
+1.  Open your browser and navigate to: `http://localhost:8080/`. You should see the welcome HTML page.
+2.  Navigate to: `http://localhost:8080/api/status`. You should see the JSON payload returned.
+3.  Open browser developer tools (F12) and inspect the **Network** tab when calling `/api/status`. Observe the response header: `Access-Control-Allow-Origin: *`.
+
+---
+
+## 6.8 Official Web Documentation & References
 
 To read official specifications and detailed manuals:
 *   **MDN Web Docs:** [MDN Web Technology Hub](https://developer.mozilla.org/) - The industry-standard reference for HTML, CSS, JavaScript, DOM, and Web APIs.

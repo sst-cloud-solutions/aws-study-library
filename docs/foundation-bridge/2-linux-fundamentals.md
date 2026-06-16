@@ -199,9 +199,97 @@ Now you can connect simply by typing:
 ssh prod-server
 ```
 
+### 2.5.4 Secure Remote File Transfer
+While SSH is used for interactive shell sessions, cloud administrators frequently need to copy files (such as logs, source code bundles, or backup databases) securely between their local machines and remote servers:
+*   **`scp` (Secure Copy Protocol):** A simple CLI tool that uses SSH authentication and encryption to copy files.
+    *   *Copy local file to remote server:* `scp -i ~/.ssh/prod_key.pem ./local_config.json ubuntu@54.210.8.2:/home/ubuntu/configs/`
+    *   *Copy remote file to local machine:* `scp -i ~/.ssh/prod_key.pem ubuntu@54.210.8.2:/var/log/nginx/access.log ./local_logs/`
+*   **`rsync` (Remote Synchronization):** A highly efficient utility that synchronizes files and directories between two locations. Unlike `scp`, `rsync` uses a delta-transfer algorithm, copying only the differences (changed blocks) between the source and destination files.
+    *   *Options:* `-a` (archive mode: preserves timestamps, symlinks, and permissions), `-v` (verbose), `-z` (compress data during transfer).
+    *   *Usage:* `rsync -avz -e "ssh -i ~/.ssh/prod_key.pem" ./local_assets/ ubuntu@54.210.8.2:/var/www/html/`
+
 ---
 
-## 2.6 Official Linux Documentation & Manuals
+## 2.6 Advanced CLI Administration, Networking, & Troubleshooting Tools
+
+To maintain, troubleshoot, and optimize production servers, an engineer must command the internal OS subsystems using standard CLI tools:
+
+### 2.6.1 Service Management (`systemd` & `journalctl`)
+Modern Linux distributions (like Ubuntu, CentOS, and Debian) use **`systemd`** as their initialization system and service manager (PID 1).
+*   **`systemctl`:** The primary tool for controlling the state of services (daemons).
+    *   `sudo systemctl start nginx` (Start a service)
+    *   `sudo systemctl stop nginx` (Stop a service)
+    *   `sudo systemctl restart nginx` (Gracefully restart a service)
+    *   `sudo systemctl status nginx` (Inspect a service's current execution state, process ID, and recent stdout)
+    *   `sudo systemctl enable nginx` (Configure the service to start automatically during system boot)
+    *   `sudo systemctl disable nginx` (Prevent the service from starting at boot)
+*   **Unit Files:** Systemd configuration files (typically ending in `.service` under `/etc/systemd/system/`) that define how a service is executed, its dependencies, and its restart behavior (e.g., `Restart=on-failure`).
+*   **`journalctl`:** The centralized service log query utility. It reads binary log data managed by systemd's logging daemon (`systemd-journald`).
+    *   `journalctl -u nginx.service` (Show logs specifically for the Nginx service)
+    *   `journalctl -f` (Follow new logs in real-time)
+    *   `journalctl -u nginx.service --since "1 hour ago"` (Filter nginx logs from the last hour)
+
+### 2.6.2 Scheduling Automations (`cron`)
+For running recurring administrative tasks (like hourly database backups, daily log cleanup, or weekly server health checks), Linux uses the **`cron`** daemon.
+*   **`crontab`:** The configuration file containing cron instructions.
+    *   `crontab -l` (List current user's scheduled cron tasks)
+    *   `crontab -e` (Open the crontab configuration file in a text editor)
+*   **Cron Syntax:** Cron jobs are configured using five time fields followed by the path to the command:
+    ```text
+    ┌───────────── minute (0 - 59)
+    │ ┌─────────── hour (0 - 23)
+    │ │ ┌───────── day of month (1 - 31)
+    │ │ │ ┌─────── month (1 - 12)
+    │ │ │ │ ┌───── day of week (0 - 6) (Sunday to Saturday)
+    │ │ │ │ │
+    * * * * *  /path/to/script.sh
+    ```
+    *   *Example (Backup script runs every day at 3:00 AM):* `0 3 * * * /usr/local/bin/backup.sh`
+    *   *Example (Cleanup script runs every Sunday at midnight):* `0 0 * * 0 /usr/local/bin/cleanup.sh`
+
+### 2.6.3 System Monitoring & Resource Auditing
+When an application slows down or crashes, you must inspect the hardware resource allocation on the server:
+*   **`top`:** The default interactive process viewer. It displays real-time CPU usage, RAM utilization, swap usage, load average, and a list of running processes sorted by resource consumption.
+*   **`htop`:** A modern, color-coded, user-friendly extension of `top` featuring visual bars for CPU cores, interactive sorting, and process tree hierarchies.
+*   **`free -h`:** Displays the amount of free and used physical memory (RAM) and swap space in the system in human-readable formats (GB/MB).
+*   **`vmstat [interval]`:** Outputs virtual memory statistics, showing process count, CPU waits (`wa`), context switching counts (`cs`), and disk I/O blocks.
+    *   *Usage:* `vmstat 2` (Refreshes metrics every 2 seconds).
+
+### 2.6.4 Network Diagnostics
+To troubleshoot network connection timeouts, closed ports, or DNS resolution failures on a host:
+*   **`netstat` / `ss`:** Displays active TCP/UDP network connections, routing tables, and interface statistics. The modern `ss` command is much faster than the legacy `netstat`.
+    *   *Usage:* `ss -tulpn` (List all listening sockets with their port numbers and process IDs: `t` = TCP, `u` = UDP, `l` = listening, `p` = process name, `n` = numeric ports).
+*   **`traceroute <destination>`:** Identifies the path packets take to reach a destination host, listing each intermediate router hop and the latency (round trip time) for each hop. Useful for locating routing loops or network drops.
+*   **`dig <domain>` & `nslookup <domain>`:** Queries DNS servers to resolve hostnames to IP addresses. `dig` is the standard tool, outputting complete DNS query responses (A records, MX records, TTLs, and authoritative name servers).
+    *   *Usage:* `dig +short google.com` (Returns just the resolved IPv4 address).
+
+### 2.6.5 Text Processing Pipelines (`awk` & `sed`)
+When parsing massive configuration files or log files, plain `grep` is often enhanced with stream editors:
+*   **`sed` (Stream Editor):** Performs basic text transformations and replacements on an input stream.
+    *   *Usage (Find and replace 'development' with 'production' in a file):* `sed -i 's/development/production/g' config.json`
+*   **`awk`:** A powerful pattern scanning and processing language. It treats lines as rows and columns (separated by whitespace by default).
+    *   *Usage (Filter and print only the IP addresses [column 1] and HTTP status [column 9] from an Nginx access log):* `awk '{print $1, $9}' /var/log/nginx/access.log`
+
+### 2.6.6 Archiving & Compression
+To bundle and compress multiple files to save disk space or speed up network transfers:
+*   **`tar` (Tape Archive):** Combines multiple files or folders into a single archive file (often called a tarball).
+    *   *Create archive:* `tar -cvf backup.tar /var/www/html`
+    *   *Extract archive:* `tar -xvf backup.tar`
+*   **Compression (`gzip` & `unzip`):**
+    *   *Compress tarball:* `gzip backup.tar` (Produces `backup.tar.gz`).
+    *   *Create and compress in one command:* `tar -czvf backup.tar.gz /var/www/html` (`-z` filters through gzip).
+    *   *Extract compressed tarball:* `tar -xzvf backup.tar.gz`
+
+### 2.6.7 Security Key & Certificate Management (`openssl`)
+Before deploying an HTTPS web server, administrators use the **`openssl`** CLI tool to generate, manage, and inspect SSL/TLS certificates and cryptographic keys:
+*   **Verify SSL/TLS Connection:**
+    *   `openssl s_client -connect google.com:443` (Initiates a TLS handshake and prints the complete certificate chain, active cipher, and validation parameters).
+*   **Inspect Certificate Properties (Expiration & Issuer):**
+    *   `openssl x509 -in cert.pem -text -noout` (Parses local certificate files to inspect expiration dates, public keys, and subject alternative names).
+
+---
+
+## 2.7 Official Linux Documentation & Manuals
 
 For the official reference documentation and standards:
 *   **GNU Coreutils Manual:** [GNU Coreutils Documentation](https://www.gnu.org/software/coreutils/manual/) - The definitive reference guide for basic file, shell, and text utilities.

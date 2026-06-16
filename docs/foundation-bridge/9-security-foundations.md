@@ -101,7 +101,42 @@ A security pattern where data is encrypted with a Data Key, and the Data Key is 
 
 ---
 
-## 9.5 Official Security References & Resources
+## 9.5 Cryptography, PKI, & Enterprise Authentication Standards
+
+Enterprise security architectures rely on advanced cryptographic signing, centralized identity management, and secure certificate-based client-server trust structures.
+
+### 9.5.1 Advanced Cryptographic Signatures & HMAC
+Beyond standard symmetric/asymmetric encryption, cryptographic algorithms guarantee data integrity and sender authenticity:
+*   **HMAC (Hash-based Message Authentication Code):** Combines a cryptographic hash function (like SHA-256) with a secret cryptographic key. It is used to simultaneously verify both the data integrity and the authenticity of a message. Only parties with access to the secret key can generate or verify the matching HMAC signature (commonly used in AWS SigV4 request signing).
+*   **Digital Signatures:** Assures **non-repudiation** (the sender cannot deny sending the message). The sender hashes the message and encrypts the hash using their **Private Key** (generating a digital signature). The recipient decrypts the signature using the sender's **Public Key** and compares it to a fresh hash of the received message. If they match, it proves the message was unmodified and originated from the private key owner.
+
+### 9.5.2 Public Key Infrastructure (PKI) & Trust Chains
+PKI is the framework of roles, policies, hardware, software, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates:
+*   **Certificate Authorities (CAs):** Trusted third-party organizations (like Let's Encrypt, DigiCert) that verify identities and issue digital SSL/TLS certificates.
+*   **Certificate Chains:** To verify a website's certificate, your browser traces a chain of trust:
+    *   *End-Entity Certificate:* The certificate assigned to the specific website (e.g. `google.com`).
+    *   *Intermediate Certificate:* Issued by a Root CA to sign end-entity certificates, protecting the root key from direct exposure.
+    *   *Root Certificate:* A self-signed certificate belonging to the Root CA, pre-installed in your browser/OS trusted root store.
+*   **Certificate Revocation (CRL & OCSP):** If a certificate's private key is compromised before its expiration date, the certificate must be revoked:
+    *   **CRL (Certificate Revocation List):** A periodic list of revoked certificate serial numbers published by the CA. Browsers download the CRL to check certificate validity. Highly resource-heavy and slow.
+    *   **OCSP (Online Certificate Status Protocol):** A real-time API query where the browser checks the status of a specific certificate directly with the CA's OCSP responder.
+    *   *OCSP Stapling:* To improve performance, the web server periodically queries the CA for a signed, time-stamped OCSP status validation and "staples" it to the initial TLS handshake response, preventing the client browser from making an external HTTP lookup to the CA.
+
+### 9.5.3 Secure Transport Layer: TLS & mTLS
+*   **TLS (Transport Layer Security):** The standard protocol that secures client-server communication by authenticating the server (via its public certificate) and encrypting the data channel. The client remains anonymous.
+*   **mTLS (Mutual TLS):** Establishes two-way authentication. Both the server *and* the client must present valid, signed cryptographic certificates to each other during the TLS handshake before a connection is allowed. mTLS is commonly used to secure internal microservices communications and API connections where anonymous client access is prohibited.
+
+### 9.5.4 Enterprise Authentication & Authorization Standards
+Large organizations consolidate identity management into centralized identity provider systems using open standard protocols:
+*   **LDAP (Lightweight Directory Access Protocol):** A protocol used to query and manage user and group directory service information (typically hosted in Microsoft Active Directory or OpenLDAP). It operates on a hierarchical tree structure of directory records.
+*   **Kerberos:** A ticket-based network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography. It allows Single Sign-On (SSO) within internal corporate networks.
+*   **SAML 2.0 (Security Assertion Markup Language):** An XML-based open standard for exchanging authentication and authorization data between an **Identity Provider (IdP)** (like Okta, Active Directory) and a **Service Provider (SP)** (like AWS Console, Salesforce). It is widely used for enterprise web-based Single Sign-On (WebSSO).
+*   **OAuth 2.0:** An open authorization framework that allows a third-party application to obtain limited access to user resources on an HTTP service without exposing the user's login credentials (e.g., "Sign in with Google"). It uses short-lived **Access Tokens**.
+*   **OIDC (OpenID Connect):** An authentication layer built on top of the OAuth 2.0 authorization framework. It adds an **ID Token** (formatted as a JSON Web Token - JWT) containing user identity profile assertions, allowing applications to securely verify client identities.
+
+---
+
+## 9.6 Official Security References & Resources
 
 To check official security specifications, frameworks, and guidelines:
 *   **OWASP Top 10:** [OWASP Top 10 Web Exploit Manual](https://owasp.org/www-project-top-ten/) - The authoritative document detailing the top 10 most critical web application security risks and mitigation guides.

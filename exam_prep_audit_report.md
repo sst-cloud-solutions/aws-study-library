@@ -1,6 +1,6 @@
 ﻿# AWS Solutions Architect Professional (SAP-C02) Content Audit Report
 
-Generated on: 2026-06-16 11.24.18
+Generated on: 2026-06-16 16.57.41
 Readiness Score: **100%** (35 / 35 topics covered)
 
 ## Coverage Summary by Domain
@@ -27,8 +27,8 @@ Readiness Score: **100%** (35 / 35 topics covered)
 | Topic | Status | Matched Keywords |
 | :--- | :--- | :--- |
 | VPC & Subnets | [COVERED] | vpc, subnet, cidr, route table |
-| Transit Gateway | [COVERED] | transit gateway, peering, tgw |
-| Direct Connect (DX) & Failover | [COVERED] | prepending, direct connect, dx, bgp, as-path |
+| Transit Gateway | [COVERED] | peering, transit gateway, tgw |
+| Direct Connect (DX) & Failover | [COVERED] | direct connect, bgp, as-path, prepending, dx |
 | Route 53 Resolvers | [COVERED] | inbound resolver, outbound resolver, forwarding rule |
 
 ### Category: Compute & Containers

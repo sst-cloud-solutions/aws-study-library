@@ -253,7 +253,46 @@ To protect HTTP from eavesdropping, TLS encrypts the traffic:
 
 ---
 
-## 3.6 Official Networking Standards & Resources
+## 3.6 Advanced Routing, Switching, & WAN Technologies
+
+To design global cloud platforms and configure hybrid network architectures, you must master local network switching, transit protocols, routing behaviors, and wide-area networking connectivity.
+
+### 3.6.1 Layer 2 Switching: ARP, MAC Tables, VLANs, & STP
+At the local network (LAN) level, devices communicate using physical hardware addresses at **OSI Layer 2 (Data Link)**:
+*   **ARP (Address Resolution Protocol):** The bridge between logical IP addresses (Layer 3) and physical MAC addresses (Layer 2). When device A wants to talk to device B on the same subnet, it broadcasts an **ARP Request** ("Who has IP `10.0.0.5`?"). Device B replies with its MAC address, which device A stores in its local **ARP Cache** to avoid repeated broadcasts.
+*   **MAC Address Tables:** Switches maintain a MAC Address Table in memory. By inspecting incoming frames, the switch records which physical port is connected to which MAC address. When a frame arrives, the switch forwards it directly to the designated port, preventing network congestion.
+*   **VLANs (Virtual Local Area Networks):** Allows partitioning a single physical switch into multiple isolated logical networks. Devices on different VLANs cannot talk to each other directly at Layer 2, even if plugged into the same physical hardware, reducing broadcast domains and improving security.
+*   **Trunking (802.1Q):** The process of carrying traffic from multiple VLANs across a single physical link between switches. The sending switch appends a 4-byte **VLAN Tag** to each frame header, which the receiving switch reads and strips off to route the frame to the correct VLAN.
+*   **STP (Spanning Tree Protocol - 802.1D):** A Layer 2 protocol that prevents loop storms in networks with redundant physical links. STP identifies loops, designates a "Root Bridge," and dynamically blocks redundant ports. If an active link fails, STP recalculates and opens the blocked port, restoring connectivity.
+
+### 3.6.2 Layer 3 Address Translation: NAT & PAT
+Public IPv4 addresses are scarce. To connect multiple private devices to the public internet, routers use translation layers:
+*   **NAT (Network Address Translation - Static vs. Dynamic):** Maps a local private IP address (RFC 1918) to a public IP address.
+    *   *Static NAT (1-to-1):* Maps a single private IP to a single dedicated public IP (often used for public web servers hosting local applications).
+*   **PAT (Port Address Translation - Many-to-1 / NAT Overload):** Maps *thousands* of private local IPs to a *single* public IP address. The router tracks outbound connections by assigning unique high-number ports (e.g. mapping `10.0.0.5:80` and `10.0.0.6:80` to `54.12.3.4:50001` and `54.12.3.4:50002` respectively). This allows massive client scaling under a single public address block.
+*   **NAT Traversal (STUN, TURN, ICE):** Protocols designed to establish direct peer-to-peer connections (like VoIP or video calls) between devices hidden behind symmetric NAT firewalls that block unsolicited incoming traffic.
+
+### 3.6.3 Layer 3 Routing Protocols
+Routers must coordinate with other routers to direct packets along the most efficient path. They exchange routing paths using dynamic routing protocols:
+*   **Distance-Vector Routing (e.g., RIP):** Routers share their entire routing tables with direct neighbors periodically. Path selection is determined by hop count. Highly vulnerable to slow convergence (the "count-to-infinity" problem).
+*   **Link-State Routing (e.g., OSPF):** Routers build a complete topology map of the entire network by flooding Link-State Advertisements (LSAs) and calculating paths using Dijkstra's shortest-path algorithm. Offers fast convergence and scales to large enterprise networks.
+
+### 3.6.4 Dynamic IP Configuration & Interface Metrics: DHCP, MTU, & QoS
+*   **DHCP (Dynamic Host Configuration Protocol):** Automatically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to hosts joining a network, eliminating manual address management. It uses a 4-step handshake: **D**iscover, **O**ffer, **R**equest, **A**cknowledge (**DORA**).
+*   **MTU (Maximum Transmission Unit):** The largest frame or packet size (in bytes) that can be sent over a physical network medium. The default Ethernet MTU is **1,500 bytes**.
+*   **Jumbo Frames:** Network frames configured with an MTU of up to **9,000 bytes**. By bundling more data into a single packet, Jumbo Frames reduce CPU packet processing overhead and increase throughput, commonly used in high-throughput database replication networks and SAN storage.
+*   **QoS (Quality of Service):** Techniques (like traffic shaping and packet prioritization using Differentiated Services - DiffServ tags) used to guarantee performance for critical network traffic (like voice/video) by reserving bandwidth and prioritizing it over non-critical data.
+
+### 3.6.5 Wide Area Networks (WAN) and Dynamic Transit: MPLS, BGP, & Anycast
+*   **MPLS (Multiprotocol Label Switching):** A high-performance WAN technology that forwards packets based on short path labels rather than complex IP routing table lookups, allowing enterprises to establish dedicated, low-latency private networks between distributed offices and local datacenters.
+*   **VPN (Virtual Private Network):** Establishes an encrypted secure tunnel across an untrusted public network (like the internet), allowing remote users and remote networks to access private internal resources securely (e.g. IPSec, OpenVPN).
+*   **BGP (Border Gateway Protocol):** The routing protocol of the internet itself. BGP is a path-vector protocol that routes traffic between distinct networks (Autonomous Systems - ASes) managed by different ISPs. BGP makes routing choices based on path attributes (like the shortest AS-Path list) and routing policies. BGP peering is essential for connecting local datacenters directly to the cloud (e.g. AWS Direct Connect).
+*   **Anycast:** A routing methodology where multiple physical servers distributed globally share the *same* IP address. Dynamic internet routing sends packets to the topologically closest server hosting that IP. This reduces latency and provides automatic failover (if one server goes down, the internet routes traffic to the next closest node).
+*   **Internet Exchange Points (IXPs):** Physical infrastructures where Internet Service Providers (ISPs), content delivery networks (CDNs), and cloud providers peer their networks together directly, exchanging traffic without passing it through transit networks, which reduces latency and cost.
+
+---
+
+## 3.7 Official Networking Standards & Resources
 
 To read official specifications and detailed manuals:
 *   **IETF RFC Database:** [Internet Engineering Task Force RFCs](https://www.ietf.org/) - Read official RFC specifications (e.g., [RFC 1918 - Private IP Allocations](https://tools.ietf.org/html/rfc1918), [RFC 2616 - HTTP/1.1 Specification](https://tools.ietf.org/html/rfc2616)).

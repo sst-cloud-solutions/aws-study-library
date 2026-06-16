@@ -138,7 +138,110 @@ When application load increases, infrastructure must scale to meet demand:
 
 ---
 
-## 7.5 Official Infrastructure References & Resources
+## 7.5 Advanced Datacenter Architecture, Virtualization, & Load Balancing
+
+Cloud services are not ethereal; they execute on physical server components housed inside highly engineered datacenter facilities.
+
+### 7.5.1 Physical Datacenter Architecture
+Cloud datacenters guarantee 99.999% availability by protecting hardware against environmental and utilities failures:
+*   **Redundant Power Infrastructure:** Datacenters receive power from two separate utility grid feeds. If grid power fails, massive **Uninterruptible Power Supplies (UPS)** (batteries/flywheels) maintain server power instantly. Simultaneously, automated transfer switches start up containerized **Diesel Generators** to provide continuous power for days.
+*   **HVAC (Heating, Ventilation, & Air Conditioning) Systems:** Servers generate massive heat. Cooling systems maintain optimal temperatures (~18–27°C) and relative humidity. Modern datacenters use **Hot/Cold Aisle Containment** architectures and *evaporative free cooling* to maximize power usage efficiency (PUE).
+*   **Physical Security access boundaries:** Tiered security controls require biometrics (fingerprint/iris scanners), physical access badges, security mantraps (one-way security doors), and continuous CCTV monitoring.
+
+### 7.5.2 Hypervisor Deep-Dive & Hardware Emulation
+Hypervisors manage how guest VMs translate their actions to host CPUs:
+*   **Full Virtualization:** The hypervisor completely emulates the physical hardware. The guest OS is unaware it is running virtualized and requires no modification, but translating standard instructions to virtual devices requires binary translation, introducing small CPU overhead.
+*   **Paravirtualization:** The guest OS is modified to be aware it is running in a virtualized environment. Instead of executing raw hardware commands, it sends direct software API calls (**Hypercalls**) to the hypervisor, lowering overhead.
+*   **OS-Level Virtualization (Containers):** The host OS kernel shares its resources directly with isolated processes (containers). There is zero hypervisor layer or guest OS boot time, offering near-native execution performance.
+
+### 7.5.3 Network Load Balancing Scheduling Algorithms
+Load balancers distribute user traffic across a pool of backend servers using specific scheduling algorithms:
+*   **Round Robin:** Routes requests sequentially down the list of servers. Ideal when servers are of equal hardware capacity.
+*   **Weighted Round Robin:** Allows assigning a numeric weight to each server based on its capacity (e.g. Server A = weight 3, Server B = weight 1). Server A receives 3 requests for every 1 sent to Server B.
+*   **Least Connections:** Directs traffic to the server with the fewest active TCP connections. Perfect for long-running transactional workloads.
+*   **IP Hash:** Hashes the client's IP address to determine which server receives the request. This guarantees that a specific client always connects to the same backend server (session persistence / sticky sessions).
+
+### 7.5.4 How It Works: Active-Active Load Balanced Architecture
+The following Mermaid diagram shows an Active-Active high availability architecture where the load balancer routes client requests across redundant server nodes while continuously running health probes:
+
+```mermaid
+flowchart TD
+    Client[Client Browser] -->|HTTP Request| LB[Load Balancer]
+    subgraph Target Pool [Backend Web Server Pool]
+        ServerA[Web Server A: 10.0.1.10]
+        ServerB[Web Server B: 10.0.1.11]
+    end
+    LB -->|Weighted Round Robin| ServerA
+    LB -->|Weighted Round Robin| ServerB
+    LB -.->|Health Probe check port 80| ServerA
+    LB -.->|Health Probe check port 80| ServerB
+```
+
+---
+
+## 7.6 Hands-On Lab: Local Port Diagnostics & High Availability Simulation
+
+### Overview
+In this lab, you will use standard command-line diagnostics to test port availability and write a script to simulate a load balancer executing health checks against multiple local web ports, detecting node failures dynamically.
+
+### Step 1: Run Port Diagnostics
+Before testing connectivity, identify what ports are currently in use on your system:
+*   **Linux/macOS:** Run `ss -tulpn` or `netstat -an`
+*   **Windows (PowerShell):** Run `Get-NetTCPConnection -State Listen`
+
+### Step 2: Create the Load Balancer Simulator
+Create a new file named `lb_simulator.py` and paste the following code:
+
+```python
+import urllib.request
+import time
+
+# List of target server ports to simulate a load balancer pool
+BACKEND_POOL = [
+    {"name": "Server A", "url": "http://localhost:8080/"},
+    {"name": "Server B", "url": "http://localhost:8081/"}, # This will fail unless you run another server
+]
+
+def execute_health_check(server):
+    try:
+        # Request the root page with a short timeout
+        response = urllib.request.urlopen(server["url"], timeout=1.0)
+        status = response.getcode()
+        if status == 200:
+            return "HEALTHY"
+    except Exception:
+        return "UNHEALTHY"
+
+def load_balancer_monitor():
+    print("Starting Load Balancer Monitor Simulation...")
+    print("Ensure you have your web_server.py running on port 8080!")
+    print("-" * 50)
+    
+    for i in range(3):
+        print(f"\n[Cycle {i+1}] Running Health Probes...")
+        for server in BACKEND_POOL:
+            status = execute_health_check(server)
+            if status == "HEALTHY":
+                print(f" [+] {server['name']} ({server['url']}) is online -> Status: {status}")
+            else:
+                print(f" [!] ALERT: {server['name']} ({server['url']}) failed probe -> Status: {status}")
+        time.sleep(2)
+
+if __name__ == "__main__":
+    load_balancer_monitor()
+```
+
+### Step 3: Run the Test
+1.  Make sure your `web_server.py` from the previous module is running on port 8080.
+2.  In a separate terminal, execute this simulation script:
+    ```bash
+    python lb_simulator.py
+    ```
+3.  Observe the output: Server A should report `HEALTHY`, and Server B (port 8081) should report `UNHEALTHY`. This simulates how cloud load balancers dynamically detect and bypass failed nodes.
+
+---
+
+## 7.7 Official Infrastructure References & Resources
 
 To read official specifications and detailed manuals:
 *   **Linux KVM Project:** [Kernel-based Virtual Machine Doc](https://www.linux-kvm.org/page/Main_Page) - Official specification manuals for native Linux virtualization.

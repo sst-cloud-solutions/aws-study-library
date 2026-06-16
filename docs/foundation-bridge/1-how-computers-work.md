@@ -57,6 +57,8 @@ To build and scale high-performance applications in the cloud, you must understa
     *   **Thread:** A lightweight unit of execution *within* a process. Multiple threads under the same process share that process's memory space, allowing them to communicate and share data extremely quickly.
 *   **Operating System CPU Scheduling:** Because an operating system runs thousands of threads but has a limited number of logical CPU cores, the OS kernel's **Scheduler** decides which thread runs on which core at any given millisecond. Using algorithms like **Time-Slicing**, the scheduler allows a thread to run for a brief interval (a quantum, e.g., 10ms), suspends it, saves its CPU register state (a **Context Switch**), and loads the state of the next thread. Excessive context switching degrades system performance.
 *   **Virtualization & Cloud Mappings:** When you rent an AWS EC2 instance with 2 vCPUs, the hypervisor allocates two logical threads (hyper-threads) from the host's physical processor pool. The hypervisor's scheduler maps the virtual machine's CPU demand directly to physical CPU core cycles.
+*   **Interrupts:** An interrupt is a signal sent to the CPU by hardware (like a network card receiving a packet) or software (like an error or system call) requesting immediate attention. When an interrupt occurs, the CPU suspends its current execution state, saves its registers, runs a specific function called an **Interrupt Service Routine (ISR)** to handle the event, and then resumes the suspended process.
+*   **NUMA (Non-Uniform Memory Access):** In modern multi-socket motherboard systems, memory access time depends on the memory's location relative to the processor. Each CPU socket has its own dedicated local memory bank (a NUMA node). Accessing local memory is extremely fast; accessing memory connected to a different CPU socket ("foreign" memory) across interconnect links (like Intel UPI or AMD Infinity Fabric) incurs significant latency penalties. Properly configuring applications to run on dedicated NUMA nodes prevents cross-socket bottlenecks.
 
 ### 1.1.3 Random Access Memory (RAM)
 RAM is the high-speed, dynamic read-and-write workspace of the computer.
@@ -130,11 +132,24 @@ When an application in user space needs to perform a privileged action (like rea
 *   **Thread:** The smallest unit of execution inside a process. A single process can spawn multiple threads. All threads in a process share the same virtual memory space and file descriptors, making communications between them very fast, but requiring locks to prevent data corruption.
 *   **Scheduler:** The kernel component that decides which threads run on which CPU cores at any millisecond. It uses algorithms based on priority, CPU affinity, and load balancing to multiplex thousands of threads across a limited number of CPU cores.
 *   **Context Switching:** The process of the CPU saving the state (registers, program counter) of a running thread, swapping memory mapping tables, and loading the state of a different thread. Context switches introduce computational overhead.
+*   **Process States:** A process moves through several life-cycle states:
+    *   **Created (New):** The process is being initiated.
+    *   **Ready:** The process is loaded into RAM and waiting to be assigned to a CPU core by the OS scheduler.
+    *   **Running:** The process's instructions are actively executing on a CPU core.
+    *   **Blocked (Waiting):** The process is suspended because it is waiting for an event or resource (like a disk read or network packet). It cannot run until the resource is ready.
+    *   **Terminated:** The process has finished executing and released its resources.
+    *   **Zombie:** A process that has finished execution but still has an entry in the OS process table. This entry is needed so the parent process can read the exit status. If the parent fails to clean up, it remains a zombie.
+    *   **Orphan:** A running process whose parent process has terminated. In Linux, these are adopted by the root `init` or `systemd` process (PID 1) to clean up when they finish.
+*   **Thread Pools:** Creating and destroying threads dynamically is expensive. To optimize execution, applications use **Thread Pools (Worker Threads)**. A fixed number of worker threads are spawned at startup and wait in an idle state. When a new task arrives (e.g., an incoming HTTP request), the task is pushed into an execution queue. An idle worker thread grabs the task, processes it, and returns to the pool to wait for the next task, avoiding thread-creation overhead.
 
 ### 1.3.4 Virtual Memory and Paging
 Operating systems do not expose physical RAM addresses directly to applications. Instead, they use a Translation Lookaside Buffer (TLB) and Page Tables to present a virtual memory space to each process.
 *   **Virtual Memory:** Allows a process to act as if it has access to a contiguous block of memory, even if its data is fragmented across physical RAM or written to swap storage on disk.
 *   **Paging:** Memory is split into fixed blocks called **Pages** (usually 4 KB). When physical RAM is full, the OS moves inactive memory pages to disk storage (known as swapping or paging). If the page is needed again, it triggers a **Page Fault**, and the OS swaps it back into RAM.
+*   **Swap Space:** A designated area on a persistent storage drive (either a raw disk partition or a swap file) used as an overflow extension of physical RAM. While swap prevents "Out of Memory" (OOM) application crashes under high memory pressure, accessing disk storage is thousands of times slower than RAM, resulting in a severe performance drop (known as system thrashing).
+*   **Memory Allocation (Stack vs. Heap):** The OS divides an application's allocated virtual memory into two primary runtime structures:
+    *   **The Stack:** Used for fast, static memory allocation of local variables and function call frames. Managed automatically by the CPU; memory is allocated and freed in a strict Last-In-First-Out (LIFO) order as functions enter and exit.
+    *   **The Heap:** Used for dynamic, variables-sized memory allocation at runtime (requested using system calls like `brk` or `mmap` via programming statements like `malloc` or `new`). The developer (or garbage collector) must manually manage memory lifetimes on the heap, making it prone to **Memory Leaks** if allocations are not properly freed.
 
 ---
 
