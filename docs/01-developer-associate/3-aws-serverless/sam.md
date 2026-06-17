@@ -1,0 +1,37 @@
+# AWS SAM
+
+- SAM = Serverless Application Model
+- It is a framework for developing and deploying serverless applications
+- All configuration is done in YAML code. From this, CloudFormation code is generated
+- Supports anything than CloudFormation supports
+- SAM can use CodeDeploy
+- SAM can help run Lambda, API Gateway and DynamoDB locally
+- Transform header indicates it's a SAM template:
+    - `Transform: 'AWS::Serverless-2016-10-31'`
+- Serverless resource types:
+    -`AWS::Serverless::Function`
+    -`AWS::Serverless::Api`
+    -`AWS::Serverless::SimpleTable`
+- Package and deploy:
+    - `aws cloudformation package`
+    - `sam package`
+- To define a nested app:
+    - `AWS::ServerLess::Application`
+- To publish an application to the AWS Serverless Application Repository, use `sam publish`
+- To deploy your application into AWS, use `sam deploy`
+
+---
+
+## Prerequisites
+
+- [Amazon EventBridge](eventbridge-deep-dive.md)
+
+## Recommended Next Topics
+
+- [Cognito](cognito.md)
+
+## Related Topics
+
+- [AWS Serverless](serverless.md)
+- [AWS Lambda](lambda.md)
+- [AWS Lambda Deep Dive](lambda-advanced.md)

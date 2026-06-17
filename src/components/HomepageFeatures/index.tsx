@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     ctaText: 'Begin Study',
-    ctaLink: '/docs/foundation-bridge/intro',
+    ctaLink: '/docs/it-foundation/beginner-roadmap',
   },
   {
     title: '01 / Developer Associate',
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     ctaText: 'Access Library',
-    ctaLink: '/docs/Developer Associate/Study Plan',
+    ctaLink: '/docs/developer-associate/dva-roadmap',
   },
   {
     title: '02 / Solutions Architect Professional',
@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     ctaText: 'Access Library',
-    ctaLink: '/docs/Solutions%20Architect%20Professional/intro',
+    ctaLink: '/docs/solutions-architect-professional/sap-roadmap',
   },
 ];
 

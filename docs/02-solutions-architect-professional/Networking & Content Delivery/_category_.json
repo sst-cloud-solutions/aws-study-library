@@ -1,0 +1,8 @@
+{
+  "label": "Networking & Content Delivery",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Designing secure, high-performance, and hybrid enterprise networking topologies on AWS."
+  }
+}

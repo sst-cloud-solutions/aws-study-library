@@ -1,0 +1,8 @@
+{
+  "label": "Management & Governance",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Multi-account management, compliance standards, policy enforcement, observability, and audit tooling."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Containers",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Enterprise container orchestration, microservices deployment, and container registries using ECS, EKS, and ECR."
+  }
+}

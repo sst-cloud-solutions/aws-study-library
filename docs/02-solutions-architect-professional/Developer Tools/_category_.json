@@ -1,0 +1,8 @@
+{
+  "label": "Developer Tools",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description": "Setting up secure continuous integration, pipelines, artifact storage, and observability solutions."
+  }
+}

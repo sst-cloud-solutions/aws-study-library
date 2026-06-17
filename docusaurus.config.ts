@@ -157,12 +157,12 @@ const config: Config = {
         {
           type: 'docSidebar',
           sidebarId: 'foundationSidebar',
-          label: '00 / IT Foundation',
+          label: 'Foundation',
           position: 'left',
         },
         {
           type: 'dropdown',
-          label: '01 / Developer Associate (DVA-C02)',
+          label: 'Developer',
           position: 'left',
           items: [
             {
@@ -179,20 +179,48 @@ const config: Config = {
         },
         {
           type: 'dropdown',
-          label: '02 / Solutions Architect Professional (SAP-C02)',
+          label: 'Solutions Architect',
           position: 'left',
           items: [
             {
               type: 'docSidebar',
+              sidebarId: 'saaSidebar',
+              label: 'Associate (SAA-C03) Topics',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'saaPracticeSidebar',
+              label: 'Associate (SAA-C03) Practice',
+            },
+            {
+              type: 'docSidebar',
               sidebarId: 'tutorialSidebar',
-              label: 'Study Topics',
+              label: 'Professional (SAP-C02) Topics',
             },
             {
               type: 'docSidebar',
               sidebarId: 'practiceSidebar',
-              label: 'Practice Exams',
+              label: 'Professional (SAP-C02) Practice',
             },
           ],
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'matricesSidebar',
+          label: 'Decision Matrices',
+          position: 'left',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'workshopsSidebar',
+          label: 'Workshops',
+          position: 'left',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'strategySidebar',
+          label: 'Strategy',
+          position: 'left',
         },
       ],
     },

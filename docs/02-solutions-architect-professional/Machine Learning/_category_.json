@@ -1,0 +1,8 @@
+{
+  "label": "Machine Learning",
+  "position": 12,
+  "link": {
+    "type": "generated-index",
+    "description": "Harnessing AWS machine learning platforms, computer vision, natural language processing, and Generative AI service integrations."
+  }
+}

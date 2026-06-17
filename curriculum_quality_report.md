@@ -1,0 +1,408 @@
+# Curriculum Quality Audit Report
+
+This report summarizes the architectural elements present across the study library. It audits every study guide for interactive diagrams, structured comparisons, exam tips, and troubleshooting traps.
+
+## Executive Quality Summary
+
+| Quality Metric | Covered Files | Total Audited | Coverage % | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Interactive Diagrams (Mermaid/Img)** | 181 | 291 | 62.2% | 🟡 Review |
+| **Comparison & Decision Tables** | 154 | 291 | 52.9% | 🟡 Review |
+| **Exam Tips & Clues** | 116 | 291 | 39.9% | 🟡 Review |
+| **Troubleshooting & Traps** | 141 | 291 | 48.5% | 🟡 Review |
+| **Overview & Analogy** | 205 | 291 | 70.4% | 🟡 Review |
+
+---
+
+## Detailed Quality Recommendations & Deficiencies
+
+Below is a list of pages missing specific architectural components:
+
+- **[Phase 0: Foundation Bridge Overview](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/0-intro.md)** (`00-it-foundation/0-intro.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Module 1: How Computers Actually Work](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/1-how-computers-work.md)** (`00-it-foundation/1-how-computers-work.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Module 2: Linux Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/2-linux-fundamentals.md)** (`00-it-foundation/2-linux-fundamentals.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips
+- **[Module 3: Networking Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/3-networking-fundamentals.md)** (`00-it-foundation/3-networking-fundamentals.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Module 4: Programming Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/4-programming-fundamentals.md)** (`00-it-foundation/4-programming-fundamentals.md`)
+  - *Missing:* Exam Tips
+- **[Module 5: Database Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/5-databases.md)** (`00-it-foundation/5-databases.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Module 6: Web Application Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/6-web-application-fundamentals.md)** (`00-it-foundation/6-web-application-fundamentals.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Module 7: Servers & Infrastructure](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/7-servers-infrastructure.md)** (`00-it-foundation/7-servers-infrastructure.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Module 8: DevOps Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/8-devops-foundations.md)** (`00-it-foundation/8-devops-foundations.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Module 9: Security Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/9-security-foundations.md)** (`00-it-foundation/9-security-foundations.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[ASG: Auto Scaling Group](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/asg.md)** (`01-developer-associate/1-aws-fundamentals/asg.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[EBS Volume](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/ebs.md)** (`01-developer-associate/1-aws-fundamentals/ebs.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[EC2: Virtual Machines](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/ec2.md)** (`01-developer-associate/1-aws-fundamentals/ec2.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[ElastiCache](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/elasticache.md)** (`01-developer-associate/1-aws-fundamentals/elasticache.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[ELB: Elastic Load Balancers](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/elb.md)** (`01-developer-associate/1-aws-fundamentals/elb.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[IAM: Identity and Access Management](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/iam.md)** (`01-developer-associate/1-aws-fundamentals/iam.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[RDS: Relational Database Service](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/rds.md)** (`01-developer-associate/1-aws-fundamentals/rds.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Route 53](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/route53.md)** (`01-developer-associate/1-aws-fundamentals/route53.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[S3 Buckets](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/s3.md)** (`01-developer-associate/1-aws-fundamentals/s3.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Security Groups](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/security-groups.md)** (`01-developer-associate/1-aws-fundamentals/security-groups.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[VPC: Virtual Private Cloud](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/vpc.md)** (`01-developer-associate/1-aws-fundamentals/vpc.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CICD: Continuous Integration and Deployment](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cicd/cicd.md)** (`01-developer-associate/2-aws-deep-dive/cicd/cicd.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CodeBuild](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cicd/codebuild.md)** (`01-developer-associate/2-aws-deep-dive/cicd/codebuild.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[codecommit](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cicd/codecommit.md)** (`01-developer-associate/2-aws-deep-dive/cicd/codecommit.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CodeDeploy](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cicd/codedeploy.md)** (`01-developer-associate/2-aws-deep-dive/cicd/codedeploy.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CodePipeline](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cicd/codepipeline.md)** (`01-developer-associate/2-aws-deep-dive/cicd/codepipeline.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CLI: Command Line Interface](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cli.md)** (`01-developer-associate/2-aws-deep-dive/cli.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CloudFormation](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cloudformation/cloudformation.md)** (`01-developer-associate/2-aws-deep-dive/cloudformation/cloudformation.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Cloudfront](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/cloudfront.md)** (`01-developer-associate/2-aws-deep-dive/cloudfront.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Elastic Beanstalk](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/elastic-beanstalk.md)** (`01-developer-associate/2-aws-deep-dive/elastic-beanstalk.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Integration and Messaging](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/integration-and-messaging/0-intro.md)** (`01-developer-associate/2-aws-deep-dive/integration-and-messaging/0-intro.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[SQS: Simple Queue Service](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/integration-and-messaging/1-sqs.md)** (`01-developer-associate/2-aws-deep-dive/integration-and-messaging/1-sqs.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[SNS: Simple Notification Service](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/integration-and-messaging/2-sns.md)** (`01-developer-associate/2-aws-deep-dive/integration-and-messaging/2-sns.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Kinesis](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/integration-and-messaging/3-kinesis.md)** (`01-developer-associate/2-aws-deep-dive/integration-and-messaging/3-kinesis.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Difference between Config / CloudWatch / CloudTrail](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudsomething_difference.md)** (`01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudsomething_difference.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS CloudTrail](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudtrail.md)** (`01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudtrail.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[CloudWatch](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudwatch.md)** (`01-developer-associate/2-aws-deep-dive/monitoring-and-audit/cloudwatch.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Config](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/monitoring-and-audit/config.md)** (`01-developer-associate/2-aws-deep-dive/monitoring-and-audit/config.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS X-Ray](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/monitoring-and-audit/xray.md)** (`01-developer-associate/2-aws-deep-dive/monitoring-and-audit/xray.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[SDK: Software Development Kit](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/sdk.md)** (`01-developer-associate/2-aws-deep-dive/sdk.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[YAML Crash Course](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/2-aws-deep-dive/yaml.md)** (`01-developer-associate/2-aws-deep-dive/yaml.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[API Gateway](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/apigateway.md)** (`01-developer-associate/3-aws-serverless/apigateway.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS AppSync](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/appsync.md)** (`01-developer-associate/3-aws-serverless/appsync.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Cognito](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/cognito.md)** (`01-developer-associate/3-aws-serverless/cognito.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[DynamoDB](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/dynamodb.md)** (`01-developer-associate/3-aws-serverless/dynamodb.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Lambda](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/lambda.md)** (`01-developer-associate/3-aws-serverless/lambda.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS SAM](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/sam.md)** (`01-developer-associate/3-aws-serverless/sam.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Serverless](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/serverless.md)** (`01-developer-associate/3-aws-serverless/serverless.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Step Functions](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/3-aws-serverless/stepfunctions.md)** (`01-developer-associate/3-aws-serverless/stepfunctions.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[ecr](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/4-aws-containers/ecr.md)** (`01-developer-associate/4-aws-containers/ecr.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[ecs](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/4-aws-containers/ecs.md)** (`01-developer-associate/4-aws-containers/ecs.md`)
+  - *Missing:* Mermaid Diagram
+- **[fargate](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/4-aws-containers/fargate.md)** (`01-developer-associate/4-aws-containers/fargate.md`)
+  - *Missing:* Mermaid Diagram, Troubleshooting/Traps
+- **[KMS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/5-others/kms.md)** (`01-developer-associate/5-others/kms.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Secret Manager and System Parameters](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/5-others/secret-manager.md)** (`01-developer-associate/5-others/secret-manager.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam 2 - Part 1 (Questions 1-25)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-1.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-1.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam 2 - Part 2 (Questions 26-50)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-2.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-2.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam 2 - Part 3 (Questions 51-75)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-3.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-3.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[DVA-C02 Full Mock Exam 3 - Part 1 (Questions 1-25)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-1.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-1.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam 3 - Part 2 (Questions 26-50)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-2.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-2.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam 3 - Part 3 (Questions 51-75)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-3.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-3.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[DVA-C02 Full Mock Exam - Part 1 (Questions 1-25)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-1.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-1.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam - Part 2 (Questions 26-50)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-2.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-2.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[DVA-C02 Full Mock Exam - Part 3 (Questions 51-75)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-3.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam-Part-3.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Certified Developer – Associate (DVA-C02) Practice Mock Exams](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/Practice Exams/DVA-C02-Mock-Exam.md)** (`01-developer-associate/Practice Exams/DVA-C02-Mock-Exam.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Data Exchange](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Data Integration & Management/AWS Data Exchange.md)** (`02-solutions-architect-professional/Analytics/Data Integration & Management/AWS Data Exchange.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Kinesis Data Firehose](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Data Firehose.md)** (`02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Data Firehose.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon Kinesis Data Streams](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Kinesis Data Streams.md)** (`02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Kinesis Data Streams.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon Managed Service for Apache Flink](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Managed Service for Apache Flink.md)** (`02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Managed Service for Apache Flink.md`)
+  - *Missing:* Comparison Table, Troubleshooting/Traps
+- **[Amazon Managed Streaming for Apache Kafka (Amazon MSK)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Managed Streaming for Apache Kafka.md)** (`02-solutions-architect-professional/Analytics/Streaming Data & Real-Time Analytics/Amazon Managed Streaming for Apache Kafka.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon OpenSearch Serverless](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Visualization & Search/Amazon OpenSearch Serverless.md)** (`02-solutions-architect-professional/Analytics/Visualization & Search/Amazon OpenSearch Serverless.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Troubleshooting/Traps
+- **[Amazon OpenSearch](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Analytics/Visualization & Search/Amazon OpenSearch.md)** (`02-solutions-architect-professional/Analytics/Visualization & Search/Amazon OpenSearch.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS AppSync](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Application Integration/API & Workflow Integration/AWS AppSync.md)** (`02-solutions-architect-professional/Application Integration/API & Workflow Integration/AWS AppSync.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Step Functions](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Application Integration/API & Workflow Integration/AWS Step Functions.md)** (`02-solutions-architect-professional/Application Integration/API & Workflow Integration/AWS Step Functions.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon EventBridge](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon EventBridge.md)** (`02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon EventBridge.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon SNS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon SNS.md)** (`02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon SNS.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon SQS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon SQS.md)** (`02-solutions-architect-professional/Application Integration/Messaging & Eventing/Amazon SQS.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon Managed Blockchain](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Blockchain/Amazon Managed Blockchain.md)** (`02-solutions-architect-professional/Blockchain/Amazon Managed Blockchain.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Connect](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Business Applications/Contact Center & Email/Amazon Connect.md)** (`02-solutions-architect-professional/Business Applications/Contact Center & Email/Amazon Connect.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Simple Email Service (SES)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Business Applications/Contact Center & Email/Amazon SES.md)** (`02-solutions-architect-professional/Business Applications/Contact Center & Email/Amazon SES.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Alexa for Business](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Business Applications/Voice & Collaboration/AWS Alexa for Business.md)** (`02-solutions-architect-professional/Business Applications/Voice & Collaboration/AWS Alexa for Business.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Cost Allocation Tags](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Cloud Financial Management/Cost Allocation & Savings/AWS Cost Allocation Tags.md)** (`02-solutions-architect-professional/Cloud Financial Management/Cost Allocation & Savings/AWS Cost Allocation Tags.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Savings Plans](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Cloud Financial Management/Cost Allocation & Savings/Savings Plans.md)** (`02-solutions-architect-professional/Cloud Financial Management/Cost Allocation & Savings/Savings Plans.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Budgets](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Cloud Financial Management/Cost Monitoring & Budgeting/AWS Budgets.md)** (`02-solutions-architect-professional/Cloud Financial Management/Cost Monitoring & Budgeting/AWS Budgets.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[AWS Cost Explorer](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Cloud Financial Management/Cost Monitoring & Budgeting/AWS Cost Explorer.md)** (`02-solutions-architect-professional/Cloud Financial Management/Cost Monitoring & Budgeting/AWS Cost Explorer.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Auto Scaling](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Scaling & Batch Processing/AWS Auto Scaling.md)** (`02-solutions-architect-professional/Compute/Scaling & Batch Processing/AWS Auto Scaling.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Batch](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Scaling & Batch Processing/AWS Batch.md)** (`02-solutions-architect-professional/Compute/Scaling & Batch Processing/AWS Batch.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS App Runner](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS App Runner.md)** (`02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS App Runner.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Elastic Beanstalk](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS Elastic Beanstalk.md)** (`02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS Elastic Beanstalk.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Lambda](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS Lambda.md)** (`02-solutions-architect-professional/Compute/Serverless & Managed Compute/AWS Lambda.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon Lightsail](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Simplified Compute/Amazon Lightsail.md)** (`02-solutions-architect-professional/Compute/Simplified Compute/Amazon Lightsail.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon EC2 - Auto Scaling](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Auto Scaling.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Auto Scaling.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon EC2 - Fleets](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Fleets.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Fleets.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon EC2 - Monitoring](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Monitoring.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Monitoring.md`)
+  - *Missing:* Exam Tips
+- **[Amazon EC2 - Networking](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Networking.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Networking.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon EC2 - Security](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Security.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2 - Security.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon EC2](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2/Amazon EC2.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[EC2 Image Builder](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2 Image Builder.md)** (`02-solutions-architect-professional/Compute/Virtual Machines & Infrastructure/EC2 Image Builder.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon ECS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Containers/Container Orchestration/Amazon ECS.md)** (`02-solutions-architect-professional/Containers/Container Orchestration/Amazon ECS.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon EKS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Containers/Container Orchestration/Amazon EKS.md)** (`02-solutions-architect-professional/Containers/Container Orchestration/Amazon EKS.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon ECR](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Containers/Container Registry/Amazon ECR.md)** (`02-solutions-architect-professional/Containers/Container Registry/Amazon ECR.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon DynamoDB](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/NoSQL Databases/Amazon DynamoDB.md)** (`02-solutions-architect-professional/Database/NoSQL Databases/Amazon DynamoDB.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon Keyspaces](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/NoSQL Databases/Amazon Keyspaces.md)** (`02-solutions-architect-professional/Database/NoSQL Databases/Amazon Keyspaces.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Aurora](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon Aurora.md)** (`02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon Aurora.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon RDS](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon RDS.md)** (`02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon RDS.md`)
+  - *Missing:* Exam Tips
+- **[Amazon Redshift](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon Redshift.md)** (`02-solutions-architect-professional/Database/Relational & Data Warehouse/Amazon Redshift.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Amazon ElastiCache](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Database/Specialized & In-Memory/Amazon ElastiCache.md)** (`02-solutions-architect-professional/Database/Specialized & In-Memory/Amazon ElastiCache.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Amazon CodeGuru](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Developer Tools/CICD & Code Quality/Amazon CodeGuru.md)** (`02-solutions-architect-professional/Developer Tools/CICD & Code Quality/Amazon CodeGuru.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline, AWS CodeArtifact](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Developer Tools/CICD & Code Quality/AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline, AWS CodeArtifact.md)** (`02-solutions-architect-professional/Developer Tools/CICD & Code Quality/AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline, AWS CodeArtifact.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Fault Injection Simulator (FIS)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Developer Tools/Observability & Testing/AWS Fault Injection Simulator.md)** (`02-solutions-architect-professional/Developer Tools/Observability & Testing/AWS Fault Injection Simulator.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS X-Ray](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Developer Tools/Observability & Testing/AWS X-Ray.md)** (`02-solutions-architect-professional/Developer Tools/Observability & Testing/AWS X-Ray.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon AppStream 2.0](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/End User Computing/Amazon AppStream 2.0.md)** (`02-solutions-architect-professional/End User Computing/Amazon AppStream 2.0.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon WorkSpaces](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/End User Computing/Amazon WorkSpaces.md)** (`02-solutions-architect-professional/End User Computing/Amazon WorkSpaces.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon API Gateway](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Frontend Web & Mobile/API Management/Amazon API Gateway.md)** (`02-solutions-architect-professional/Frontend Web & Mobile/API Management/Amazon API Gateway.md`)
+  - *Missing:* Exam Tips
+- **[AWS Amplify](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Frontend Web & Mobile/Development Platforms/AWS Amplify.md)** (`02-solutions-architect-professional/Frontend Web & Mobile/Development Platforms/AWS Amplify.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Device Farm](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Frontend Web & Mobile/Development Platforms/AWS Device Farm.md)** (`02-solutions-architect-professional/Frontend Web & Mobile/Development Platforms/AWS Device Farm.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Pinpoint](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Frontend Web & Mobile/User Engagement/Amazon Pinpoint.md)** (`02-solutions-architect-professional/Frontend Web & Mobile/User Engagement/Amazon Pinpoint.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS IoT Services](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Internet of Things/AWS IoT Services.md)** (`02-solutions-architect-professional/Internet of Things/AWS IoT Services.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Amazon Rekognition](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Computer Vision & Document Processing/Amazon Rekognition.md)** (`02-solutions-architect-professional/Machine Learning/Computer Vision & Document Processing/Amazon Rekognition.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Textract](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Computer Vision & Document Processing/Amazon Textract.md)** (`02-solutions-architect-professional/Machine Learning/Computer Vision & Document Processing/Amazon Textract.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Bedrock](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Generative AI/Amazon Bedrock.md)** (`02-solutions-architect-professional/Machine Learning/Generative AI/Amazon Bedrock.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Troubleshooting/Traps
+- **[Amazon Q](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Generative AI/Amazon Q.md)** (`02-solutions-architect-professional/Machine Learning/Generative AI/Amazon Q.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table
+- **[Amazon SageMaker](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/ML Platform/Amazon SageMaker.md)** (`02-solutions-architect-professional/Machine Learning/ML Platform/Amazon SageMaker.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[Amazon Comprehend](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Comprehend.md)** (`02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Comprehend.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Lex](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Lex.md)** (`02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Lex.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Transcribe](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Transcribe.md)** (`02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Transcribe.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Translate](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Translate.md)** (`02-solutions-architect-professional/Machine Learning/Natural Language & Speech/Amazon Translate.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Kendra](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Search & Personalization/Amazon Kendra.md)** (`02-solutions-architect-professional/Machine Learning/Search & Personalization/Amazon Kendra.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Personalize](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Search & Personalization/Amazon Personalize.md)** (`02-solutions-architect-professional/Machine Learning/Search & Personalization/Amazon Personalize.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Polly](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Machine Learning/Speech Synthesis/Amazon Polly.md)** (`02-solutions-architect-professional/Machine Learning/Speech Synthesis/Amazon Polly.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Cost Optimization Tools](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Cost Management/Cost Optimization Tools.md)** (`02-solutions-architect-professional/Management & Governance/Cost Management/Cost Optimization Tools.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Config](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Config.md)** (`02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Config.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[AWS Organizations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Organizations.md)** (`02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Organizations.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[AWS Service Catalog](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Service Catalog.md)** (`02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Service Catalog.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Service Quotas](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Service Quotas.md)** (`02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Service Quotas.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Well-Architected Tool](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Well-Architected Tool.md)** (`02-solutions-architect-professional/Management & Governance/Governance & Compliance/AWS Well-Architected Tool.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Cloud Development Kit (CDK)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Infrastructure Automation/AWS Cloud Development Kit.md)** (`02-solutions-architect-professional/Management & Governance/Infrastructure Automation/AWS Cloud Development Kit.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS CloudFormation](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Infrastructure Automation/AWS CloudFormation.md)** (`02-solutions-architect-professional/Management & Governance/Infrastructure Automation/AWS CloudFormation.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[Amazon CloudWatch](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Monitoring & Observability/Amazon CloudWatch.md)** (`02-solutions-architect-professional/Management & Governance/Monitoring & Observability/Amazon CloudWatch.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS CloudTrail](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Monitoring & Observability/AWS CloudTrail.md)** (`02-solutions-architect-professional/Management & Governance/Monitoring & Observability/AWS CloudTrail.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Personal Health Dashboard](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Monitoring & Observability/AWS Personal Health Dashboard.md)** (`02-solutions-architect-professional/Management & Governance/Monitoring & Observability/AWS Personal Health Dashboard.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[AWS Systems Manager](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Operations & Optimization/AWS Systems Manager.md)** (`02-solutions-architect-professional/Management & Governance/Operations & Optimization/AWS Systems Manager.md`)
+  - *Missing:* Troubleshooting/Traps
+- **[AWS Trusted Advisor](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Management & Governance/Operations & Optimization/AWS Trusted Advisor.md)** (`02-solutions-architect-professional/Management & Governance/Operations & Optimization/AWS Trusted Advisor.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Kinesis Video Streams](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Media Services/Amazon Kinesis Video Streams.md)** (`02-solutions-architect-professional/Media Services/Amazon Kinesis Video Streams.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Application Migration Service (MGN)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Migration & Transfer/Migration Tools/AWS Application Migration Service.md)** (`02-solutions-architect-professional/Migration & Transfer/Migration Tools/AWS Application Migration Service.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Database Migration Service](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Migration & Transfer/Migration Tools/AWS Database Migration Service.md)** (`02-solutions-architect-professional/Migration & Transfer/Migration Tools/AWS Database Migration Service.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Migration Strategies (The 6R's)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Migration & Transfer/Migration Tools/Migration Strategies.md)** (`02-solutions-architect-professional/Migration & Transfer/Migration Tools/Migration Strategies.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Amazon CloudFront](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/Amazon CloudFront.md)** (`02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/Amazon CloudFront.md`)
+  - *Missing:* Exam Tips
+- **[AWS Route 53](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/AWS Route 53.md)** (`02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/AWS Route 53.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[Global Traffic Management](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/Global Traffic Management.md)** (`02-solutions-architect-professional/Networking & Content Delivery/CDN & DNS/Global Traffic Management.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Hybrid Connectivity & Sharing (RAM)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Hybrid Connectivity/Hybrid Connectivity & RAM.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Hybrid Connectivity/Hybrid Connectivity & RAM.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[AWS Elastic Load Balancing](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Traffic Management/AWS Elastic Load Balancing.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Traffic Management/AWS Elastic Load Balancing.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[AWS VPC Lattice](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Traffic Management/AWS VPC Lattice.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Traffic Management/AWS VPC Lattice.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Troubleshooting/Traps
+- **[AWS Virtual Private Cloud (VPC)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/Amazon VPC.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/Amazon VPC.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[AWS Direct Connect](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Direct Connect.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Direct Connect.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Local Zone](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Local Zones.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Local Zones.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Transit Gateway](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Transit Gateway.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Transit Gateway.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS VPN](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS VPN.md)** (`02-solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS VPN.md`)
+  - *Missing:* Comparison Table, Exam Tips
+- **[AWS Artifact](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Compliance & Governance/AWS Artifact.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Compliance & Governance/AWS Artifact.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Resource Access Manager](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Compliance & Governance/AWS Resource Access Manager.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Compliance & Governance/AWS Resource Access Manager.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Certificate Manager](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Certificate Manager.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Certificate Manager.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS CloudHSM](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS CloudHSM.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS CloudHSM.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Key Management Service (KMS)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Key Management Service.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Key Management Service.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Macie](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Macie.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Macie.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Secrets Manager](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Secrets Manager.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Data Protection & Encryption/AWS Secrets Manager.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Cognito](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/Amazon Cognito.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/Amazon Cognito.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon Verified Permissions](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/Amazon Verified Permissions.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/Amazon Verified Permissions.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Troubleshooting/Traps
+- **[AWS Directory Services](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS Directory Services.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS Directory Services.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS IAM Identity Center](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS IAM Identity Center.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS IAM Identity Center.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Identity and Access Management (IAM)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS Identity and Access Management.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS Identity and Access Management.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[AWS Shields](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Network Security/AWS Shield.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Network Security/AWS Shield.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS WAF](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Security, Identity & Compliance/Network Security/AWS WAF.md)** (`02-solutions-architect-professional/Security, Identity & Compliance/Network Security/AWS WAF.md`)
+  - *Missing:* Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Backup](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Backup & Disaster Recovery/AWS Backup.md)** (`02-solutions-architect-professional/Storage/Backup & Disaster Recovery/AWS Backup.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[AWS Elastic Disaster Recovery (DRS)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Backup & Disaster Recovery/AWS Elastic Disaster Recovery.md)** (`02-solutions-architect-professional/Storage/Backup & Disaster Recovery/AWS Elastic Disaster Recovery.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips
+- **[Disaster Recovery Strategies](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Backup & Disaster Recovery/Disaster Recovery Strategies.md)** (`02-solutions-architect-professional/Storage/Backup & Disaster Recovery/Disaster Recovery Strategies.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Amazon Elastic Block Storage (EBS)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon Elastic Block Storage.md)** (`02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon Elastic Block Storage.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Amazon Elastic File System (EFS)](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon Elastic File System.md)** (`02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon Elastic File System.md`)
+  - *Missing:* Mermaid Diagram, Exam Tips, Troubleshooting/Traps
+- **[Amazon FSx](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon FSx.md)** (`02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon FSx.md`)
+  - *Missing:* Mermaid Diagram, Comparison Table, Exam Tips, Troubleshooting/Traps
+- **[Amazon S3](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon S3.md)** (`02-solutions-architect-professional/Storage/Object, Block, & File Storage/Amazon S3.md`)
+  - *Missing:* Exam Tips
+- **[ALB vs NLB vs GWLB Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/alb-vs-nlb-vs-gwlb.md)** (`03-architecture-decision-frameworks/alb-vs-nlb-vs-gwlb.md`)
+  - *Missing:* Mermaid Diagram
+- **[Amazon Aurora vs Amazon RDS Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/aurora-vs-rds.md)** (`03-architecture-decision-frameworks/aurora-vs-rds.md`)
+  - *Missing:* Mermaid Diagram
+- **[Amazon CloudFront vs AWS Global Accelerator Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/cloudfront-vs-global-accelerator.md)** (`03-architecture-decision-frameworks/cloudfront-vs-global-accelerator.md`)
+  - *Missing:* Mermaid Diagram
+- **[AWS DMS vs AWS Application Migration Service (MGN) Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/dms-vs-mgn.md)** (`03-architecture-decision-frameworks/dms-vs-mgn.md`)
+  - *Missing:* Mermaid Diagram
+- **[ECS vs EKS Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/ecs-vs-eks.md)** (`03-architecture-decision-frameworks/ecs-vs-eks.md`)
+  - *Missing:* Mermaid Diagram
+- **[Amazon EFS vs Amazon FSx Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/efs-vs-fsx.md)** (`03-architecture-decision-frameworks/efs-vs-fsx.md`)
+  - *Missing:* Mermaid Diagram
+- **[Amazon SNS vs Amazon EventBridge Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/sns-vs-eventbridge.md)** (`03-architecture-decision-frameworks/sns-vs-eventbridge.md`)
+  - *Missing:* Mermaid Diagram
+- **[Amazon SQS vs Amazon MQ Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/sqs-vs-mq.md)** (`03-architecture-decision-frameworks/sqs-vs-mq.md`)
+  - *Missing:* Mermaid Diagram
+- **[Transit Gateway vs AWS Cloud WAN Decision Matrix](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/03-architecture-decision-frameworks/transit-gateway-vs-cloud-wan.md)** (`03-architecture-decision-frameworks/transit-gateway-vs-cloud-wan.md`)
+  - *Missing:* Mermaid Diagram
+- **[Workshop 1](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/enterprise-landing-zone.md)** (`04-architecture-workshops/enterprise-landing-zone.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Workshop 2](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/global-saas-platform.md)** (`04-architecture-workshops/global-saas-platform.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Workshop 3](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/hybrid-enterprise-network.md)** (`04-architecture-workshops/hybrid-enterprise-network.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Workshop 6](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/iot-platform.md)** (`04-architecture-workshops/iot-platform.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Workshop 5](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/media-streaming-platform.md)** (`04-architecture-workshops/media-streaming-platform.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[Workshop 4](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/04-architecture-workshops/multi-region-dr.md)** (`04-architecture-workshops/multi-region-dr.md`)
+  - *Missing:* Exam Tips, Troubleshooting/Traps
+- **[AWS Certification 05-exam-strategy](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/05-exam-strategy/intro.md)** (`05-exam-strategy/intro.md`)
+  - *Missing:* Mermaid Diagram, Troubleshooting/Traps

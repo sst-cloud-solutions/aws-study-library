@@ -1,0 +1,8 @@
+{
+  "label": "03 / Decision Frameworks",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Comparative analysis matrices to guide critical architecture decisions on AWS."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "dva": {
+    "track": "Developer Associate",
+    "categories": {
+      "IAM Deep Dive": 5,
+      "AWS Serverless": 4,
+      "AWS Containers": 3,
+      "Monitoring and Audit": 2,
+      "Security and Authentication": 4,
+      "AWS Developer Tooling": 5
+    },
+    "total": 23
+  },
+  "sap": {
+    "track": "Solutions Architect Professional",
+    "categories": {
+      "Compute": 6,
+      "Containers": 5,
+      "Storage": 8,
+      "Databases": 9,
+      "Networking": 8,
+      "Security": 9,
+      "Governance": 4,
+      "Migration": 4,
+      "Analytics": 6,
+      "Application Integration": 3,
+      "Hybrid and Edge": 5,
+      "Cost Optimization": 6,
+      "Well-Architected": 1
+    },
+    "total": 74
+  }
+}

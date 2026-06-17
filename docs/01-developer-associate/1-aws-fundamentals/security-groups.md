@@ -1,0 +1,41 @@
+# Security Groups
+
+#### The fundamental of network security in AWS
+
+* Can be attached to multiple instances
+* Locked down to a region / VPC combination
+* Does live “outside” the EC2 - if traffic is blocked, the EC2 instance won’t see it
+* It’s good to maintain one separate security group for SSH access
+* If your application is not accessible (time out), then it’s usually a security group issue
+* If your application gives a “connection refused” error, then it’s an application error or its not launched
+* All inbound traffic is blocked by default
+* All outbound traffic authorized by default
+
+#### Security groups act as a firewall on EC2 Instances
+They regulate:
+* Access to ports
+* Authorized IP ranges - IPv4 and IPv6
+* Control of inbound network
+* Control of outbound network
+
+
+#### Network ACL versus SG
+* Security groups are *stateful* and ACL are *stateless*
+    * SG: If you allow inbound port, outbound port is automatically allowed (and vice versa). You define the rule in one direction
+    * ACL: Rules are evaluated independenly for inbound and outbound. You must explicity allow the return traffic
+
+---
+
+## Prerequisites
+
+- [IAM: Identity and Access Management](iam.md)
+
+## Recommended Next Topics
+
+- [VPC: Virtual Private Cloud](vpc.md)
+
+## Related Topics
+
+- [IAM: Identity and Access Management](iam.md)
+- [VPC: Virtual Private Cloud](vpc.md)
+- [EC2: Virtual Machines](ec2.md)

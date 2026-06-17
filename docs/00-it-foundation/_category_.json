@@ -1,0 +1,8 @@
+{
+  "label": "00 / IT Foundation",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Core foundational concepts in IT, systems, networks, and databases for cloud engineering."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Internet of Things",
+  "position": 17,
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive guides, architecture blueprints, and exam preparation resources for AWS Internet of Things services."
+  }
+}

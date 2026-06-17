@@ -1,0 +1,8 @@
+{
+  "label": "Cloudformation",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive guides, architecture blueprints, and exam preparation resources for AWS Cloudformation services."
+  }
+}

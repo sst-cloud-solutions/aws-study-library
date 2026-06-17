@@ -1,0 +1,151 @@
+--- Duplicate Topics (by Title) ---
+
+Normalized Title: "awscloudtrail" (Raw titles: AWS CloudTrail, AWS CloudTrail)
+  - Path: Developer Associate/2-aws-deep-dive/monitoring-and-audit/cloudtrail.md (Size: 367 bytes)
+  - Path: Solutions Architect Professional/Management and Governance/Monitoring & Observability/AWS CloudTrail.md (Size: 29827 bytes)
+
+Normalized Title: "awsconfig" (Raw titles: AWS Config, AWS Config)
+  - Path: Developer Associate/2-aws-deep-dive/monitoring-and-audit/config.md (Size: 423 bytes)
+  - Path: Solutions Architect Professional/Management and Governance/Governance & Compliance/AWS Config.md (Size: 38394 bytes)
+
+Normalized Title: "awsxray" (Raw titles: AWS X-Ray, AWS X-Ray)
+  - Path: Developer Associate/2-aws-deep-dive/monitoring-and-audit/xray.md (Size: 3153 bytes)
+  - Path: Solutions Architect Professional/Developer Tools/Observability & Testing/AWS X-Ray.md (Size: 8411 bytes)
+
+Normalized Title: "awsappsync" (Raw titles: AWS AppSync, AWS AppSync)
+  - Path: Developer Associate/3-aws-serverless/appsync.md (Size: 1384 bytes)
+  - Path: Solutions Architect Professional/Application Integration/API & Workflow Integration/AWS AppSync.md (Size: 6441 bytes)
+
+Normalized Title: "amazoneventbridge" (Raw titles: Amazon EventBridge, Amazon EventBridge)
+  - Path: Developer Associate/3-aws-serverless/eventbridge-deep-dive.md (Size: 2105 bytes)
+  - Path: Solutions Architect Professional/Application Integration/Messaging & Eventing/Amazon EventBridge.md (Size: 6721 bytes)
+
+Normalized Title: "awslambda" (Raw titles: AWS Lambda, AWS Lambda)
+  - Path: Developer Associate/3-aws-serverless/lambda.md (Size: 16458 bytes)
+  - Path: Solutions Architect Professional/Compute/Serverless & Managed Compute/AWS Lambda.md (Size: 52260 bytes)
+
+Normalized Title: "awsstepfunctions" (Raw titles: AWS Step Functions, AWS Step Functions)
+  - Path: Developer Associate/3-aws-serverless/stepfunctions.md (Size: 1879 bytes)
+  - Path: Solutions Architect Professional/Application Integration/API & Workflow Integration/AWS Step Functions.md (Size: 7703 bytes)
+
+Normalized Title: "amazonathena" (Raw titles: Amazon Athena, Amazon Athena)
+  - Path: Solutions Architect Professional/Analytics/athena.md (Size: 2154 bytes)
+  - Path: Solutions Architect Professional/Analytics/Interactive Query & Batch Processing/Amazon Athena.md (Size: 11479 bytes)
+
+Normalized Title: "awsglue" (Raw titles: AWS Glue, AWS Glue)
+  - Path: Solutions Architect Professional/Analytics/Data Integration & Management/AWS Glue.md (Size: 12254 bytes)
+  - Path: Solutions Architect Professional/Analytics/glue.md (Size: 1964 bytes)
+
+Normalized Title: "awslakeformation" (Raw titles: AWS Lake Formation, AWS Lake Formation)
+  - Path: Solutions Architect Professional/Analytics/Data Integration & Management/AWS Lake Formation.md (Size: 9191 bytes)
+  - Path: Solutions Architect Professional/Analytics/lake-formation.md (Size: 2120 bytes)
+
+Normalized Title: "amazonemr" (Raw titles: Amazon EMR, Amazon EMR)
+  - Path: Solutions Architect Professional/Analytics/emr.md (Size: 2110 bytes)
+  - Path: Solutions Architect Professional/Analytics/Interactive Query & Batch Processing/Amazon EMR.md (Size: 7206 bytes)
+
+Normalized Title: "amazonquicksight" (Raw titles: Amazon QuickSight, Amazon QuickSight)
+  - Path: Solutions Architect Professional/Analytics/quicksight.md (Size: 2071 bytes)
+  - Path: Solutions Architect Professional/Analytics/Visualization & Search/Amazon QuickSight.md (Size: 3808 bytes)
+
+Normalized Title: "amazonmq" (Raw titles: Amazon MQ, Amazon MQ)
+  - Path: Solutions Architect Professional/Application Integration/amazon-mq.md (Size: 2078 bytes)
+  - Path: Solutions Architect Professional/Application Integration/Messaging & Eventing/Amazon MQ.md (Size: 3451 bytes)
+
+Normalized Title: "awscomputeoptimizer" (Raw titles: AWS Compute Optimizer, AWS Compute Optimizer)
+  - Path: Solutions Architect Professional/Cloud Financial Management/compute-optimizer.md (Size: 2184 bytes)
+  - Path: Solutions Architect Professional/Management and Governance/Operations & Optimization/AWS Compute Optimizer.md (Size: 4545 bytes)
+
+Normalized Title: "awsoutposts" (Raw titles: AWS Outposts, AWS Outposts)
+  - Path: Solutions Architect Professional/Compute/outposts.md (Size: 2283 bytes)
+  - Path: Solutions Architect Professional/Compute/Virtual Machines & Infrastructure/AWS Outposts.md (Size: 4075 bytes)
+
+Normalized Title: "awswavelength" (Raw titles: AWS Wavelength, AWS Wavelength)
+  - Path: Solutions Architect Professional/Compute/Virtual Machines & Infrastructure/AWS Wavelength.md (Size: 3450 bytes)
+  - Path: Solutions Architect Professional/Compute/wavelength.md (Size: 2223 bytes)
+
+Normalized Title: "amazondocumentdb" (Raw titles: Amazon DocumentDB, Amazon DocumentDB)
+  - Path: Solutions Architect Professional/Database/documentdb.md (Size: 2149 bytes)
+  - Path: Solutions Architect Professional/Database/NoSQL Databases/Amazon DocumentDB.md (Size: 6312 bytes)
+
+Normalized Title: "amazonneptune" (Raw titles: Amazon Neptune, Amazon Neptune)
+  - Path: Solutions Architect Professional/Database/neptune.md (Size: 2109 bytes)
+  - Path: Solutions Architect Professional/Database/Specialized & In-Memory/Amazon Neptune.md (Size: 4363 bytes)
+
+Normalized Title: "amazontimestream" (Raw titles: Amazon Timestream, Amazon Timestream)
+  - Path: Solutions Architect Professional/Database/Specialized & In-Memory/Amazon Timestream.md (Size: 5539 bytes)
+  - Path: Solutions Architect Professional/Database/timestream.md (Size: 2145 bytes)
+
+Normalized Title: "awsauditmanager" (Raw titles: AWS Audit Manager, AWS Audit Manager)
+  - Path: Solutions Architect Professional/Management and Governance/audit-manager.md (Size: 2055 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Compliance & Governance/AWS Audit Manager.md (Size: 6608 bytes)
+
+Normalized Title: "awscontroltower" (Raw titles: AWS Control Tower, AWS Control Tower)
+  - Path: Solutions Architect Professional/Management and Governance/control-tower-deep-dive.md (Size: 2254 bytes)
+  - Path: Solutions Architect Professional/Management and Governance/Governance & Compliance/AWS Control Tower.md (Size: 12403 bytes)
+
+Normalized Title: "awsapplicationdiscoveryservice" (Raw titles: AWS Application Discovery Service, AWS Application Discovery Service)
+  - Path: Solutions Architect Professional/Migration and Transfer/application-discovery-service.md (Size: 2159 bytes)
+  - Path: Solutions Architect Professional/Migration and Transfer/Migration Tools/AWS Application Discovery Service.md (Size: 7213 bytes)
+
+Normalized Title: "awstransferfamily" (Raw titles: AWS Transfer Family, AWS Transfer Family)
+  - Path: Solutions Architect Professional/Migration and Transfer/File Transfer/AWS Transfer Family.md (Size: 6646 bytes)
+  - Path: Solutions Architect Professional/Storage/transfer-family.md (Size: 2117 bytes)
+
+Normalized Title: "awsdatasync" (Raw titles: AWS DataSync, AWS DataSync)
+  - Path: Solutions Architect Professional/Migration and Transfer/Migration Tools/AWS DataSync.md (Size: 7641 bytes)
+  - Path: Solutions Architect Professional/Storage/datasync.md (Size: 2236 bytes)
+
+Normalized Title: "awsmigrationevaluator" (Raw titles: AWS Migration Evaluator, AWS Migration Evaluator)
+  - Path: Solutions Architect Professional/Migration and Transfer/Migration Tools/AWS Migration Evaluator.md (Size: 7931 bytes)
+  - Path: Solutions Architect Professional/Migration and Transfer/migration-evaluator.md (Size: 2052 bytes)
+
+Normalized Title: "awsmigrationhub" (Raw titles: AWS Migration Hub, AWS Migration Hub)
+  - Path: Solutions Architect Professional/Migration and Transfer/Migration Tools/AWS Migration Hub.md (Size: 5562 bytes)
+  - Path: Solutions Architect Professional/Migration and Transfer/migration-hub.md (Size: 2012 bytes)
+
+Normalized Title: "awssnowfamily" (Raw titles: AWS Snow Family, AWS Snow Family)
+  - Path: Solutions Architect Professional/Migration and Transfer/Physical & Offline Migration/AWS Snow Family.md (Size: 5367 bytes)
+  - Path: Solutions Architect Professional/Migration and Transfer/snow-family.md (Size: 2085 bytes)
+
+Normalized Title: "awsprivatelink" (Raw titles: AWS PrivateLink, AWS PrivateLink)
+  - Path: Solutions Architect Professional/Networking and Content Delivery/Hybrid Connectivity/AWS PrivateLink.md (Size: 10328 bytes)
+  - Path: Solutions Architect Professional/Networking and Content Delivery/privatelink.md (Size: 2213 bytes)
+
+Normalized Title: "awsnetworkfirewall" (Raw titles: AWS Network Firewall, AWS Network Firewall)
+  - Path: Solutions Architect Professional/Networking and Content Delivery/network-firewall.md (Size: 2214 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Network Security/AWS Network Firewall.md (Size: 10084 bytes)
+
+Normalized Title: "part1questions125" (Raw titles: Part 1 (Questions 1-25), Part 1 (Questions 1-25))
+  - Path: Solutions Architect Professional/Practice Exams/SAP-C02 Mock Exam - Part 1.md (Size: 30218 bytes)
+  - Path: Solutions Architect Professional/Practice Exams/SAP-C02 Mock Exam 3 - Part 1.md (Size: 30667 bytes)
+
+Normalized Title: "amazondetective" (Raw titles: Amazon Detective, Amazon Detective)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/detective.md (Size: 2119 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Security Monitoring & Threat Detection/Amazon Detective.md (Size: 7263 bytes)
+
+Normalized Title: "awsfirewallmanager" (Raw titles: AWS Firewall Manager, AWS Firewall Manager)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/firewall-manager.md (Size: 2218 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Network Security/AWS Firewall Manager.md (Size: 6409 bytes)
+
+Normalized Title: "amazonguardduty" (Raw titles: Amazon GuardDuty, Amazon GuardDuty)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/guardduty.md (Size: 2257 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Security Monitoring & Threat Detection/Amazon GuardDuty.md (Size: 11922 bytes)
+
+Normalized Title: "awsverifiedaccess" (Raw titles: AWS Verified Access, AWS Verified Access)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Identity & Access Management/AWS Verified Access.md (Size: 2149 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/verified-access.md (Size: 2329 bytes)
+
+Normalized Title: "amazoninspector" (Raw titles: Amazon Inspector, Amazon Inspector)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/inspector.md (Size: 2256 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Security Monitoring & Threat Detection/Amazon Inspector.md (Size: 9307 bytes)
+
+Normalized Title: "awssecurityhub" (Raw titles: AWS Security Hub, AWS Security Hub)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/Security Monitoring & Threat Detection/AWS Security Hub.md (Size: 11453 bytes)
+  - Path: Solutions Architect Professional/Security, Identity, and Compliance/security-hub.md (Size: 2226 bytes)
+
+Normalized Title: "awsstoragegateway" (Raw titles: AWS Storage Gateway, AWS Storage Gateway)
+  - Path: Solutions Architect Professional/Storage/Backup & Disaster Recovery/AWS Storage Gateway.md (Size: 10234 bytes)
+  - Path: Solutions Architect Professional/Storage/storage-gateway.md (Size: 2411 bytes)
+
+Total duplicate topics: 37

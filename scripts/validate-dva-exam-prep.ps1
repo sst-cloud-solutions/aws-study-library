@@ -1,7 +1,7 @@
 # AWS Certified Developer - Associate (DVA-C02) Content Validation Script
 # This script scans the Docusaurus 'docs/Developer Associate' folder to audit exam topic coverage and print a readiness report.
 
-$docsPath = Join-Path $PSScriptRoot "..\docs\Developer Associate"
+$docsPath = Join-Path $PSScriptRoot "..\docs\01-developer-associate"
 if (-not (Test-Path $docsPath)) {
     Write-Error "Could not find DVA-C02 docs directory at $docsPath"
     exit 1
@@ -98,6 +98,28 @@ foreach ($item in $checklist) {
     }
 }
 
+# Structural audits
+$mermaidCount = 0
+$tipsCount = 0
+$trapsCount = 0
+$tablesCount = 0
+
+foreach ($file in $fileContents) {
+    if ($file.Content) {
+        $matchesMermaid = [regex]::Matches($file.Content, "(?s)```mermaid")
+        $mermaidCount += $matchesMermaid.Count
+
+        $matchesTips = [regex]::Matches($file.Content, "(?i)(:::tip|> \[!TIP\])")
+        $tipsCount += $matchesTips.Count
+
+        $matchesTraps = [regex]::Matches($file.Content, "(?i)(:::warning|> \[!WARNING\])")
+        $trapsCount += $matchesTraps.Count
+
+        $matchesSeparators = [regex]::Matches($file.Content, "(?m)^\|\s*:?-+:?\s*\|")
+        $tablesCount += $matchesSeparators.Count
+    }
+}
+
 # Calculate Score
 $score = [Math]::Round(($coveredCount / $checklist.Count) * 100, 2)
 
@@ -112,6 +134,12 @@ $results | Group-Object Category | ForEach-Object {
         }
     }
 }
+
+Write-Host "`n--- Structural Features Audit ---" -ForegroundColor White
+Write-Host " Mermaid Architecture Diagrams : $mermaidCount found" -ForegroundColor Green
+Write-Host " Exam Tips (:::tip)            : $tipsCount found" -ForegroundColor Green
+Write-Host " Common Exam Traps (:::warning): $trapsCount found" -ForegroundColor Green
+Write-Host " Service Comparison Tables     : $tablesCount found" -ForegroundColor Green
 
 Write-Host "`n==========================================================" -ForegroundColor Cyan
 Write-Host "                    AUDIT SUMMARY                         " -ForegroundColor Cyan
@@ -135,6 +163,12 @@ $reportMD = @"
 
 Generated on: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Readiness Score: **$score%** ($coveredCount / $($checklist.Count) topics covered)
+
+## Structural Features Audit
+- **Mermaid Diagrams:** $mermaidCount found
+- **Exam Tips (:::tip):** $tipsCount found
+- **Common Exam Traps (:::warning):** $trapsCount found
+- **Comparison Tables:** $tablesCount found
 
 ## Coverage Summary by Domain
 

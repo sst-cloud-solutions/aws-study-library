@@ -1,0 +1,8 @@
+{
+  "label": "Migration & Transfer",
+  "position": 13,
+  "link": {
+    "type": "generated-index",
+    "description": "Formulating AWS migration strategies, physical offline transfers, and hybrid migration tools."
+  }
+}
