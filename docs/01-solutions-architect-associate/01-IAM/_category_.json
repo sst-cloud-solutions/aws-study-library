@@ -1,0 +1,8 @@
+{
+  "label": "IAM",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive guides, architecture blueprints, and exam preparation resources for AWS IAM services."
+  }
+}

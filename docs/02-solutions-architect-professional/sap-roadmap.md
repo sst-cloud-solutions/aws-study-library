@@ -339,7 +339,7 @@ Before sitting the official exam, validate your readiness with three full-length
 
 ## Prerequisites
 
-- [🎯 Reinforcement Practice Questions - All 7 Tests Incorrect Areas](../01-solutions-architect-associate/exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.md)
+- None (Start of Solutions Architect Professional track)
 
 ## Recommended Next Topics
 
@@ -347,6 +347,4 @@ Before sitting the official exam, validate your readiness with three full-length
 
 ## Related Topics
 
-- [AWS Well-Architected Framework](well-architected-framework.md)
-- [AWS Well-Architected Framework](well-architected-framework.md)
 - [AWS Well-Architected Framework](well-architected-framework.md)

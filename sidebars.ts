@@ -12,7 +12,101 @@ const sidebars: SidebarsConfig = {
     'it-foundation/web-application-fundamentals',
     'it-foundation/servers-infrastructure',
     'it-foundation/devops-foundations',
-    'it-foundation/security-foundations'
+    'it-foundation/security-foundations',
+    'it-foundation/aws-fundamentals/README'
+  ],
+
+  aifSidebar: [
+    'ai-practitioner/aif-roadmap',
+    {
+      type: 'category',
+      label: 'Phase 1: AI/ML Fundamentals',
+      collapsed: false,
+      items: [
+    'ai-practitioner/ai-and-ml/ai-and-ml-introduction'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Phase 2: Generative AI & Amazon Bedrock',
+      collapsed: false,
+      items: [
+    'ai-practitioner/gen-ai/genai-introduction',
+    'ai-practitioner/gen-ai/amazon-bedrock',
+    'ai-practitioner/gen-ai/prompt-engineering',
+    'ai-practitioner/gen-ai/amazon-q'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Phase 3: AWS Managed AI Services',
+      collapsed: false,
+      items: [
+    'ai-practitioner/aws-managed-ai-services/introduction-of-aws-managed-ai-services',
+    'ai-practitioner/aws-managed-ai-services/aws-comprehend',
+    'ai-practitioner/aws-managed-ai-services/aws-translate',
+    'ai-practitioner/aws-managed-ai-services/aws-transcribe',
+    'ai-practitioner/aws-managed-ai-services/aws-polly',
+    'ai-practitioner/aws-managed-ai-services/aws-rekognition',
+    'ai-practitioner/aws-managed-ai-services/aws-lex',
+    'ai-practitioner/aws-managed-ai-services/aws-personalize',
+    'ai-practitioner/aws-managed-ai-services/aws-textract',
+    'ai-practitioner/aws-managed-ai-services/aws-kendra',
+    'ai-practitioner/aws-managed-ai-services/aws-mechanical-turk',
+    'ai-practitioner/aws-managed-ai-services/aws-augmented-ai',
+    'ai-practitioner/aws-managed-ai-services/ai-hardware',
+    'ai-practitioner/aws-managed-ai-services/aws-ai-services-summary'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Phase 4: Amazon SageMaker Deep Dive',
+      collapsed: false,
+      items: [
+    'ai-practitioner/sagemaker/aws-sagemaker'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Phase 5: Responsible AI, Security & MLOps',
+      collapsed: false,
+      items: [
+    'ai-practitioner/ai-challenges-and-responsibilities/responsible-ai',
+    'ai-practitioner/ai-challenges-and-responsibilities/genai-challenges',
+    'ai-practitioner/ai-challenges-and-responsibilities/compliance',
+    'ai-practitioner/ai-challenges-and-responsibilities/governance',
+    'ai-practitioner/ai-challenges-and-responsibilities/security-and-privacy',
+    'ai-practitioner/ai-challenges-and-responsibilities/mlops',
+    'ai-practitioner/aws-security-services/aws-security-services'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Phase 6: Reference Materials',
+      collapsed: false,
+      items: [
+        'ai-practitioner/study-guide',
+        'ai-practitioner/glossary'
+      ]
+    }
+  ],
+
+  aifPracticeSidebar: [
+    'ai-practitioner/practice-test/tests',
+    {
+      type: 'category',
+      label: 'Practice Exams',
+      collapsed: false,
+      items: [
+        'ai-practitioner/practice-test/practice-test-1',
+        'ai-practitioner/practice-test/practice-test-2',
+        'ai-practitioner/practice-test/practice-test-3',
+        'ai-practitioner/practice-test/practice-test-4',
+        'ai-practitioner/practice-test/practice-test-5',
+        'ai-practitioner/practice-test/practice-test-6',
+        'ai-practitioner/practice-test/practice-test-7'
+      ]
+    }
   ],
 
   dvaSidebar: [
@@ -136,7 +230,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Mock Exam 2 (75 Questions)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-1',
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-2',
@@ -146,7 +240,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Mock Exam 3 (75 Questions - Advanced)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-1',
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-2',
@@ -159,25 +253,20 @@ const sidebars: SidebarsConfig = {
     'solutions-architect-associate/saa-roadmap',
     {
       type: 'category',
-      label: 'Phase 1: AWS Fundamentals & IAM',
+      label: 'Phase 1: Identity & Access Management',
       collapsed: false,
       items: [
-    'solutions-architect-associate/AWS-Fundamentals/README',
-    'solutions-architect-associate/AWS-Fundamentals/FAST-LEARN',
-    'solutions-architect-associate/AWS-Fundamentals/ULTRA-FAST-LEARN',
-    'solutions-architect-associate/AWS-Fundamentals/DIAGRAMS',
-    'solutions-architect-associate/AWS-Fundamentals/PRACTICE-QUESTIONS',
-    'solutions-architect-associate/IAM/README',
     'solutions-architect-associate/IAM/FAST-LEARN',
     'solutions-architect-associate/IAM/ULTRA-FAST-LEARN',
     'solutions-architect-associate/IAM/DIAGRAMS',
-    'solutions-architect-associate/IAM/PRACTICE-QUESTIONS'
+    'solutions-architect-associate/IAM/PRACTICE-QUESTIONS',
+    'solutions-architect-associate/IAM/README'
       ]
     },
     {
       type: 'category',
       label: 'Phase 2: Compute & Storage',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-associate/Compute/README',
     'solutions-architect-associate/Compute/FAST-LEARN',
@@ -194,7 +283,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 3: Database & Network Infrastructure',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-associate/Database/README',
     'solutions-architect-associate/Database/FAST-LEARN',
@@ -211,7 +300,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 4: Security, Integration & Monitoring',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-associate/Security/README',
     'solutions-architect-associate/Security/FAST-LEARN',
@@ -233,7 +322,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 5: Migrations, Analytics & Design Patterns',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-associate/Migration/README',
     'solutions-architect-associate/Migration/FAST-LEARN',
@@ -256,7 +345,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 6: Cost Design & Supplementary Guides',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-associate/Cost-Optimization/README',
     'solutions-architect-associate/Cost-Optimization/FAST-LEARN',
@@ -382,7 +471,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 2: Hybrid & Global Networking',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/Amazon VPC',
     'solutions-architect-professional/Networking & Content Delivery/Virtual Networking & Connectivity/AWS Direct Connect',
@@ -408,7 +497,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 3: Multi-Account Governance, Security & Compliance',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/Amazon Cognito',
     'solutions-architect-professional/Security, Identity & Compliance/Identity & Access Management/AWS Directory Services',
@@ -458,7 +547,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 4: Database Scaling & Migration',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-professional/Database/Relational & Data Warehouse/Amazon Aurora',
     'solutions-architect-professional/Database/aurora-serverless',
@@ -523,7 +612,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 5: Business Continuity & Disaster Recovery',
-      collapsed: true,
+      collapsed: false,
       items: [
     'solutions-architect-professional/Storage/Backup & Disaster Recovery/Disaster Recovery Strategies',
     'solutions-architect-professional/Storage/Backup & Disaster Recovery/AWS Elastic Disaster Recovery',
@@ -565,7 +654,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Phase 6: Decision Matrices & Guided Workshops',
-      collapsed: true,
+      collapsed: false,
       items: [
     'architecture-decision-frameworks/alb-vs-nlb-vs-gwlb',
     'architecture-workshops/enterprise-landing-zone',
@@ -590,7 +679,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Mock Exam 2 (75 Questions)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 2 - Part 1',
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 2 - Part 2',
@@ -600,7 +689,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Mock Exam 3 (75 Questions - Advanced)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 3 - Part 1',
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 3 - Part 2',

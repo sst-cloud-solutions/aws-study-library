@@ -74,14 +74,8 @@ The 02-solutions-architect-professional exam gives you 180 minutes to answer 75 
 
 ## Prerequisites
 
-- [SAP-C02 Practice Mock Exams](../02-solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam.md)
+- None (Start of Strategy track)
 
 ## Recommended Next Topics
 
-- [SAP-C02 Full Mock Exam - Part 1 (Questions 1-25)](../02-solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam - Part 1.md)
-
-## Related Topics
-
-- [Beginner Study Roadmap](../00-it-foundation/beginner-roadmap.md)
-- [Phase 0: Foundation Bridge Overview](../00-it-foundation/0-intro.md)
-- [Module 1: How Computers Actually Work](../00-it-foundation/1-how-computers-work.md)
+- Congratulations! You have completed the Strategy track.

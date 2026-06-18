@@ -53,7 +53,7 @@ graph TD
 
 ## Prerequisites
 
-- [Transit Gateway vs AWS Cloud WAN Decision Matrix](../03-architecture-decision-frameworks/transit-gateway-vs-cloud-wan.md)
+- None (Start of Workshops track)
 
 ## Recommended Next Topics
 
@@ -63,4 +63,4 @@ graph TD
 
 - [Workshop 3](hybrid-enterprise-network.md)
 - [Workshop 4](multi-region-dr.md)
-- [Workshop 3](hybrid-enterprise-network.md)
+- [Workshop 2](global-saas-platform.md)

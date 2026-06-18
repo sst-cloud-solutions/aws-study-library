@@ -112,4 +112,3 @@ Whether you’re migrating from on-premises environments, safeguarding cloud wor
 
 - [Disaster Recovery Strategies](Disaster Recovery Strategies.md)
 - [AWS Backup](AWS Backup.md)
-- [AWS Storage Gateway](AWS Storage Gateway.md)

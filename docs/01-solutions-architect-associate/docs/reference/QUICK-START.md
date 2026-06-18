@@ -54,26 +54,26 @@ Complete practice questions after each module. Review weak areas before moving f
 **Total Time**: 12-15 hours
 
 #### Day 1 (5 hours)
-- ☐ Module 01: AWS Fundamentals (30-45 min)
-- ☐ Module 02: IAM (45-60 min)
-- ☐ Module 03: Compute (60-90 min)
-- ☐ Module 04: Storage (60-75 min)
+- ☐ AWS Fundamentals (30-45 min)
+- ☐ Module 01: IAM (45-60 min)
+- ☐ Module 01: Compute (60-90 min)
+- ☐ Module 01: Storage (60-75 min)
 
 #### Day 2 (5 hours)
-- ☐ Module 05: Database (60-75 min)
-- ☐ Module 06: Networking (75-90 min)
-- ☐ Module 07: Security (60-75 min)
-- ☐ Module 12: Architecture Patterns (60-75 min)
+- ☐ Module 01: Database (60-75 min)
+- ☐ Module 01: Networking (75-90 min)
+- ☐ Module 01: Security (60-75 min)
+- ☐ Module 01: Architecture Patterns (60-75 min)
 
 #### Day 3 (4 hours)
-- ☐ Module 08: Application Integration (45-60 min)
-- ☐ Module 09: Monitoring (45-60 min)
-- ☐ Module 13: Cost Optimization (40-50 min)
-- ☐ Module 14: Practice & Exam Strategies (30-45 min)
+- ☐ Module 01: Application Integration (45-60 min)
+- ☐ Module 01: Monitoring (45-60 min)
+- ☐ Module 01: Cost Optimization (40-50 min)
+- ☐ Module 01: Practice & Exam Strategies (30-45 min)
 - ☐ Quick review of all modules
 - ☐ Practice questions
 
-**→ [Start Day 1: Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Start Day 1: Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
 ---
 
@@ -83,34 +83,34 @@ Complete practice questions after each module. Review weak areas before moving f
 **Total Time**: 20-25 hours
 
 #### Days 1-2: Foundation
-- ☐ Module 01: AWS Fundamentals
-- ☐ Module 02: IAM
-- ☐ Module 03: Compute
+- ☐ AWS Fundamentals
+- ☐ Module 01: IAM
+- ☐ Module 01: Compute
 - ☐ Practice questions
 
 #### Days 3-4: Core Services
-- ☐ Module 04: Storage
-- ☐ Module 05: Database
-- ☐ Module 06: Networking
+- ☐ Module 01: Storage
+- ☐ Module 01: Database
+- ☐ Module 01: Networking
 - ☐ Practice questions
 
 #### Days 5-6: Advanced Topics
-- ☐ Module 07: Security
-- ☐ Module 08: Application Integration
-- ☐ Module 09: Monitoring
-- ☐ Module 10: Migration
-- ☐ Module 11: Analytics
-- ☐ Module 12: Architecture Patterns
-- ☐ Module 13: Cost Optimization
+- ☐ Module 01: Security
+- ☐ Module 01: Application Integration
+- ☐ Module 01: Monitoring
+- ☐ Module 01: Migration
+- ☐ Module 01: Analytics
+- ☐ Module 01: Architecture Patterns
+- ☐ Module 01: Cost Optimization
 - ☐ Practice questions
 
 #### Day 7: Final Prep
-- ☐ Module 14: Practice & Exam Strategies
+- ☐ Module 01: Practice & Exam Strategies
 - ☐ Review all "5-Minute Master Review" sections
 - ☐ Full practice exam
 - ☐ Review weak areas
 
-**→ [Start Week 1: Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Start Week 1: Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
 ---
 
@@ -130,10 +130,10 @@ Complete practice questions after each module. Review weak areas before moving f
 - **Day 10**: Full FAST-LEARN review (all modules)
 - **Day 11**: Practice exam 1 + Review
 - **Day 12**: Practice exam 2 + Review
-- **Day 13**: Module 14 + Weak areas
+- **Day 13**: Module 01 + Weak areas
 - **Day 14**: Final review + Rest
 
-**→ [Start Week 1: Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Start Week 1: Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
 ---
 
@@ -142,28 +142,28 @@ Complete practice questions after each module. Review weak areas before moving f
 Click to jump directly to any module:
 
 ### Core Foundation (Critical!)
-1. [AWS Fundamentals](../../01-AWS-Fundamentals/FAST-LEARN.md) - 30-45 min
-2. [IAM](../../02-IAM/FAST-LEARN.md) - 45-60 min
-3. [Compute](../../03-Compute/FAST-LEARN.md) - 60-90 min
+1. [AWS Fundamentals](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide) - 30-45 min
+2. [IAM](../../01-IAM/FAST-LEARN.md) - 45-60 min
+3. [Compute](../../02-Compute/FAST-LEARN.md) - 60-90 min
 
 ### Core Services (Critical!)
-4. [Storage](../../04-Storage/FAST-LEARN.md) - 60-75 min
-5. [Database](../../05-Database/FAST-LEARN.md) - 60-75 min
-6. [Networking](../../06-Networking/FAST-LEARN.md) - 75-90 min
+4. [Storage](../../03-Storage/FAST-LEARN.md) - 60-75 min
+5. [Database](../../04-Database/FAST-LEARN.md) - 60-75 min
+6. [Networking](../../05-Networking/FAST-LEARN.md) - 75-90 min
 
 ### Security & Integration
-7. [Security](../../07-Security/FAST-LEARN.md) - 60-75 min
-8. [Application Integration](../../08-Application-Integration/FAST-LEARN.md) - 45-60 min
-9. [Monitoring](../../09-Monitoring/FAST-LEARN.md) - 45-60 min
+7. [Security](../../06-Security/FAST-LEARN.md) - 60-75 min
+8. [Application Integration](../../07-Application-Integration/FAST-LEARN.md) - 45-60 min
+9. [Monitoring](../../08-Monitoring/FAST-LEARN.md) - 45-60 min
 
 ### Advanced Topics
-10. [Migration](../../10-Migration/FAST-LEARN.md) - 40-50 min
-11. [Analytics](../../11-Analytics/FAST-LEARN.md) - 45-60 min
-12. [Architecture Patterns](../../12-Architecture-Patterns/FAST-LEARN.md) - 60-75 min ⭐
-13. [Cost Optimization](../../13-Cost-Optimization/FAST-LEARN.md) - 40-50 min
+10. [Migration](../../09-Migration/FAST-LEARN.md) - 40-50 min
+11. [Analytics](../../10-Analytics/FAST-LEARN.md) - 45-60 min
+12. [Architecture Patterns](../../11-Architecture-Patterns/FAST-LEARN.md) - 60-75 min ⭐
+13. [Cost Optimization](../../12-Cost-Optimization/FAST-LEARN.md) - 40-50 min
 
 ### Exam Prep
-14. [Practice & Exam Strategies](../../14-Practice/FAST-LEARN.md) - 30-45 min
+14. [Practice & Exam Strategies](../../13-Practice/FAST-LEARN.md) - 30-45 min
 
 ---
 
@@ -221,20 +221,20 @@ Click to jump directly to any module:
 Use this to track your progress:
 
 ```
-☐ Module 01: AWS Fundamentals (___/100%)
-☐ Module 02: IAM (___/100%)
-☐ Module 03: Compute (___/100%)
-☐ Module 04: Storage (___/100%)
-☐ Module 05: Database (___/100%)
-☐ Module 06: Networking (___/100%)
-☐ Module 07: Security (___/100%)
-☐ Module 08: Application Integration (___/100%)
-☐ Module 09: Monitoring (___/100%)
-☐ Module 10: Migration (___/100%)
-☐ Module 11: Analytics (___/100%)
-☐ Module 12: Architecture Patterns (___/100%)
-☐ Module 13: Cost Optimization (___/100%)
-☐ Module 14: Practice & Exam Strategies (___/100%)
+☐ AWS Fundamentals (___/100%)
+☐ Module 01: IAM (___/100%)
+☐ Module 01: Compute (___/100%)
+☐ Module 01: Storage (___/100%)
+☐ Module 01: Database (___/100%)
+☐ Module 01: Networking (___/100%)
+☐ Module 01: Security (___/100%)
+☐ Module 01: Application Integration (___/100%)
+☐ Module 01: Monitoring (___/100%)
+☐ Module 01: Migration (___/100%)
+☐ Module 01: Analytics (___/100%)
+☐ Module 01: Architecture Patterns (___/100%)
+☐ Module 01: Cost Optimization (___/100%)
+☐ Module 01: Practice & Exam Strategies (___/100%)
 
 Practice Exam Scores:
 ☐ Practice Exam 1: ___% (Need 72%+)
@@ -248,11 +248,11 @@ Practice Exam Scores:
 
 ### Pick your path and begin:
 
-**→ [Speed Run (2-3 days): Start Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Speed Run (2-3 days): Start Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
-**→ [Balanced (1 week): Start Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Balanced (1 week): Start Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
-**→ [Comprehensive (2 weeks): Start Module 01](../../01-AWS-Fundamentals/FAST-LEARN.md)**
+**→ [Comprehensive (2 weeks): Start Module 01](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
 **→ [Not sure? Read the Full FAST-LEARN Guide](../study-guides/FAST-LEARN-GUIDE.md)**
 

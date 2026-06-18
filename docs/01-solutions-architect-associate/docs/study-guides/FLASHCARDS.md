@@ -9,16 +9,16 @@
 Having trouble with practice tests? Check out these targeted resources:
 
 ### 📊 **Track Your Progress**
-- **[Test Results Tracker](../../14-Practice/TEST-RESULTS-TRACKER.md)** - Log practice test scores and identify weak areas
+- **[Test Results Tracker](../../13-Practice/TEST-RESULTS-TRACKER.md)** - Log practice test scores and identify weak areas
 
 ### 🎴 **Focused Flashcards**
-- **[Focused Review Flashcards](../../14-Practice/FLASHCARDS.md)** - 35 cards covering the most commonly missed topics
+- **[Focused Review Flashcards](../../13-Practice/FLASHCARDS.md)** - 35 cards covering the most commonly missed topics
 
 ### 📚 **Deep Dive Study Notes**
-- **[Weak Areas Study Notes](../../14-Practice/STUDY-NOTES.md)** - Comprehensive explanations of difficult concepts
+- **[Weak Areas Study Notes](../../13-Practice/STUDY-NOTES.md)** - Comprehensive explanations of difficult concepts
 
 ### 📝 **Targeted Practice**
-- **[Targeted Weak Area Questions](../../14-Practice/PRACTICE-QUESTIONS.md)** - 30+ practice questions on commonly missed topics
+- **[Targeted Weak Area Questions](../../13-Practice/PRACTICE-QUESTIONS.md)** - 30+ practice questions on commonly missed topics
 
 **Use these resources when you:**
 - Score below 70% on practice tests
@@ -102,7 +102,7 @@ Having trouble with practice tests? Check out these targeted resources:
 **💡 Memory Tip**: "AWS protects **OF** (infrastructure), You protect **IN** (configuration & data)"
 
 ### 📚 Learn More
-- [AWS Fundamentals - Chapter Guide](../.././01-AWS-Fundamentals/README.md)
+- [AWS Fundamentals - Chapter Guide](../../../00-it-foundation/10-aws-fundamentals/README.md)
 - [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
@@ -370,7 +370,7 @@ Z - High Frequency    → Gaming, high-performance computing
 - **Min/Max**: Capacity boundaries
 
 ### 📚 Learn More
-- [Compute Services - Chapter Guide](../.././03-Compute/README.md)
+- [Compute Services - Chapter Guide](../.././02-Compute/README.md)
 - [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2/)
 - [AWS Lambda Documentation](https://docs.aws.amazon.com/lambda/)
 - [Amazon ECS Documentation](https://docs.aws.amazon.com/ecs/)
@@ -571,7 +571,7 @@ Client  → Encrypt before upload (client-side)
 - HPC/ML workloads → **FSx for Lustre**
 
 ### 📚 Learn More
-- [Storage Services - Chapter Guide](../.././04-Storage/README.md)
+- [Storage Services - Chapter Guide](../.././03-Storage/README.md)
 - [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
 - [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs/)
 - [Amazon EFS Documentation](https://docs.aws.amazon.com/efs/)
@@ -767,7 +767,7 @@ Need a database?
 **💡 Memory Tip**: "**R**DS = **R**elations, **D**ynamo = **D**ynamic, **R**edshift = **R**eports"
 
 ### 📚 Learn More
-- [Database Services - Chapter Guide](../.././05-Database/README.md)
+- [Database Services - Chapter Guide](../.././04-Database/README.md)
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds/)
 - [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
 - [Amazon Aurora Documentation](https://docs.aws.amazon.com/aurora/)
@@ -990,7 +990,7 @@ AWS Reserves 5 IPs per Subnet:
 - Good for non-HTTP (gaming, IoT, VoIP)
 
 ### 📚 Learn More
-- [Networking Services - Chapter Guide](../.././06-Networking/README.md)
+- [Networking Services - Chapter Guide](../.././05-Networking/README.md)
 - [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [Amazon CloudFront Documentation](https://docs.aws.amazon.com/cloudfront/)
 - [Elastic Load Balancing Documentation](https://docs.aws.amazon.com/elasticloadbalancing/)
@@ -1163,7 +1163,7 @@ AWS Owned      → Free, AWS controls, you don't see
 - VPN for site-to-site encryption
 
 ### 📚 Learn More
-- [Security Services - Chapter Guide](../.././07-Security/README.md)
+- [Security Services - Chapter Guide](../.././06-Security/README.md)
 - [AWS IAM Documentation](https://docs.aws.amazon.com/iam/)
 - [AWS KMS Documentation](https://docs.aws.amazon.com/kms/)
 - [AWS Secrets Manager Documentation](https://docs.aws.amazon.com/secretsmanager/)
@@ -1320,7 +1320,7 @@ Event Bus → Rules → Targets
 **💡 Memory Tip**: "**SQS** = **Q**ueue, **SNS** = **N**otify **S**ubscribers, **EventBridge** = **E**vents **B**us"
 
 ### 📚 Learn More
-- [Application Integration - Chapter Guide](../.././08-Application-Integration/README.md)
+- [Application Integration - Chapter Guide](../.././07-Application-Integration/README.md)
 - [Amazon SQS Documentation](https://docs.aws.amazon.com/sqs/)
 - [Amazon SNS Documentation](https://docs.aws.amazon.com/sns/)
 - [Amazon EventBridge Documentation](https://docs.aws.amazon.com/eventbridge/)
@@ -1480,7 +1480,7 @@ Sources:
 **💡 Session Manager**: Access EC2 without SSH keys or bastions (IAM-based)
 
 ### 📚 Learn More
-- [Monitoring & Management - Chapter Guide](../.././09-Monitoring/README.md)
+- [Monitoring & Management - Chapter Guide](../.././08-Monitoring/README.md)
 - [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/cloudwatch/)
 - [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/)
 - [AWS Config Documentation](https://docs.aws.amazon.com/config/)
@@ -1601,7 +1601,7 @@ Data Sources:
 ```
 
 ### 📚 Learn More
-- [Analytics Services - Chapter Guide](../.././11-Analytics/README.md)
+- [Analytics Services - Chapter Guide](../.././10-Analytics/README.md)
 - [Amazon Kinesis Documentation](https://docs.aws.amazon.com/kinesis/)
 - [Amazon Athena Documentation](https://docs.aws.amazon.com/athena/)
 - [AWS Glue Documentation](https://docs.aws.amazon.com/glue/)
@@ -1670,7 +1670,7 @@ Features:
 **Use Case**: Third parties upload files to S3 using FTP clients
 
 ### 📚 Learn More
-- [Migration Services - Chapter Guide](../.././10-Migration/README.md)
+- [Migration Services - Chapter Guide](../.././09-Migration/README.md)
 - [AWS Database Migration Service](https://docs.aws.amazon.com/dms/)
 - [AWS Application Migration Service](https://docs.aws.amazon.com/mgn/)
 - [AWS DataSync Documentation](https://docs.aws.amazon.com/datasync/)
@@ -1703,7 +1703,7 @@ Features:
 
 ---
 
-## 📊 Monitoring & Management (Module 09)
+## 📊 Monitoring & Management (Module 01)
 
 ### CloudWatch Metrics & Alarms
 
@@ -1778,7 +1778,7 @@ REMEMBER: Trail=Audit, Watch=Monitor, Config=Compliance
 
 ---
 
-## 🚚 Migration & Transfer (Module 10)
+## 🚚 Migration & Transfer (Module 01)
 
 ### 6 R's Migration Strategy
 
@@ -1846,7 +1846,7 @@ OpsHub: GUI to manage Snow devices
 
 ---
 
-## 📈 Analytics Deep Dive (Module 11)
+## 📈 Analytics Deep Dive (Module 01)
 
 ### Athena
 
@@ -1956,7 +1956,7 @@ Data Sources:
 
 ---
 
-## 🏛️ Architecture Patterns (Module 12)
+## 🏛️ Architecture Patterns (Module 01)
 
 ### Serverless Architecture
 
@@ -2325,7 +2325,7 @@ Need compute?
 ```
 
 ### 📚 Learn More
-- [Architecture Patterns - Chapter Guide](../.././12-Architecture-Patterns/README.md)
+- [Architecture Patterns - Chapter Guide](../.././11-Architecture-Patterns/README.md)
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [AWS Reference Architectures](https://aws.amazon.com/architecture/reference-architecture-diagrams/)
@@ -2416,7 +2416,7 @@ Need compute?
 
 ---
 
-## 💰 Cost Optimization (Module 13)
+## 💰 Cost Optimization (Module 01)
 
 ### AWS Pricing Models
 
@@ -2514,7 +2514,7 @@ Cost Reduction Tips:
 ```
 
 ### 📚 Learn More
-- [Cost Optimization - Chapter Guide](../.././13-Cost-Optimization/README.md)
+- [Cost Optimization - Chapter Guide](../.././12-Cost-Optimization/README.md)
 - [AWS Pricing](https://aws.amazon.com/pricing/)
 - [AWS Cost Management](https://aws.amazon.com/aws-cost-management/)
 - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
@@ -2673,7 +2673,7 @@ Cost Reduction Tips:
 | "DDoS protection" | Shield, WAF |
 
 ### 📚 Learn More - Additional Study Resources
-- [Practice Questions](../../14-Practice/PRACTICE-QUESTIONS.md)
+- [Practice Questions](../../13-Practice/PRACTICE-QUESTIONS.md)
 - [AWS Certified Solutions Architect Official Study Guide](https://aws.amazon.com/certification/certified-solutions-architect-associate/)
 - [AWS Whitepapers](https://aws.amazon.com/whitepapers/)
 - [AWS FAQs](https://aws.amazon.com/faqs/)

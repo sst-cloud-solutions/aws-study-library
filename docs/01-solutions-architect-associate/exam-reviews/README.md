@@ -220,7 +220,7 @@ Use this to track your review progress:
 
 **In This Repository:**
 - [Main Study Guide](../saa-roadmap.md)
-- [Practice Questions](../14-Practice/README.md)
+- [Practice Questions](../13-Practice/README.md)
 - [Service Modules](../saa-roadmap.md) (01-AWS-Fundamentals through 13-Cost-Optimization)
 
 **External:**
@@ -272,7 +272,7 @@ Use this to track your review progress:
 
 ## Prerequisites
 
-- [AWS SAA-C03 Practice Questions](../14-Practice/PRACTICE-QUESTIONS.md)
+- [AWS SAA-C03 Practice Questions](../13-Practice/PRACTICE-QUESTIONS.md)
 
 ## Recommended Next Topics
 
@@ -281,5 +281,3 @@ Use this to track your review progress:
 ## Related Topics
 
 - [🎯 Reinforcement Practice Questions - All 7 Tests Incorrect Areas](REINFORCEMENT-QUESTIONS-ALL-TESTS.md)
-- [📂 EXAM-REVIEWS - START HERE](START-HERE.md)
-- [📊 Study Progress Tracker - Reinforcement Questions](STUDY-PROGRESS-TRACKER.md)

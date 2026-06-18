@@ -62,5 +62,5 @@ Both support KMS storage encryption, IAM database authentication, SSL/TLS connec
 ## Related Topics
 
 - [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
-- [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
 - [Amazon CloudFront vs AWS Global Accelerator Decision Matrix](cloudfront-vs-global-accelerator.md)
+- [AWS DMS vs AWS Application Migration Service (MGN) Decision Matrix](dms-vs-mgn.md)

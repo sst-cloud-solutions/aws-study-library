@@ -8,7 +8,7 @@ import sidebars from './sidebars';
 const config: Config = {
   title: 'AWS Study Library',
   tagline: 'A premium, structured reading environment for mastering AWS cloud engineering and architecture.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
   url: 'https://sst-cloud-solutions.github.io',
@@ -142,10 +142,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'AWS Study Library',
       logo: {
         alt: 'AWS Study Library Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dark.svg',
       },
       items: [
         {
@@ -159,6 +159,23 @@ const config: Config = {
           sidebarId: 'foundationSidebar',
           label: 'Foundation',
           position: 'left',
+        },
+        {
+          type: 'dropdown',
+          label: 'AI Practitioner',
+          position: 'left',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'aifSidebar',
+              label: 'Study Topics (AIF-C01)',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'aifPracticeSidebar',
+              label: 'Practice Exams (AIF-C01)',
+            },
+          ],
         },
         {
           type: 'dropdown',

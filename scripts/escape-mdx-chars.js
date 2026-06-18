@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const docsDir = path.resolve(__dirname, '../docs/01-solutions-architect-associate');
+const docsDir = path.resolve(__dirname, '../docs');
 
 if (!fs.existsSync(docsDir)) {
-  console.error(`Error: SAA-C03 directory does not exist at ${docsDir}`);
+  console.error(`Error: Docs directory does not exist at ${docsDir}`);
   process.exit(1);
 }
 
@@ -25,7 +25,19 @@ function getFiles(dir) {
 }
 
 const allMdFiles = getFiles(docsDir);
-console.log(`Scanning ${allMdFiles.length} markdown files in SAA-C03 directory for unescaped MDX '<' characters...`);
+console.log(`Scanning ${allMdFiles.length} markdown files in docs directory for unescaped MDX '<' characters...`);
+
+function isEscaped(content, index) {
+  let count = 0;
+  for (let j = index - 1; j >= 0; j--) {
+    if (content[j] === '\\') {
+      count++;
+    } else {
+      break;
+    }
+  }
+  return (count % 2) !== 0;
+}
 
 function escapeMdxChars(content) {
   let inCodeBlock = false;
@@ -56,7 +68,9 @@ function escapeMdxChars(content) {
       // Valid tags start with a letter (a-z, A-Z) or a slash, or exclamation (comment <!--)
       const isTag = /^[a-zA-Z/!]/.test(lookAhead);
       
-      if (!isTag) {
+      const escaped = isEscaped(content, i);
+      
+      if (!isTag && !escaped) {
         result += '\\<';
         escapeCount++;
       } else {

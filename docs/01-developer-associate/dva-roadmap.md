@@ -214,14 +214,8 @@ After passing DVA-C02, step up to the **Solutions Architect Professional (SAP-C0
 
 ## Prerequisites
 
-- [Module 9: Security Foundations](../00-it-foundation/9-security-foundations.md)
+- None (Start of Developer Associate track)
 
 ## Recommended Next Topics
 
 - [IAM: Identity and Access Management](1-aws-fundamentals/iam.md)
-
-## Related Topics
-
-- [Beginner Study Roadmap](../00-it-foundation/beginner-roadmap.md)
-- [Phase 0: Foundation Bridge Overview](../00-it-foundation/0-intro.md)
-- [Module 1: How Computers Actually Work](../00-it-foundation/1-how-computers-work.md)

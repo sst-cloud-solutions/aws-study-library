@@ -84,4 +84,3 @@ Use AD Connector when you only need to authenticate AWS users against an on-prem
 
 - [Amazon Macie](macie.md)
 - [AWS Shield Advanced](shield-advanced.md)
-- [AWS WAF (Web Application Firewall)](waf.md)

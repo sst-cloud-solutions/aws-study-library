@@ -26,6 +26,11 @@ function HomepageHeader() {
             to="/docs/it-foundation/beginner-roadmap">
             Start IT Foundations
           </Link>
+          <Link
+            className={styles.secondaryButton}
+            to="/docs/solutions-architect-associate/saa-roadmap">
+            Solutions Architect Track
+          </Link>
         </div>
       </div>
     </header>

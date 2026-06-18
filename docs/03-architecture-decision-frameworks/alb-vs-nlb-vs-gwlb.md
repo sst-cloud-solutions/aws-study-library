@@ -55,7 +55,7 @@ ALB integrates with AWS WAF for HTTP rule scanning. NLB does not support WAF. GW
 
 ## Prerequisites
 
-- [Workshop 4](../04-architecture-workshops/multi-region-dr.md)
+- None (Start of Decision Matrices track)
 
 ## Recommended Next Topics
 

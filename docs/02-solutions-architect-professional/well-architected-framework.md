@@ -76,13 +76,12 @@ Review the six pillars carefully; exam scenarios will test your ability to trade
 
 ## Prerequisites
 
-- [SAP-C02 Full Mock Exam 3 - Part 3 (Questions 51-75)](Practice Exams/SAP-C02 Mock Exam 3 - Part 3.md)
+- [AWS Certified Solutions Architect – Professional (SAP-C02) Study Plan & Roadmap](sap-roadmap.md)
 
 ## Recommended Next Topics
 
-- [Module 1: How Computers Actually Work](../00-it-foundation/1-how-computers-work.md)
+- [AWS Outposts](Compute/Virtual Machines & Infrastructure/AWS Outposts.md)
 
 ## Related Topics
 
-- [SAP Study Plan & Roadmap](sap-roadmap.md)
-- [SAP Study Plan & Roadmap](sap-roadmap.md)
+- [AWS Certified Solutions Architect – Professional (SAP-C02) Study Plan & Roadmap](sap-roadmap.md)

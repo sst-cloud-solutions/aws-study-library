@@ -65,6 +65,10 @@ function parseRoadmapPhases(roadmapPath) {
   let currentPhase = null;
 
   lines.forEach(line => {
+    if (line.match(/^##\s+/)) {
+      currentPhase = null;
+    }
+
     const phaseMatch = line.match(/^###\s+(Phase\s+\d+:\s+[^(\n\r]+)/i);
     if (phaseMatch) {
       currentPhase = {
@@ -96,11 +100,13 @@ function parseRoadmapPhases(roadmapPath) {
   return phases;
 }
 
-// 1. DVA, SAA & SAP Roadmaps parsing
+// 1. AIF, DVA, SAA & SAP Roadmaps parsing
+const aifRoadmapFile = path.join(docsDir, '01-ai-practitioner/aif-roadmap.md');
 const dvaRoadmapFile = path.join(docsDir, '01-developer-associate/dva-roadmap.md');
 const saaRoadmapFile = path.join(docsDir, '01-solutions-architect-associate/saa-roadmap.md');
 const sapRoadmapFile = path.join(docsDir, '02-solutions-architect-professional/sap-roadmap.md');
 
+const aifPhases = parseRoadmapPhases(aifRoadmapFile);
 const dvaPhases = parseRoadmapPhases(dvaRoadmapFile);
 const saaPhases = parseRoadmapPhases(saaRoadmapFile);
 const sapPhases = parseRoadmapPhases(sapRoadmapFile);
@@ -117,7 +123,8 @@ const itFoundationSequence = [
   'docs/00-it-foundation/6-web-application-fundamentals.md',
   'docs/00-it-foundation/7-servers-infrastructure.md',
   'docs/00-it-foundation/8-devops-foundations.md',
-  'docs/00-it-foundation/9-security-foundations.md'
+  'docs/00-it-foundation/9-security-foundations.md',
+  'docs/00-it-foundation/10-aws-fundamentals/README.md'
 ].map(p => path.resolve(docsDir, '..', p));
 
 // 3. Build Decision Matrices list
@@ -152,6 +159,19 @@ const strategyFiles = [path.join(docsDir, '05-exam-strategy/intro.md')];
 const wafFile = path.join(docsDir, '02-solutions-architect-professional/well-architected-framework.md');
 
 // Assemble the sequence of all markdown files
+const aifStudyPaths = [];
+const aifMockExamPaths = [];
+aifPhases.forEach(p => {
+  p.filePaths.forEach(fp => {
+    const rel = path.relative(docsDir, fp).replace(/\\/g, '/');
+    if (rel.includes('practice-test') || rel.includes('tests.md')) {
+      aifMockExamPaths.push(fp);
+    } else {
+      aifStudyPaths.push(fp);
+    }
+  });
+});
+
 const dvaStudyPaths = [];
 const dvaMockExamPaths = [];
 dvaPhases.forEach(p => {
@@ -183,13 +203,21 @@ sapPhases.forEach(p => {
 });
 
 // Verify that the mock exam overview pages are placed correctly
+const aifMockOverview = path.join(docsDir, '01-ai-practitioner/practice-test/tests.md');
 const dvaMockOverview = path.join(docsDir, '01-developer-associate/Practice Exams/DVA-C02-Mock-Exam.md');
 const sapMockOverview = path.join(docsDir, '02-solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam.md');
 
 // Define assignment rules for unlinked files
 function assignToPhase(filePath) {
   const rel = path.relative(docsDir, filePath).replace(/\\/g, '/');
-  if (rel.startsWith('01-developer-associate/')) {
+  if (rel.startsWith('01-ai-practitioner/')) {
+    if (rel.includes('/cloud-computing/') || rel.includes('/ai-and-ml/')) return { type: 'aif', phase: 'Phase 1' };
+    if (rel.includes('/gen-ai/')) return { type: 'aif', phase: 'Phase 2' };
+    if (rel.includes('/aws-managed-ai-services/')) return { type: 'aif', phase: 'Phase 3' };
+    if (rel.includes('/sagemaker/')) return { type: 'aif', phase: 'Phase 4' };
+    if (rel.includes('/ai-challenges-and-responsibilities/') || rel.includes('/aws-security-services/')) return { type: 'aif', phase: 'Phase 5' };
+    if (rel.includes('study-guide.md') || rel.includes('glossary.md') || rel.includes('/practice-test/')) return { type: 'aif', phase: 'Phase 6' };
+  } else if (rel.startsWith('01-developer-associate/')) {
     if (rel.includes('/1-aws-fundamentals/')) return { type: 'dva', phase: 'Phase 1' };
     if (rel.includes('/2-aws-deep-dive/')) return { type: 'dva', phase: 'Phase 2' };
     if (rel.includes('/3-aws-serverless/')) return { type: 'dva', phase: 'Phase 3' };
@@ -253,13 +281,13 @@ function assignToPhase(filePath) {
       return { type: 'sap', phase: 'Phase 5' };
     }
   } else if (rel.startsWith('01-solutions-architect-associate/')) {
-    if (rel.includes('/01-AWS-Fundamentals/') || rel.includes('/02-IAM/')) return { type: 'saa', phase: 'Phase 1' };
-    if (rel.includes('/03-Compute/') || rel.includes('/04-Storage/')) return { type: 'saa', phase: 'Phase 2' };
-    if (rel.includes('/05-Database/') || rel.includes('/06-Networking/')) return { type: 'saa', phase: 'Phase 3' };
-    if (rel.includes('/07-Security/') || rel.includes('/08-Application-Integration/') || rel.includes('/09-Monitoring/')) return { type: 'saa', phase: 'Phase 4' };
-    if (rel.includes('/10-Migration/') || rel.includes('/11-Analytics/') || rel.includes('/12-Architecture-Patterns/')) return { type: 'saa', phase: 'Phase 5' };
-    if (rel.includes('/13-Cost-Optimization/') || rel.includes('/docs/')) return { type: 'saa', phase: 'Phase 6' };
-    if (rel.includes('/14-Practice/') || rel.includes('/exam-reviews/')) return { type: 'saa', phase: 'Phase 7' };
+    if (rel.includes('/01-IAM/')) return { type: 'saa', phase: 'Phase 1' };
+    if (rel.includes('/02-Compute/') || rel.includes('/03-Storage/')) return { type: 'saa', phase: 'Phase 2' };
+    if (rel.includes('/04-Database/') || rel.includes('/05-Networking/')) return { type: 'saa', phase: 'Phase 3' };
+    if (rel.includes('/06-Security/') || rel.includes('/07-Application-Integration/') || rel.includes('/08-Monitoring/')) return { type: 'saa', phase: 'Phase 4' };
+    if (rel.includes('/09-Migration/') || rel.includes('/10-Analytics/') || rel.includes('/11-Architecture-Patterns/')) return { type: 'saa', phase: 'Phase 5' };
+    if (rel.includes('/12-Cost-Optimization/') || rel.includes('/docs/')) return { type: 'saa', phase: 'Phase 6' };
+    if (rel.includes('/13-Practice/') || rel.includes('/exam-reviews/')) return { type: 'saa', phase: 'Phase 7' };
   }
   return null;
 }
@@ -268,6 +296,9 @@ function assignToPhase(filePath) {
 allMdFiles.forEach(f => {
   const absPath = path.resolve(f);
   let found = false;
+  aifPhases.forEach(p => {
+    if (p.filePaths.map(x => path.resolve(x)).includes(absPath)) found = true;
+  });
   dvaPhases.forEach(p => {
     if (p.filePaths.map(x => path.resolve(x)).includes(absPath)) found = true;
   });
@@ -281,19 +312,28 @@ allMdFiles.forEach(f => {
   if (matricesFiles.map(x => path.resolve(x)).includes(absPath)) found = true;
   if (workshopsFiles.map(x => path.resolve(x)).includes(absPath)) found = true;
   if (strategyFiles.map(x => path.resolve(x)).includes(absPath)) found = true;
+  if (absPath === path.resolve(aifRoadmapFile)) found = true;
   if (absPath === path.resolve(dvaRoadmapFile)) found = true;
   if (absPath === path.resolve(saaRoadmapFile)) found = true;
   if (absPath === path.resolve(sapRoadmapFile)) found = true;
   if (absPath === path.resolve(wafFile)) found = true;
   if (absPath === path.resolve(dvaMockOverview)) found = true;
   if (absPath === path.resolve(sapMockOverview)) found = true;
+  if (absPath === path.resolve(aifMockOverview)) found = true;
   if (path.basename(f) === 'dependency_map.md') found = true;
 
   if (!found) {
     const assignment = assignToPhase(f);
     if (assignment) {
       const docId = toDocusaurusId(f);
-      if (assignment.type === 'dva') {
+      if (assignment.type === 'aif') {
+        const phase = aifPhases.find(p => p.label.startsWith(assignment.phase));
+        if (phase) {
+          phase.items.push(docId);
+          phase.filePaths.push(absPath);
+          console.log(`Assigned unlinked AIF file to ${phase.label}: ${path.relative(docsDir, f)}`);
+        }
+      } else if (assignment.type === 'dva') {
         const phase = dvaPhases.find(p => p.label.startsWith(assignment.phase));
         if (phase) {
           phase.items.push(docId);
@@ -319,13 +359,20 @@ allMdFiles.forEach(f => {
   }
 });
 
-// Clean duplicates from study paths if they accidentally include mock exams
-const cleanDvaStudyPaths = dvaStudyPaths.filter(p => !p.includes('Practice Exams'));
-const cleanSaaStudyPaths = saaStudyPaths.filter(p => !p.includes('Practice') && !p.includes('exam-reviews'));
-const cleanSapStudyPaths = sapStudyPaths.filter(p => !p.includes('Practice Exams') && p !== wafFile);
+// Clean duplicates from study paths if they accidentally include mock exams or IT Foundation files
+const itFoundationSet = new Set(itFoundationSequence.map(p => path.resolve(p)));
+
+const cleanAifStudyPaths = aifStudyPaths.filter(p => p !== aifMockOverview && !itFoundationSet.has(path.resolve(p)));
+const cleanDvaStudyPaths = dvaStudyPaths.filter(p => !p.includes('Practice Exams') && !itFoundationSet.has(path.resolve(p)));
+const cleanSaaStudyPaths = saaStudyPaths.filter(p => !p.includes('Practice') && !p.includes('exam-reviews') && !itFoundationSet.has(path.resolve(p)));
+const cleanSapStudyPaths = sapStudyPaths.filter(p => !p.includes('Practice Exams') && p !== wafFile && !itFoundationSet.has(path.resolve(p)));
 
 const curriculumSequence = [
   ...itFoundationSequence,
+  aifRoadmapFile,
+  ...cleanAifStudyPaths,
+  aifMockOverview,
+  ...aifMockExamPaths.filter(p => p !== aifMockOverview),
   dvaRoadmapFile,
   ...cleanDvaStudyPaths,
   dvaMockOverview,
@@ -367,7 +414,7 @@ function formatItems(itemsList) {
   return itemsList.map(item => `    '${item}'`).join(',\n');
 }
 
-function buildSidebarCategory(label, items, collapsed = true) {
+function buildSidebarCategory(label, items, collapsed = false) {
   return `    {
       type: 'category',
       label: '${label}',
@@ -383,6 +430,40 @@ const sidebarContent = `import type {SidebarsConfig} from '@docusaurus/plugin-co
 const sidebars: SidebarsConfig = {
   foundationSidebar: [
 ${formatItems(itFoundationSequence.map(toDocusaurusId))}
+  ],
+
+  aifSidebar: [
+    'ai-practitioner/aif-roadmap',
+${aifPhases.filter(p => !p.label.startsWith('Phase 6')).map((p, idx) => {
+  return buildSidebarCategory(p.label, p.items, false);
+}).join(',\n')},
+    {
+      type: 'category',
+      label: 'Phase 6: Reference Materials',
+      collapsed: false,
+      items: [
+        'ai-practitioner/study-guide',
+        'ai-practitioner/glossary'
+      ]
+    }
+  ],
+
+  aifPracticeSidebar: [
+    'ai-practitioner/practice-test/tests',
+    {
+      type: 'category',
+      label: 'Practice Exams',
+      collapsed: false,
+      items: [
+        'ai-practitioner/practice-test/practice-test-1',
+        'ai-practitioner/practice-test/practice-test-2',
+        'ai-practitioner/practice-test/practice-test-3',
+        'ai-practitioner/practice-test/practice-test-4',
+        'ai-practitioner/practice-test/practice-test-5',
+        'ai-practitioner/practice-test/practice-test-6',
+        'ai-practitioner/practice-test/practice-test-7'
+      ]
+    }
   ],
 
   dvaSidebar: [
@@ -407,7 +488,7 @@ ${dvaPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLo
     {
       type: 'category',
       label: 'Mock Exam 2 (75 Questions)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-1',
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-2-Part-2',
@@ -417,7 +498,7 @@ ${dvaPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLo
     {
       type: 'category',
       label: 'Mock Exam 3 (75 Questions - Advanced)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-1',
         'developer-associate/Practice Exams/DVA-C02-Mock-Exam-3-Part-2',
@@ -429,7 +510,7 @@ ${dvaPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLo
   saaSidebar: [
     'solutions-architect-associate/saa-roadmap',
 ${saaPhases.filter(p => !p.label.toLowerCase().includes('practice') && !p.label.toLowerCase().includes('reviews')).map((p, idx) => {
-  return buildSidebarCategory(p.label, p.items, idx !== 0);
+  return buildSidebarCategory(p.label, p.items, false);
 }).join(',\n')}
   ],
 
@@ -443,7 +524,7 @@ ${saaPhases.filter(p => p.label.toLowerCase().includes('practice') || p.label.to
     'solutions-architect-professional/sap-roadmap',
     'solutions-architect-professional/well-architected-framework',
 ${sapPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLowerCase().includes('practice')).map((p, idx) => {
-  return buildSidebarCategory(p.label, p.items, idx !== 0);
+  return buildSidebarCategory(p.label, p.items, false);
 }).join(',\n')}
   ],
 
@@ -462,7 +543,7 @@ ${sapPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLo
     {
       type: 'category',
       label: 'Mock Exam 2 (75 Questions)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 2 - Part 1',
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 2 - Part 2',
@@ -472,7 +553,7 @@ ${sapPhases.filter(p => !p.label.toLowerCase().includes('mock') && !p.label.toLo
     {
       type: 'category',
       label: 'Mock Exam 3 (75 Questions - Advanced)',
-      collapsed: true,
+      collapsed: false,
       items: [
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 3 - Part 1',
         'solutions-architect-professional/Practice Exams/SAP-C02 Mock Exam 3 - Part 2',
@@ -521,80 +602,122 @@ function stripNavigation(content) {
 
 const cleanName = (filename) => filename.toLowerCase().replace(/^(aws|amazon)\s+/, '').trim();
 
-curriculumSequence.forEach((file, index) => {
-  let content = fs.readFileSync(file, 'utf8');
-  content = stripNavigation(content);
+const aifSequence = [
+  aifRoadmapFile,
+  ...cleanAifStudyPaths,
+  aifMockOverview,
+  ...aifMockExamPaths.filter(p => p !== aifMockOverview)
+];
 
-  const dirName = path.dirname(file);
-  const relPath = path.relative(docsDir, file).replace(/\\/g, '/');
+const dvaSequence = [
+  dvaRoadmapFile,
+  ...cleanDvaStudyPaths,
+  dvaMockOverview,
+  ...dvaMockExamPaths.filter(p => p !== dvaMockOverview)
+];
 
-  // 1. Prerequisites (previous in sequence)
-  const prereqs = [];
-  if (index > 0) {
-    const prevFile = curriculumSequence[index - 1];
-    const relToPrev = path.relative(dirName, prevFile).replace(/\\/g, '/');
-    prereqs.push(`- [${titleMap[prevFile]}](${relToPrev})`);
-  }
+const saaSequence = [
+  saaRoadmapFile,
+  ...cleanSaaStudyPaths,
+  ...saaMockExamPaths
+];
 
-  // Cross-account reference matching for SAP -> DVA
-  const parts = relPath.split('/');
-  if (parts[0] === '02-solutions-architect-professional') {
-    const cleanSap = cleanName(path.basename(file));
-    const matchingDva = curriculumSequence.find(f => {
-      const relF = path.relative(docsDir, f).replace(/\\/g, '/');
-      return relF.startsWith('01-developer-associate/') && cleanName(path.basename(f)) === cleanSap;
-    });
-    if (matchingDva) {
-      const relToDva = path.relative(dirName, matchingDva).replace(/\\/g, '/');
-      prereqs.push(`- [AWS Developer Associate: ${titleMap[matchingDva]}](${relToDva}) (Fundamental Concept)`);
+const sapSequence = [
+  sapRoadmapFile,
+  wafFile,
+  ...cleanSapStudyPaths,
+  sapMockOverview,
+  ...sapMockExamPaths.filter(p => p !== sapMockOverview)
+];
+
+const allSequences = [
+  { name: 'IT Foundation', seq: itFoundationSequence },
+  { name: 'AI Practitioner', seq: aifSequence },
+  { name: 'Developer Associate', seq: dvaSequence },
+  { name: 'Solutions Architect Associate', seq: saaSequence },
+  { name: 'Solutions Architect Professional', seq: sapSequence },
+  { name: 'Decision Matrices', seq: matricesFiles },
+  { name: 'Workshops', seq: workshopsFiles },
+  { name: 'Strategy', seq: strategyFiles }
+];
+
+allSequences.forEach(track => {
+  const sequence = track.seq;
+  sequence.forEach((file, index) => {
+    let content = fs.readFileSync(file, 'utf8');
+    content = stripNavigation(content);
+
+    const dirName = path.dirname(file);
+    const relPath = path.relative(docsDir, file).replace(/\\/g, '/');
+
+    // 1. Prerequisites (previous in sequence)
+    const prereqs = [];
+    if (index > 0) {
+      const prevFile = sequence[index - 1];
+      const relToPrev = path.relative(dirName, prevFile).replace(/\\/g, '/');
+      prereqs.push(`- [${titleMap[prevFile]}](${relToPrev})`);
     }
-  }
 
-  // 2. Recommended Next Topics (next in sequence)
-  const nextTopics = [];
-  if (index < curriculumSequence.length - 1) {
-    const nextFile = curriculumSequence[index + 1];
-    const relToNext = path.relative(dirName, nextFile).replace(/\\/g, '/');
-    nextTopics.push(`- [${titleMap[nextFile]}](${relToNext})`);
-  } else {
-    nextTopics.push(`- Congratulations! You have completed the AWS Study Library curriculum.`);
-  }
+    // Cross-account reference matching for SAP -> DVA remains
+    const parts = relPath.split('/');
+    if (parts[0] === '02-solutions-architect-professional') {
+      const cleanSap = cleanName(path.basename(file));
+      const matchingDva = dvaSequence.find(f => {
+        const relF = path.relative(docsDir, f).replace(/\\/g, '/');
+        return relF.startsWith('01-developer-associate/') && cleanName(path.basename(f)) === cleanSap;
+      });
+      if (matchingDva) {
+        const relToDva = path.relative(dirName, matchingDva).replace(/\\/g, '/');
+        prereqs.push(`- [AWS Developer Associate: ${titleMap[matchingDva]}](${relToDva}) (Fundamental Concept)`);
+      }
+    }
 
-  // 3. Related Topics (up to 3 in same folder)
-  const related = [];
-  const sameDirFiles = curriculumSequence.filter(f => f !== file && path.dirname(f) === dirName);
-  const selected = sameDirFiles.slice(0, 3);
-  selected.forEach(relFile => {
-    const relToRel = path.relative(dirName, relFile).replace(/\\/g, '/');
-    related.push(`- [${titleMap[relFile]}](${relToRel})`);
-  });
+    // 2. Recommended Next Topics (next in sequence)
+    const nextTopics = [];
+    if (index < sequence.length - 1) {
+      const nextFile = sequence[index + 1];
+      const relToNext = path.relative(dirName, nextFile).replace(/\\/g, '/');
+      nextTopics.push(`- [${titleMap[nextFile]}](${relToNext})`);
+    } else {
+      nextTopics.push(`- Congratulations! You have completed the ${track.name} track.`);
+    }
 
-  // Fallback to parent directory if folder is empty
-  if (related.length === 0) {
-    const parentDir = path.dirname(dirName);
-    const peerFiles = curriculumSequence.filter(f => f !== file && path.dirname(path.dirname(f)) === parentDir);
-    peerFiles.slice(0, 3).forEach(relFile => {
+    // 3. Related Topics (up to 3 in same folder)
+    const related = [];
+    const sameDirFiles = sequence.filter(f => f !== file && path.dirname(f) === dirName);
+    const selected = sameDirFiles.slice(0, 3);
+    selected.forEach(relFile => {
       const relToRel = path.relative(dirName, relFile).replace(/\\/g, '/');
       related.push(`- [${titleMap[relFile]}](${relToRel})`);
     });
-  }
 
-  // Build the block to append
-  let navBlock = `\n\n---\n\n## Prerequisites\n\n`;
-  if (prereqs.length > 0) {
-    navBlock += prereqs.join('\n') + '\n';
-  } else {
-    navBlock += `- None (Start of IT Foundation)\n`;
-  }
+    // Fallback to parent directory if folder is empty
+    if (related.length === 0) {
+      const parentDir = path.dirname(dirName);
+      const peerFiles = sequence.filter(f => f !== file && path.dirname(path.dirname(f)) === parentDir);
+      peerFiles.slice(0, 3).forEach(relFile => {
+        const relToRel = path.relative(dirName, relFile).replace(/\\/g, '/');
+        related.push(`- [${titleMap[relFile]}](${relToRel})`);
+      });
+    }
 
-  navBlock += `\n## Recommended Next Topics\n\n` + nextTopics.join('\n') + '\n';
+    // Build the block to append
+    let navBlock = `\n\n---\n\n## Prerequisites\n\n`;
+    if (prereqs.length > 0) {
+      navBlock += prereqs.join('\n') + '\n';
+    } else {
+      navBlock += `- None (Start of ${track.name} track)\n`;
+    }
 
-  if (related.length > 0) {
-    navBlock += `\n## Related Topics\n\n` + related.join('\n') + '\n';
-  }
+    navBlock += `\n## Recommended Next Topics\n\n` + nextTopics.join('\n') + '\n';
 
-  fs.writeFileSync(file, content + navBlock, 'utf8');
-  console.log(`Injected navigation into: ${relPath}`);
+    if (related.length > 0) {
+      navBlock += `\n## Related Topics\n\n` + related.join('\n') + '\n';
+    }
+
+    fs.writeFileSync(file, content + navBlock, 'utf8');
+    console.log(`Injected navigation into: ${relPath}`);
+  });
 });
 
 console.log('REORDERING AND NAVIGATION LINK INJECTION COMPLETED SUCCESSFULLY.');

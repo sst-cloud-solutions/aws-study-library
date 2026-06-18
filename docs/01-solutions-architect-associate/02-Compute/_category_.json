@@ -1,0 +1,8 @@
+{
+  "label": "Compute",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Deep dive into AWS compute options including EC2, Spot, Capacity Reservations, and serverless compute scaling."
+  }
+}

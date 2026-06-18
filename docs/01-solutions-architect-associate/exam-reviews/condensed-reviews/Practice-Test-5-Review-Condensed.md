@@ -210,10 +210,10 @@
 ## Study Priority (URGENT)
 
 ### 1. HIGH-PERFORMING (43%) - CATASTROPHIC
-- **Module 03 (Compute):** CloudWatch agent, ECS deployment, Auto Scaling
-- **Module 11 (Analytics):** QuickSight, Glue, Athena, Redshift monitoring
-- **Module 04 (Storage):** S3 performance optimization
-- **Module 06 (Networking):** Global Accelerator, ALB routing, placement groups
+- **Module 01 (Compute):** CloudWatch agent, ECS deployment, Auto Scaling
+- **Module 01 (Analytics):** QuickSight, Glue, Athena, Redshift monitoring
+- **Module 01 (Storage):** S3 performance optimization
+- **Module 01 (Networking):** Global Accelerator, ALB routing, placement groups
 
 ### 2. RESILIENT (71%) - BELOW PASSING
 - **FSx variants:** Lustre (HPC), Windows (SMB), NetApp, OpenZFS

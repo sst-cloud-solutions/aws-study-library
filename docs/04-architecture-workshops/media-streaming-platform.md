@@ -57,7 +57,7 @@ graph LR
 
 ## Recommended Next Topics
 
-- [AWS Certification 05-exam-strategy](../05-exam-strategy/intro.md)
+- Congratulations! You have completed the Workshops track.
 
 ## Related Topics
 

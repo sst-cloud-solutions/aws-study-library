@@ -78,4 +78,3 @@ Target Macie scans at specific paths and files using size or type exclusions to 
 
 - [AWS Active Directory Integration](active-directory-integration.md)
 - [AWS Shield Advanced](shield-advanced.md)
-- [AWS WAF (Web Application Firewall)](waf.md)

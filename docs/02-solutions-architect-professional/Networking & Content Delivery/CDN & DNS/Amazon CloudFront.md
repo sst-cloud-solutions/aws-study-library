@@ -626,7 +626,6 @@ Amazon CloudFront is a versatile and robust solution for delivering content at s
 ## Prerequisites
 
 - [AWS VPN](../Virtual Networking & Connectivity/AWS VPN.md)
-- [AWS Developer Associate: Cloudfront](../../../01-developer-associate/2-aws-deep-dive/cloudfront.md) (Fundamental Concept)
 
 ## Recommended Next Topics
 

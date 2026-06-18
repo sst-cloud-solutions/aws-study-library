@@ -71,6 +71,6 @@ All practice test reviews are stored in the **[exam-reviews/](../exam-reviews/RE
 
 ## Related Topics
 
-- [Module 01: AWS Fundamentals](../01-AWS-Fundamentals/README.md)
-- [⚡ Fast Learning - AWS Fundamentals](../01-AWS-Fundamentals/FAST-LEARN.md)
-- [01: AWS Fundamentals - Ultra Fast Learning 🚀](../01-AWS-Fundamentals/ULTRA-FAST-LEARN.md)
+- [Module 01: Identity and Access Management (IAM)](../01-IAM/README.md)
+- [⚡ Fast Learning - IAM (Identity & Access Management)](../01-IAM/FAST-LEARN.md)
+- [02: IAM - Ultra Fast Learning 🚀](../01-IAM/ULTRA-FAST-LEARN.md)

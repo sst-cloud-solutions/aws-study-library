@@ -53,11 +53,11 @@ IAM policies define permissions for an action regardless of the method that you 
 
 ## Prerequisites
 
-- [Module 9: Security Foundations](../../00-it-foundation/9-security-foundations.md)
+- [AWS Certified Developer – Associate (DVA-C02) Study Plan & Roadmap](../dva-roadmap.md)
 
 ## Recommended Next Topics
 
-- [Beginner Study Roadmap](../../00-it-foundation/beginner-roadmap.md)
+- [Security Groups](security-groups.md)
 
 ## Related Topics
 

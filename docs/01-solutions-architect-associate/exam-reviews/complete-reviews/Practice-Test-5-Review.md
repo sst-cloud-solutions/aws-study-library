@@ -78,9 +78,9 @@ Pattern: Inconsistent performance across tests
 10. **Auto Scaling** (Q64) - Target tracking vs step scaling, AZ rebalancing
 
 **Action Required:**
-- ⚠️ **URGENT:** Complete re-study of Module 03 (Compute) - Focus on CloudWatch, ECS, Auto Scaling
-- ⚠️ **URGENT:** Re-study Module 11 (Analytics) - QuickSight, Glue, Athena, Redshift
-- Review Module 04 (Storage) - S3 performance, ElastiCache, caching strategies
+- ⚠️ **URGENT:** Complete re-study of Module 01 (Compute) - Focus on CloudWatch, ECS, Auto Scaling
+- ⚠️ **URGENT:** Re-study Module 01 (Analytics) - QuickSight, Glue, Athena, Redshift
+- Review Module 01 (Storage) - S3 performance, ElastiCache, caching strategies
 - Practice questions on CloudWatch custom metrics and agent configuration
 
 ---
@@ -101,9 +101,9 @@ Pattern: Inconsistent performance across tests
 6. **Multi-Region DR** (Q65) - RDS read replica promotion, CNAME updates
 
 **Action Required:**
-- Review Module 04 (Storage) - FSx for Lustre and Windows File Server
-- Study Module 06 (Networking) - CloudFront custom error responses
-- Review Module 08 (Application Integration) - Kinesis Video Streams
+- Review Module 01 (Storage) - FSx for Lustre and Windows File Server
+- Study Module 01 (Networking) - CloudFront custom error responses
+- Review Module 01 (Application Integration) - Kinesis Video Streams
 - Practice DR scenarios with RDS cross-region replication
 
 ---
@@ -122,8 +122,8 @@ Pattern: Inconsistent performance across tests
 4. **Lambda IAM Permissions** (Q55) - CreateLogGroup, CreateLogStream, PutLogEvents
 
 **Action Required:**
-- Review Module 07 (Security) - CloudTrail, CloudHSM, Network ACLs
-- Study Module 02 (IAM) - Lambda execution role permissions
+- Review Module 01 (Security) - CloudTrail, CloudHSM, Network ACLs
+- Study Module 01 (IAM) - Lambda execution role permissions
 - Practice questions on VPC security (NACLs vs Security Groups)
 
 ---
@@ -974,26 +974,26 @@ Need to run ECS containers?
 
 #### 🔴 HIGH PRIORITY (Must complete before next test)
 
-1. **Module 03 - Compute (Chapters 1-5)**
+1. **Module 01 - Compute (Chapters 1-5)**
    - EC2 Auto Scaling (lifecycle, policies, cooldowns)
    - ECS deployment models and networking
    - Lambda execution roles and permissions
    - **Time:** 6-8 hours
 
-2. **Module 09 - Monitoring (All Chapters)**
+2. **Module 01 - Monitoring (All Chapters)**
    - CloudWatch Agent configuration
    - Custom metrics and aggregation
    - CloudTrail vs Config vs CloudWatch
    - **Time:** 4-6 hours
 
-3. **Module 04 - Storage (Chapters 1-4)**
+3. **Module 01 - Storage (Chapters 1-4)**
    - S3 performance optimization
    - S3 consistency model
    - Storage Gateway types
    - ElastiCache use cases
    - **Time:** 5-7 hours
 
-4. **Module 11 - Analytics (Chapters 1-3)**
+4. **Module 01 - Analytics (Chapters 1-3)**
    - QuickSight for dashboards
    - Glue crawlers and Data Catalog
    - Athena for S3 log analysis
@@ -1002,26 +1002,26 @@ Need to run ECS containers?
 
 #### 🟡 MEDIUM PRIORITY (Review before exam)
 
-5. **Module 06 - Networking (Chapters 3-5)**
+5. **Module 01 - Networking (Chapters 3-5)**
    - CloudFront custom error responses and invalidation
    - Global Accelerator vs Route 53
    - VPC Network ACLs (explicit deny rules)
    - **Time:** 3-4 hours
 
-6. **Module 07 - Security (Chapters 2-4)**
+6. **Module 01 - Security (Chapters 2-4)**
    - CloudHSM backup encryption (EBK/PBK)
    - Secrets Manager rotation
    - IAM role permissions (Lambda, RDS)
    - **Time:** 3-4 hours
 
-7. **Module 08 - Application Integration (Chapter 2)**
+7. **Module 01 - Application Integration (Chapter 2)**
    - Kinesis Video Streams
    - Step Functions orchestration
    - **Time:** 2-3 hours
 
 #### 🟢 LOW PRIORITY (Quick review)
 
-8. **Module 13 - Cost Optimization**
+8. **Module 01 - Cost Optimization**
    - Already at 100% - maintain this!
    - Quick 30-minute review before exam
 
@@ -1265,23 +1265,23 @@ Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
 ## 💡 Study Strategy for Next 7 Days
 
 ### Day 1-2: Deep Dive - High-Performing Architecture
-- [ ] Watch Module 03 (Compute) videos - Focus on CloudWatch, Auto Scaling, ECS
+- [ ] Watch Module 01 (Compute) videos - Focus on CloudWatch, Auto Scaling, ECS
 - [ ] Complete 3 CloudWatch Agent labs
 - [ ] Complete 3 ECS deployment labs
 - [ ] Review Q2, Q3, Q8, Q12, Q16 explanations (30 min each)
 - [ ] Create flashcards for CloudWatch agent configuration
 
 ### Day 3-4: Storage & Analytics
-- [ ] Watch Module 04 (Storage) videos - Focus on S3 performance, Storage Gateway
-- [ ] Watch Module 11 (Analytics) videos - Focus on QuickSight, Glue, Athena
+- [ ] Watch Module 01 (Storage) videos - Focus on S3 performance, Storage Gateway
+- [ ] Watch Module 01 (Analytics) videos - Focus on QuickSight, Glue, Athena
 - [ ] Complete 2 S3 performance labs
 - [ ] Complete 1 Storage Gateway lab
 - [ ] Complete 1 Glue/Athena lab
 - [ ] Review Q19, Q26, Q31, Q32, Q51, Q61 explanations
 
 ### Day 5: Networking & Security
-- [ ] Watch Module 06 (Networking) videos - Focus on CloudFront, Global Accelerator
-- [ ] Watch Module 07 (Security) videos - Focus on CloudHSM, NACLs
+- [ ] Watch Module 01 (Networking) videos - Focus on CloudFront, Global Accelerator
+- [ ] Watch Module 01 (Security) videos - Focus on CloudHSM, NACLs
 - [ ] Complete 2 CloudFront labs
 - [ ] Review Q16, Q24, Q25, Q35, Q47 explanations
 
@@ -1405,7 +1405,7 @@ A: Volume Gateway (Cached or Stored)
 
 ### Immediate Actions (Next 24 Hours)
 1. ✅ Read this entire review document carefully
-2. ✅ Watch Module 03 (Compute) - Chapters 1-3 (CloudWatch, Auto Scaling)
+2. ✅ Watch Module 01 (Compute) - Chapters 1-3 (CloudWatch, Auto Scaling)
 3. ✅ Complete 2 CloudWatch Agent labs
 4. ✅ Review Q2, Q3, Q12 detailed explanations
 5. ✅ Create flashcards for top 10 missed concepts

@@ -324,8 +324,8 @@ Use this checklist to track your study progress:
 
 **Within This Repository:**
 - [Main Study Guide](../README.md)
-- [Practice Questions Module](../../14-Practice/README.md)
-- [Service-Specific Modules](../../01-AWS-Fundamentals/README.md) through [13-Cost-Optimization](../../13-Cost-Optimization/README.md)
+- [Practice Questions Module](../../13-Practice/README.md)
+- [Service-Specific Modules](../../../00-it-foundation/10-aws-fundamentals/README.md) through [13-Cost-Optimization](../../12-Cost-Optimization/README.md)
 
 **External Resources:**
 - AWS Official Documentation

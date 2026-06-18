@@ -568,7 +568,7 @@ AWS DMS allows S3 as a migration target. You can configure target endpoint setti
 
 ## Recommended Next Topics
 
-- [AWS Well-Architected Framework](../well-architected-framework.md)
+- Congratulations! You have completed the Solutions Architect Professional track.
 
 ## Related Topics
 

@@ -12,7 +12,7 @@
 
 ## Recommended Next Topics
 
-- [AWS Machine Learning Services (SAA-C03 Focus)](../../../01-solutions-architect-associate/11-Analytics/AWS-ML-SERVICES-NOTES.md)
+- [AWS Machine Learning Services (SAA-C03 Focus)](../../../01-solutions-architect-associate/10-Analytics/AWS-ML-SERVICES-NOTES.md)
 
 ## Related Topics
 

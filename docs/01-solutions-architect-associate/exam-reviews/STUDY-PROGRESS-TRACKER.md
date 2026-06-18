@@ -266,7 +266,7 @@ Before taking the actual exam:
 
 ## Recommended Next Topics
 
-- [Amazon OpenSearch](../saa-roadmap.md)
+- [Amazon OpenSearch](../../02-solutions-architect-professional/Analytics/Visualization & Search/Amazon OpenSearch.md)
 
 ## Related Topics
 

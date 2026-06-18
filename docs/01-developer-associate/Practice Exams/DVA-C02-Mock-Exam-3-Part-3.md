@@ -565,7 +565,7 @@ The scenario describes a typical AWS development issue where the correct approac
 
 ## Recommended Next Topics
 
-- [SAP Study Plan & Roadmap](../../02-solutions-architect-professional/sap-roadmap.md)
+- Congratulations! You have completed the Developer Associate track.
 
 ## Related Topics
 

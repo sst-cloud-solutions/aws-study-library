@@ -41,17 +41,17 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ## 🗓️ 8-Week Study Plan
 
 ### Week 1: Foundations
-**Days 1-2**: Module 01 - AWS Fundamentals
+**Days 1-2**: AWS Fundamentals
 - AWS Global Infrastructure
 - Well-Architected Framework
 - Shared Responsibility Model
 
-**Days 3-4**: Module 02 - IAM
+**Days 3-4**: Module 01 - IAM
 - Users, Groups, Roles, Policies
 - MFA and Security Best Practices
 - Cross-account access
 
-**Days 5-7**: Module 03 - Compute
+**Days 5-7**: Module 01 - Compute
 - EC2 instance types and pricing
 - Lambda and serverless
 - Auto Scaling and Load Balancing
@@ -62,13 +62,13 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 2: Storage & Data
-**Days 1-3**: Module 04 - Storage
+**Days 1-3**: Module 01 - Storage
 - S3 storage classes and lifecycle
 - EBS volume types
 - EFS for shared storage
 - Snow Family for migration
 
-**Days 4-6**: Module 05 - Databases
+**Days 4-6**: Module 01 - Databases
 - RDS Multi-AZ and Read Replicas
 - Aurora features
 - DynamoDB and DAX
@@ -81,7 +81,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 3: Networking Mastery
-**Days 1-4**: Module 06 - Networking
+**Days 1-4**: Module 01 - Networking
 - VPC design (subnets, routing, gateways)
 - Security Groups vs NACLs
 - VPC Peering and Endpoints
@@ -89,7 +89,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 - Route 53 routing policies
 - CloudFront CDN
 
-**Days 5-6**: Module 08 - Application Integration
+**Days 5-6**: Module 01 - Application Integration
 - SQS queuing patterns
 - SNS pub/sub
 - EventBridge event routing
@@ -102,14 +102,14 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 4: Security Deep Dive
-**Days 1-4**: Module 07 - Security
+**Days 1-4**: Module 01 - Security
 - KMS encryption
 - Secrets Manager and Parameter Store
 - WAF and Shield
 - GuardDuty, Inspector, Macie
 - Security Hub
 
-**Days 5-7**: Module 09 - Monitoring
+**Days 5-7**: Module 01 - Monitoring
 - CloudWatch (metrics, logs, alarms)
 - CloudTrail for auditing
 - AWS Config for compliance
@@ -121,7 +121,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 5: Advanced Topics ✨
-**Days 1-2**: Module 10 - Migration & Transfer Services
+**Days 1-2**: Module 01 - Migration & Transfer Services
 - Migration Strategies (6 R's: Rehost, Replatform, Repurchase, Refactor, Retire, Retain)
 - AWS DataSync (automated data transfer)
 - Database Migration Service (DMS) with CDC
@@ -129,7 +129,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 - AWS Migration Hub (centralized tracking)
 - Application Migration Service (MGN)
 
-**Days 3-4**: Module 11 - Analytics Services
+**Days 3-4**: Module 01 - Analytics Services
 - Amazon Athena (serverless SQL on S3)
 - Amazon Kinesis (Streams, Firehose, Analytics)
 - Amazon EMR (Hadoop/Spark clusters)
@@ -137,7 +137,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 - Amazon QuickSight (BI dashboards)
 - Data Lake architecture patterns
 
-**Days 5-6**: Module 13 - Cost Optimization
+**Days 5-6**: Module 01 - Cost Optimization
 - EC2 pricing models (On-Demand, Reserved, Spot, Savings Plans)
 - AWS Cost Explorer (visualization & forecasting)
 - AWS Budgets (alerts and actions)
@@ -153,7 +153,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 6: Architecture & Patterns
-**Days 1-4**: Module 12 - Architecture Patterns
+**Days 1-4**: Module 01 - Architecture Patterns
 - Multi-tier architectures
 - Serverless patterns
 - Event-driven design
@@ -171,7 +171,7 @@ Congratulations! You now have access to a comprehensive study guide covering all
 ---
 
 ### Week 7: Practice & Review
-**Days 1-3**: Module 14 - Practice Questions
+**Days 1-3**: Module 01 - Practice Questions
 - Domain-based questions (4 domains)
 - Scenario-based questions
 - Identify weak areas
@@ -444,15 +444,15 @@ This comprehensive study guide covers **all exam domains** with:
 
 ## 🚀 Your Journey Starts Now!
 
-Begin with **Module 01: AWS Fundamentals** and work through systematically. Take your time, practice consistently, and trust the process.
+Begin with **AWS Fundamentals** and work through systematically. Take your time, practice consistently, and trust the process.
 
 **Good luck on your AWS Solutions Architect certification journey!** 🎓
 
 ---
 
-**Start Here**: [Module 01: AWS Fundamentals](../.././01-AWS-Fundamentals/README.md)  
+**Start Here**: [AWS Fundamentals](../../../00-it-foundation/10-aws-fundamentals/README.md)  
 **Quick Reference**: [Quick Reference Guide](../reference/QUICK-REFERENCE.md)  
-**Practice**: [Module 14: Practice Questions](../.././14-Practice/README.md)
+**Practice**: [Module 01: Practice Questions](../.././13-Practice/README.md)
 
 ---
 

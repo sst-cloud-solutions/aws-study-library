@@ -126,7 +126,7 @@ Global Aurora
 	- Up to 5 secondary (read-only) regions, replication lag is less than 1 second
 	- Up to 16 Read Replicas per secondary region
 	- Helps for decreasing latency
-	• Promoting another region (for disaster recovery) has an RTO of < 1 minute
+	• Promoting another region (for disaster recovery) has an RTO of \< 1 minute
 	
 Connection Pool
 - If you get RDS _1040 Too Many Connections_, you can enable Connection Pool to reuse connections

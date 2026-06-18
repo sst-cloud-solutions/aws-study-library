@@ -274,14 +274,14 @@ Last Backup → Disaster → Recovery Complete
 
 ## 📚 Where to Study
 
-### Module 01: AWS Fundamentals
+### AWS Fundamentals
 - Section 5.2: AWS Organizations
 - Section 5.2.1: Service Control Policies
 - Section 5.2.2: AWS Control Tower
 - Section 5.2.3: AWS RAM
 - Practice Questions 21-27
 
-### Module 10: Migration
+### Module 01: Migration
 - Section 7: AWS Backup
 - Section 8: Disaster Recovery Strategies
 - All exam scenarios
@@ -317,9 +317,8 @@ Last Backup → Disaster → Recovery Complete
 
 ## Recommended Next Topics
 
-- [README](../../14-Practice/README.md)
+- [README](../../13-Practice/README.md)
 
 ## Related Topics
 
 - [AWS SAA-C03 Exam Coverage Analysis](EXAM-COVERAGE-ANALYSIS.md)
-- [AWS SAA-C03 Exam Coverage Update Summary](COVERAGE-UPDATE-SUMMARY.md)

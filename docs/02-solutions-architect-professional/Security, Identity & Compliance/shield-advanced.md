@@ -80,4 +80,3 @@ Look for "Shield Advanced" when requirements mention 24/7 DDoS support, financia
 
 - [AWS Active Directory Integration](active-directory-integration.md)
 - [Amazon Macie](macie.md)
-- [AWS WAF (Web Application Firewall)](waf.md)

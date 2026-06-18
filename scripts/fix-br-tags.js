@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const docsDir = path.resolve(__dirname, '../docs/01-solutions-architect-associate');
+const docsDir = path.resolve(__dirname, '../docs');
 
 if (!fs.existsSync(docsDir)) {
-  console.error(`Error: SAA-C03 directory does not exist at ${docsDir}`);
+  console.error(`Error: Docs directory does not exist at ${docsDir}`);
   process.exit(1);
 }
 
@@ -24,7 +24,7 @@ function getFiles(dir) {
 }
 
 const allMdFiles = getFiles(docsDir);
-console.log(`Scanning ${allMdFiles.length} markdown files in SAA-C03 directory for unclosed <br> or <hr> tags...`);
+console.log(`Scanning ${allMdFiles.length} markdown files in docs directory for unclosed <br> or <hr> tags...`);
 
 let fixedFilesCount = 0;
 let totalReplacedBr = 0;

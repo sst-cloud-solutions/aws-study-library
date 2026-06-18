@@ -9,14 +9,8 @@
 
 ## Prerequisites
 
-- [Module 1: How Computers Actually Work](../../00-it-foundation/1-how-computers-work.md)
+- [AWS Well-Architected Framework](../../02-solutions-architect-professional/well-architected-framework.md)
 
 ## Recommended Next Topics
 
-- [Difference between Config / CloudWatch / CloudTrail](monitoring-and-audit/cloudsomething_difference.md)
-
-## Related Topics
-
-- [CLI: Command Line Interface](cli.md)
-- [SDK: Software Development Kit](sdk.md)
-- [Elastic Beanstalk](elastic-beanstalk.md)
+- [Beginner Study Roadmap](../../00-it-foundation/beginner-roadmap.md)

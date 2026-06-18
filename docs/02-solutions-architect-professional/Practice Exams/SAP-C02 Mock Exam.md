@@ -83,7 +83,7 @@ We have provided **three complete 75-question exams (225 scenario-based question
 
 ## Prerequisites
 
-- [AWS Certification 05-exam-strategy](../../05-exam-strategy/intro.md)
+- [Workshop 4](../../04-architecture-workshops/multi-region-dr.md)
 
 ## Recommended Next Topics
 

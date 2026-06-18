@@ -93,4 +93,4 @@ Before moving on to Phase 1 (AWS Core Services), make sure you can comfortably e
 
 - [Beginner Study Roadmap](beginner-roadmap.md)
 - [Module 1: How Computers Actually Work](1-how-computers-work.md)
-- [Module 2: Linux Fundamentals](2-linux-fundamentals.md)
+- [Module 1: Linux Fundamentals](2-linux-fundamentals.md)

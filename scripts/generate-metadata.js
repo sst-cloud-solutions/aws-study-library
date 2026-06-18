@@ -5,12 +5,13 @@ const docsDir = path.resolve(__dirname, '../docs');
 
 const rootCategories = {
   '00-it-foundation': { label: '00 / IT Foundation', position: 1, desc: 'Core foundational concepts in IT, systems, networks, and databases for cloud engineering.' },
-  '01-developer-associate': { label: '01 / Developer Associate', position: 2, desc: 'Preparation material and deep dives for the AWS Certified Developer - Associate (DVA-C02) exam.' },
-  '01-solutions-architect-associate': { label: '01 / Solutions Architect Associate', position: 3, desc: 'Preparation material and deep dives for the AWS Certified Solutions Architect - Associate (SAA-C03) exam.' },
-  '02-solutions-architect-professional': { label: '02 / Solutions Architect Professional', position: 4, desc: 'Advanced architecture patterns, security compliance, and migration strategies for the AWS Certified Solutions Architect - Professional (SAP-C02) exam.' },
-  '03-architecture-decision-frameworks': { label: '03 / Decision Frameworks', position: 5, desc: 'Comparative analysis matrices to guide critical architecture decisions on AWS.' },
-  '04-architecture-workshops': { label: '04 / Workshops', position: 6, desc: 'Hands-on guided architecture workshops and deployment walkthroughs for enterprise scenarios.' },
-  '05-exam-strategy': { label: '05 / Exam Strategy', position: 7, desc: 'Strategic frameworks and proven strategies to decompose and tackle the SAP-C02 exam questions.' }
+  '01-ai-practitioner': { label: '01 / AI Practitioner', position: 2, desc: 'Foundational study notes, terms, and practice resources for the AWS Certified AI Practitioner (AIF-C01) exam.' },
+  '01-developer-associate': { label: '01 / Developer Associate', position: 3, desc: 'Preparation material and deep dives for the AWS Certified Developer - Associate (DVA-C02) exam.' },
+  '01-solutions-architect-associate': { label: '01 / Solutions Architect Associate', position: 4, desc: 'Preparation material and deep dives for the AWS Certified Solutions Architect - Associate (SAA-C03) exam.' },
+  '02-solutions-architect-professional': { label: '02 / Solutions Architect Professional', position: 5, desc: 'Advanced architecture patterns, security compliance, and migration strategies for the AWS Certified Solutions Architect - Professional (SAP-C02) exam.' },
+  '03-architecture-decision-frameworks': { label: '03 / Decision Frameworks', position: 6, desc: 'Comparative analysis matrices to guide critical architecture decisions on AWS.' },
+  '04-architecture-workshops': { label: '04 / Workshops', position: 7, desc: 'Hands-on guided architecture workshops and deployment walkthroughs for enterprise scenarios.' },
+  '05-exam-strategy': { label: '05 / Exam Strategy', position: 8, desc: 'Strategic frameworks and proven strategies to decompose and tackle the SAP-C02 exam questions.' }
 };
 
 const sapCategories = {
@@ -39,6 +40,7 @@ const sapCategories = {
 // Generates a human-friendly description from category label
 function getCategoryDescription(label) {
   if (label.includes('IT Foundation')) return rootCategories['00-it-foundation'].desc;
+  if (label.includes('AI Practitioner')) return rootCategories['01-ai-practitioner'].desc;
   if (label.includes('Developer Associate')) return rootCategories['01-developer-associate'].desc;
   if (label.includes('Solutions Architect Associate')) return rootCategories['01-solutions-architect-associate'].desc;
   if (label.includes('Solutions Architect Professional')) return rootCategories['02-solutions-architect-professional'].desc;

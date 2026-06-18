@@ -145,7 +145,7 @@ When scaling a provisioned Redshift cluster, you must select the correct resizin
 
 | Feature | Elastic Resize (Recommended) | Classic Resize (Legacy/Fallback) |
 | :--- | :--- | :--- |
-| **Duration** | Minutes (typically < 10 mins). | Hours to Days (depends on data size). |
+| **Duration** | Minutes (typically \< 10 mins). | Hours to Days (depends on data size). |
 | **Availability Impact** | Pauses queries during metadata update (~4 min outage). | High. Cluster is in **read-only mode** during final replication/cutover. |
 | **Node Type Change** | **No**. Cannot change node instance family. | **Yes**. Allows upgrading/changing instance types. |
 | **Node Count Flexibility** | **Restricted**. Must stay within specific multiples (e.g., doubling or halving). | **Unrestricted**. Can change to any valid node count. |

@@ -62,4 +62,4 @@ graph LR
 
 - [Workshop 1](enterprise-landing-zone.md)
 - [Workshop 3](hybrid-enterprise-network.md)
-- [Workshop 1](enterprise-landing-zone.md)
+- [Workshop 2](global-saas-platform.md)

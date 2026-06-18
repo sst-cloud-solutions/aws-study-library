@@ -12,7 +12,7 @@
 ## 📖 Related Resources
 
 - [Main Study Guide](../README.md)
-- [Practice Questions Module](../../14-Practice/README.md)
+- [Practice Questions Module](../../13-Practice/README.md)
 
 **Individual Test Reviews:**
 - [Practice Test 1 Review](../complete-reviews/Practice-Test-1-Review.md) - 34/65 (52.31%) ❌
@@ -106,8 +106,8 @@ Score Trend:
    - SQS-based scaling (ApproximateNumberOfMessagesVisible)
 
 **Action Plan:**
-- [ ] Re-watch Module 03: Compute (EC2, ECS, Auto Scaling) - 4 hours
-- [ ] Re-watch Module 09: Monitoring (CloudWatch) - 2 hours
+- [ ] Re-watch Module 01: Compute (EC2, ECS, Auto Scaling) - 4 hours
+- [ ] Re-watch Module 01: Monitoring (CloudWatch) - 2 hours
 - [ ] Hands-on: Install CloudWatch agent, publish custom metrics
 - [ ] Hands-on: Deploy ECS with awsvpc and dynamic ports
 - [ ] Hands-on: S3 multipart upload with parallelization
@@ -141,9 +141,9 @@ Score Trend:
    - Health check grace periods
 
 **Action Plan:**
-- [ ] Re-watch Module 04: Storage (FSx section) - 2 hours
-- [ ] Re-watch Module 05: Database (RDS HA/DR) - 2 hours
-- [ ] Re-watch Module 06: Networking (CloudFront) - 1 hour
+- [ ] Re-watch Module 01: Storage (FSx section) - 2 hours
+- [ ] Re-watch Module 01: Database (RDS HA/DR) - 2 hours
+- [ ] Re-watch Module 01: Networking (CloudFront) - 1 hour
 - [ ] Hands-on: FSx for Lustre with S3 data repository
 - [ ] Hands-on: RDS failover simulation
 - [ ] Hands-on: CloudFront custom error pages

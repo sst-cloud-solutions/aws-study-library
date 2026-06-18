@@ -20,7 +20,7 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
 
 **Current Coverage**: ~92% → **Target**: 98%+
 
-### 2. **Module 01: AWS Fundamentals - MAJOR UPDATES**
+### 2. **AWS Fundamentals - MAJOR UPDATES**
 
 #### Added to README.md:
 - ✅ **AWS Organizations** (comprehensive section)
@@ -75,7 +75,7 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
 
 **Impact**: Module 01 coverage increased from ~85% to ~98%
 
-### 3. **Module 10: Migration - MAJOR UPDATES**
+### 3. **Module 01: Migration - MAJOR UPDATES**
 
 #### Added to README.md:
 - ✅ **AWS Backup** (comprehensive 500+ line section)
@@ -118,7 +118,7 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
   - RTO/RPO-based DR selection
   - Cost-effective DR strategies
 
-**Impact**: Module 10 coverage increased from ~88% to ~98%
+**Impact**: Module 01 coverage increased from ~88% to ~98%
 
 ---
 
@@ -148,22 +148,22 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
 ## 🎯 What's Still Missing (Future Work)
 
 ### Medium Priority (Phase 2):
-1. **Module 05 - Database**:
+1. **Module 01 - Database**:
    - Amazon MemoryDB for Redis
    - Amazon Timestream
 
-2. **Module 07 - Security**:
+2. **Module 01 - Security**:
    - AWS Firewall Manager (expand details)
    - Systems Manager Session Manager
 
-3. **Module 11 - Analytics**:
+3. **Module 01 - Analytics**:
    - AWS Lake Formation (expand)
    - AWS Data Exchange
 
-4. **Module 09 - Monitoring**:
+4. **Module 01 - Monitoring**:
    - AWS Service Catalog
 
-5. **Module 04 - Storage**:
+5. **Module 01 - Storage**:
    - FSx for OpenZFS
    - FSx for NetApp ONTAP
 
@@ -208,9 +208,9 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
    - ✅ **AWS Organizations + SCPs** (now comprehensively covered)
    - ✅ **AWS Backup** (now comprehensively covered)
    - ✅ **Disaster Recovery strategies** (now comprehensively covered)
-   - ⚠️ CloudWatch Agent & custom metrics (Module 09)
-   - ⚠️ ECS networking (awsvpc mode) (Module 03)
-   - ⚠️ S3 performance optimization (Module 04)
+   - ⚠️ CloudWatch Agent & custom metrics (Module 01)
+   - ⚠️ ECS networking (awsvpc mode) (Module 01)
+   - ⚠️ S3 performance optimization (Module 01)
 
 2. **Review the new content**:
    - Read `01-AWS-Fundamentals/README.md` sections 5.2 (Organizations) through 5.2.4 (RAM)
@@ -254,7 +254,7 @@ I've completed a comprehensive analysis of all 13 modules and identified missing
 
 ### Immediate (For Your Exam Prep):
 1. ✅ Review new content in Module 01 (AWS Organizations, SCPs, Control Tower, RAM)
-2. ✅ Review new content in Module 10 (AWS Backup, DR strategies)
+2. ✅ Review new content in Module 01 (AWS Backup, DR strategies)
 3. ✅ Complete the 7 new practice questions
 4. ⚠️ Focus on your weak areas from practice tests (High-Performance domain)
 5. ⚠️ Review CloudWatch Agent, ECS networking, S3 performance
@@ -289,7 +289,7 @@ Just ask!
 
 ## Prerequisites
 
-- [Test Results & Weak Areas Tracker](../../14-Practice/TEST-RESULTS-TRACKER.md)
+- [Test Results & Weak Areas Tracker](../../13-Practice/TEST-RESULTS-TRACKER.md)
 
 ## Recommended Next Topics
 

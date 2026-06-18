@@ -49,4 +49,3 @@ Amazon OpenSearch Serverless is an on-demand, serverless configuration for Amazo
 ## Related Topics
 
 - [Amazon QuickSight](Amazon QuickSight.md)
-- [Amazon OpenSearch](Amazon OpenSearch.md)

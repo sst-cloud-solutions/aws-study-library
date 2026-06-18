@@ -62,5 +62,5 @@ EFS uses IAM and POSIX file permissions. FSx for Windows supports standard Windo
 ## Related Topics
 
 - [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
-- [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
 - [Amazon Aurora vs Amazon RDS Decision Matrix](aurora-vs-rds.md)
+- [Amazon CloudFront vs AWS Global Accelerator Decision Matrix](cloudfront-vs-global-accelerator.md)

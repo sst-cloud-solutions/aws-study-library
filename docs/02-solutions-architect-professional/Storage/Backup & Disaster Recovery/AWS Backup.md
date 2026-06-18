@@ -95,4 +95,3 @@ Through this chapter, we have explored the technical and operational nuances of 
 
 - [Disaster Recovery Strategies](Disaster Recovery Strategies.md)
 - [AWS Elastic Disaster Recovery (DRS)](AWS Elastic Disaster Recovery.md)
-- [AWS Storage Gateway](AWS Storage Gateway.md)

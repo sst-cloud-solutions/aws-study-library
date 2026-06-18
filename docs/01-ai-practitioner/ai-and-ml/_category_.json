@@ -1,0 +1,8 @@
+{
+  "label": "Ai and ML",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive guides, architecture blueprints, and exam preparation resources for AWS Ai and ML services."
+  }
+}

@@ -50,7 +50,7 @@ Automating failover is crucial to achieving low RTO.
 ## 6. Cross-Region Database DR Patterns
 Relational and NoSQL databases require specific cross-region replication strategies.
 1. **Aurora Global Database:**
-    - Provides up to 5 replica regions with sub-second replication latency (typically < 150 ms).
+    - Provides up to 5 replica regions with sub-second replication latency (typically \< 150 ms).
     - **Failover Mechanics:** Supports **Managed failover** (cross-region role promotion) or manual failover.
     - **Write Forwarding:** Allows read replicas in secondary regions to forward SQL write requests directly to the primary writer instance, simplifying application architecture.
 2. **Amazon RDS Cross-Region Read Replicas:**
@@ -95,4 +95,3 @@ To align with the **Reliability Pillar (REL13)**:
 
 - [AWS Elastic Disaster Recovery (DRS)](AWS Elastic Disaster Recovery.md)
 - [AWS Backup](AWS Backup.md)
-- [AWS Storage Gateway](AWS Storage Gateway.md)

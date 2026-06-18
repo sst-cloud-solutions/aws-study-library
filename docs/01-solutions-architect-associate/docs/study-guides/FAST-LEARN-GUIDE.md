@@ -20,36 +20,36 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 ### Core Foundation (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link                                                |
 |--------|------|-------------|----------|-----------------------------------------------------|
-| **01. AWS Fundamentals** | 30-45 min | ~10% | 🔥 CRITICAL | [FAST-LEARN.md](../..//01-AWS-Fundamentals/FAST-LEARN.md) |
-| **02. IAM** | 45-60 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//02-IAM/FAST-LEARN.md)               |
-| **03. Compute Services** | 60-90 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//03-Compute/FAST-LEARN.md)           |
+| **01. AWS Fundamentals** | 30-45 min | ~10% | 🔥 CRITICAL | [FAST-LEARN.md](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide) |
+| **02. IAM** | 45-60 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//01-IAM/FAST-LEARN.md)               |
+| **03. Compute Services** | 60-90 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//02-Compute/FAST-LEARN.md)           |
 
 ### Core Services (4-5 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **04. Storage** | 60-75 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//04-Storage/FAST-LEARN.md) |
-| **05. Database** | 60-75 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//05-Database/FAST-LEARN.md) |
-| **06. Networking** | 75-90 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//06-Networking/FAST-LEARN.md) |
+| **04. Storage** | 60-75 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//03-Storage/FAST-LEARN.md) |
+| **05. Database** | 60-75 min | ~15-20% | 🔥 CRITICAL | [FAST-LEARN.md](../..//04-Database/FAST-LEARN.md) |
+| **06. Networking** | 75-90 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//05-Networking/FAST-LEARN.md) |
 
 ### Security & Integration (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **07. Security** | 60-75 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//07-Security/FAST-LEARN.md) |
-| **08. Application Integration** | 45-60 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//08-Application-Integration/FAST-LEARN.md) |
-| **09. Monitoring** | 45-60 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//09-Monitoring/FAST-LEARN.md) |
+| **07. Security** | 60-75 min | ~20-25% | 🔥 CRITICAL | [FAST-LEARN.md](../..//06-Security/FAST-LEARN.md) |
+| **08. Application Integration** | 45-60 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//07-Application-Integration/FAST-LEARN.md) |
+| **09. Monitoring** | 45-60 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//08-Monitoring/FAST-LEARN.md) |
 
 ### Advanced Topics (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **10. Migration** | 40-50 min | ~8-12% | ⭐ MEDIUM | [FAST-LEARN.md](../..//10-Migration/FAST-LEARN.md) |
-| **11. Analytics** | 45-60 min | ~8-12% | ⭐ MEDIUM | [FAST-LEARN.md](../..//11-Analytics/FAST-LEARN.md) |
-| **12. Architecture Patterns** | 60-75 min | ~25-30% | 🔥 CRITICAL | [FAST-LEARN.md](../..//12-Architecture-Patterns/FAST-LEARN.md) |
-| **13. Cost Optimization** | 40-50 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//13-Cost-Optimization/FAST-LEARN.md) |
+| **10. Migration** | 40-50 min | ~8-12% | ⭐ MEDIUM | [FAST-LEARN.md](../..//09-Migration/FAST-LEARN.md) |
+| **11. Analytics** | 45-60 min | ~8-12% | ⭐ MEDIUM | [FAST-LEARN.md](../..//10-Analytics/FAST-LEARN.md) |
+| **12. Architecture Patterns** | 60-75 min | ~25-30% | 🔥 CRITICAL | [FAST-LEARN.md](../..//11-Architecture-Patterns/FAST-LEARN.md) |
+| **13. Cost Optimization** | 40-50 min | ~10-15% | ⚡ HIGH | [FAST-LEARN.md](../..//12-Cost-Optimization/FAST-LEARN.md) |
 
 ### Exam Preparation (30-45 min)
 | Module | Time | Purpose | Priority | Link |
 |--------|------|---------|----------|------|
-| **14. Practice & Exam Strategies** | 30-45 min | Final prep | 🔥 CRITICAL | [FAST-LEARN.md](../..//14-Practice/FAST-LEARN.md) |
+| **14. Practice & Exam Strategies** | 30-45 min | Final prep | 🔥 CRITICAL | [FAST-LEARN.md](../..//13-Practice/FAST-LEARN.md) |
 
 ---
 
@@ -59,22 +59,22 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 **For those with AWS experience or limited time**
 
 **Day 1** (4-5 hours):
-- Module 01: AWS Fundamentals
-- Module 02: IAM
-- Module 03: Compute
-- Module 04: Storage
+- AWS Fundamentals
+- Module 01: IAM
+- Module 01: Compute
+- Module 01: Storage
 
 **Day 2** (4-5 hours):
-- Module 05: Database
-- Module 06: Networking
-- Module 07: Security
-- Module 12: Architecture Patterns
+- Module 01: Database
+- Module 01: Networking
+- Module 01: Security
+- Module 01: Architecture Patterns
 
 **Day 3** (3-4 hours):
-- Module 08: Application Integration
-- Module 09: Monitoring
-- Module 13: Cost Optimization
-- Module 14: Practice & Exam Strategies
+- Module 01: Application Integration
+- Module 01: Monitoring
+- Module 01: Cost Optimization
+- Module 01: Practice & Exam Strategies
 - Practice questions from each module
 
 ### Path 2: Balanced (1 Week)
@@ -83,7 +83,7 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 **Day 1-2**: Foundation (Modules 01-03)
 **Day 3-4**: Core Services (Modules 04-06)
 **Day 5-6**: Security & Advanced (Modules 07-13)
-**Day 7**: Practice & Review (Module 14 + practice questions)
+**Day 7**: Practice & Review (Module 01 + practice questions)
 
 ### Path 3: Comprehensive (2 Weeks)
 **For complete mastery with practice**
@@ -97,7 +97,7 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 - Modules 08-13 (2 per day)
 - Full practice exams
 - Review all FAST-LEARN materials
-- Module 14 + final prep
+- Module 01 + final prep
 
 ---
 
@@ -211,28 +211,28 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 ### Module Completion Checklist
 ```
 Core Foundation:
-□ Module 01: AWS Fundamentals
-□ Module 02: IAM
-□ Module 03: Compute Services
+□ AWS Fundamentals
+□ Module 01: IAM
+□ Module 01: Compute Services
 
 Core Services:
-□ Module 04: Storage
-□ Module 05: Database
-□ Module 06: Networking
+□ Module 01: Storage
+□ Module 01: Database
+□ Module 01: Networking
 
 Security & Integration:
-□ Module 07: Security
-□ Module 08: Application Integration
-□ Module 09: Monitoring
+□ Module 01: Security
+□ Module 01: Application Integration
+□ Module 01: Monitoring
 
 Advanced Topics:
-□ Module 10: Migration
-□ Module 11: Analytics
-□ Module 12: Architecture Patterns
-□ Module 13: Cost Optimization
+□ Module 01: Migration
+□ Module 01: Analytics
+□ Module 01: Architecture Patterns
+□ Module 01: Cost Optimization
 
 Exam Preparation:
-□ Module 14: Practice & Exam Strategies
+□ Module 01: Practice & Exam Strategies
 □ Full practice exam 1 (score: ___%)
 □ Full practice exam 2 (score: ___%)
 □ Review all weak areas
@@ -337,7 +337,7 @@ Time saved:                   40-70 hours!
 
 ---
 
-**🚀 Ready to start? Jump to [Module 01: AWS Fundamentals](../..//01-AWS-Fundamentals/FAST-LEARN.md)**
+**🚀 Ready to start? Jump to [AWS Fundamentals](../../../00-it-foundation/10-aws-fundamentals/README.md#8-⚡-fast-track-study-guide)**
 
 **💪 You've got this! Let's get you certified!**
 

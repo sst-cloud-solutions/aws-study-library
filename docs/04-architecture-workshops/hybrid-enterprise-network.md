@@ -66,4 +66,4 @@ graph TD
 
 - [Workshop 1](enterprise-landing-zone.md)
 - [Workshop 4](multi-region-dr.md)
-- [Workshop 1](enterprise-landing-zone.md)
+- [Workshop 2](global-saas-platform.md)

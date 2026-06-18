@@ -48,14 +48,14 @@ graph TD
 | :--- | :--- | :--- | :--- |
 | [Phase 0: Foundation Bridge Overview](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/0-intro.md) | None | 0-intro.md | Beginner |
 | [Module 1: How Computers Actually Work](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/1-how-computers-work.md) | None | 1-how-computers-work.md | Beginner |
-| [Module 2: Linux Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/2-linux-fundamentals.md) | None | 2-linux-fundamentals.md | Beginner |
-| [Module 3: Networking Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/3-networking-fundamentals.md) | None | 3-networking-fundamentals.md | Beginner |
-| [Module 4: Programming Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/4-programming-fundamentals.md) | None | 4-programming-fundamentals.md | Beginner |
-| [Module 5: Database Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/5-databases.md) | None | 5-databases.md | Beginner |
-| [Module 6: Web Application Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/6-web-application-fundamentals.md) | None | 6-web-application-fundamentals.md | Beginner |
-| [Module 7: Servers & Infrastructure](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/7-servers-infrastructure.md) | None | 7-servers-infrastructure.md | Beginner |
-| [Module 8: DevOps Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/8-devops-foundations.md) | None | 8-devops-foundations.md | Beginner |
-| [Module 9: Security Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/9-security-foundations.md) | None | 9-security-foundations.md | Beginner |
+| [Module 1: Linux Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/2-linux-fundamentals.md) | None | 2-linux-fundamentals.md | Beginner |
+| [Module 1: Networking Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/3-networking-fundamentals.md) | None | 3-networking-fundamentals.md | Beginner |
+| [Module 1: Programming Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/4-programming-fundamentals.md) | None | 4-programming-fundamentals.md | Beginner |
+| [Module 1: Database Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/5-databases.md) | None | 5-databases.md | Beginner |
+| [Module 1: Web Application Fundamentals](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/6-web-application-fundamentals.md) | None | 6-web-application-fundamentals.md | Beginner |
+| [Module 1: Servers & Infrastructure](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/7-servers-infrastructure.md) | None | 7-servers-infrastructure.md | Beginner |
+| [Module 1: DevOps Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/8-devops-foundations.md) | None | 8-devops-foundations.md | Beginner |
+| [Module 1: Security Foundations](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/9-security-foundations.md) | None | 9-security-foundations.md | Beginner |
 | [Beginner Study Roadmap](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/00-it-foundation/beginner-roadmap.md) | None | beginner-roadmap.md | Beginner |
 | [ASG: Auto Scaling Group](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/asg.md) | 00-it-foundation | 1-aws-fundamentals | Associate |
 | [EBS Volume](file:///C:/Users/SST/StudyMaterial/aws-sap/docs/01-developer-associate/1-aws-fundamentals/ebs.md) | 00-it-foundation | 1-aws-fundamentals | Associate |

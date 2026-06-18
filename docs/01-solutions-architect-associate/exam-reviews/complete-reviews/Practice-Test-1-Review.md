@@ -4708,10 +4708,10 @@ If question mentions "custom," "brand-specific," "company logo," or "you have la
 ---
 
 **Study Resources:**
-- [Module 08: Application Integration - API Gateway](../../08-Application-Integration/README.md#api-gateway)
-- [Module 03: Compute - Auto Scaling](../../03-Compute/README.md#auto-scaling)
-- [Module 04: Storage - EBS Volume Types](../../04-Storage/README.md#ebs-volume-types)
-- [Module 11: Analytics - Redshift](../../11-Analytics/README.md#redshift)
+- [Module 01: Application Integration - API Gateway](../../07-Application-Integration/README.md#api-gateway)
+- [Module 01: Compute - Auto Scaling](../../02-Compute/README.md#auto-scaling)
+- [Module 01: Storage - EBS Volume Types](../../03-Storage/README.md#ebs-volume-types)
+- [Module 01: Analytics - Redshift](../../10-Analytics/README.md#redshift)
 
 ---
 
@@ -5659,10 +5659,10 @@ If question asks about applying SCPs to control permissions, **NEVER** apply the
 (Due to length, continuing with remaining Priority 3 and Priority 4 explanations in the next section...)
 
 **Study Resources:**
-- [Module 07: Security - AWS WAF](../../07-Security/README.md#aws-waf)
-- [Module 02: IAM - Organizations & SCPs](../../02-IAM/README.md#organizations)
-- [Module 07: Security - KMS](../../07-Security/README.md#kms)
-- [Module 06: Networking - VPC Endpoints](../../06-Networking/README.md#vpc-endpoints)
+- [Module 01: Security - AWS WAF](../../06-Security/README.md#aws-waf)
+- [Module 01: IAM - Organizations & SCPs](../../01-IAM/README.md#organizations)
+- [Module 01: Security - KMS](../../06-Security/README.md#kms)
+- [Module 01: Networking - VPC Endpoints](../../05-Networking/README.md#vpc-endpoints)
 
 ---
 
@@ -6745,10 +6745,10 @@ If question mentions "Internet access for private subnets," use **Public NAT Gat
 (Continuing with remaining Priority 4 explanations...)
 
 **Study Resources:**
-- [Module 02: IAM - AWS RAM](../../02-IAM/README.md#resource-access-manager)
-- [Module 06: Networking - NAT Gateway](../../06-Networking/README.md#nat-gateway)
-- [Module 13: Cost Optimization](../../13-Cost-Optimization/README.md)
-- [Module 10: Migration](../../10-Migration/README.md)
+- [Module 01: IAM - AWS RAM](../../01-IAM/README.md#resource-access-manager)
+- [Module 01: Networking - NAT Gateway](../../05-Networking/README.md#nat-gateway)
+- [Module 01: Cost Optimization](../../12-Cost-Optimization/README.md)
+- [Module 01: Migration](../../09-Migration/README.md)
 
 ---
 
@@ -7847,19 +7847,19 @@ You marked **7 questions** for review. Here they are:
 ### Week 1: Fix Critical Domain 1 - Resilient Architectures (42%)
 
 #### Days 1-2: ECS, Fargate & Container Services
-- [ ] Read [Module 03: Compute - ECS](../../03-Compute/README.md#ecs-and-fargate)
+- [ ] Read [Module 01: Compute - ECS](../../02-Compute/README.md#ecs-and-fargate)
 - [ ] Complete ECS task definition labs
 - [ ] Practice questions on ECS vs EKS vs Fargate
 - [ ] Understand ECS Anywhere vs EKS Anywhere
 
 #### Days 3-4: Route 53 & DNS Failover
-- [ ] Read [Module 06: Networking - Route 53](../../06-Networking/README.md#route-53)
+- [ ] Read [Module 01: Networking - Route 53](../../05-Networking/README.md#route-53)
 - [ ] Complete Route 53 failover labs
 - [ ] Practice Alias vs CNAME scenarios
 - [ ] Review health check configurations
 
 #### Days 5-6: VPC Networking & Hybrid Connectivity
-- [ ] Read [Module 06: Networking - Transit Gateway](../../06-Networking/README.md)
+- [ ] Read [Module 01: Networking - Transit Gateway](../../05-Networking/README.md)
 - [ ] Complete VPN with ECMP labs
 - [ ] Review VPC endpoints (Gateway vs Interface)
 - [ ] Practice multi-region VPC peering
@@ -7875,25 +7875,25 @@ You marked **7 questions** for review. Here they are:
 ### Week 2: Fix Critical Domain 2 - High-Performing Architectures (47%)
 
 #### Days 8-9: API Gateway & Application Integration
-- [ ] Read [Module 08: Application Integration](../../08-Application-Integration/README.md)
+- [ ] Read [Module 01: Application Integration](../../07-Application-Integration/README.md)
 - [ ] Complete mapping template labs
 - [ ] Practice API Gateway integration types
 - [ ] Review request/response transformations
 
 #### Days 10-11: Storage Performance & EBS
-- [ ] Read [Module 04: Storage - EBS](../../04-Storage/README.md)
+- [ ] Read [Module 01: Storage - EBS](../../03-Storage/README.md)
 - [ ] Complete EBS volume type labs (gp3, io2, st1, sc1)
 - [ ] Practice Multi-Attach scenarios
 - [ ] Review EBS optimization
 
 #### Days 12-13: Database & Caching Performance
-- [ ] Read [Module 05: Database](../../05-Database/README.md)
+- [ ] Read [Module 01: Database](../../04-Database/README.md)
 - [ ] Complete ElastiCache Redis labs
 - [ ] Review Redshift AQUA
 - [ ] Practice database performance tuning
 
 #### Day 14: Auto Scaling & Compute Optimization
-- [ ] Read [Module 03: Compute - Auto Scaling](../../03-Compute/README.md)
+- [ ] Read [Module 01: Compute - Auto Scaling](../../02-Compute/README.md)
 - [ ] Complete termination policy labs
 - [ ] Practice EC2 hibernation scenarios
 - [ ] Review placement groups
@@ -7903,19 +7903,19 @@ You marked **7 questions** for review. Here they are:
 ### Week 3: Strengthen Security & Cost Optimization (60-63%)
 
 #### Days 15-16: AWS WAF, Shield & DDoS Protection
-- [ ] Read [Module 07: Security - WAF & Shield](../../07-Security/README.md)
+- [ ] Read [Module 01: Security - WAF & Shield](../../06-Security/README.md)
 - [ ] Complete WAF rule labs
 - [ ] Practice rate-based rule scenarios
 - [ ] Review Shield Advanced features
 
 #### Days 17-18: KMS & Encryption Deep Dive
-- [ ] Read [Module 07: Security - KMS](../../07-Security/README.md)
+- [ ] Read [Module 01: Security - KMS](../../06-Security/README.md)
 - [ ] Complete KMS asymmetric/symmetric labs
 - [ ] Practice CloudHSM vs KMS scenarios
 - [ ] Review envelope encryption
 
 #### Days 19-20: Organizations, SCPs & Cost Management
-- [ ] Read [Module 02: IAM - Organizations](../../02-IAM/README.md)
+- [ ] Read [Module 01: IAM - Organizations](../../01-IAM/README.md)
 - [ ] Complete SCP labs
 - [ ] Practice AWS RAM scenarios
 - [ ] Review cost allocation tags
@@ -8144,7 +8144,7 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 ### Immediate Actions (Today)
 1. ✅ Review this exam analysis completely
 2. [ ] Create flashcards for all 31 incorrect questions
-3. [ ] Read [Module 03: ECS & Fargate](../../03-Compute/README.md#ecs-and-fargate)
+3. [ ] Read [Module 01: ECS & Fargate](../../02-Compute/README.md#ecs-and-fargate)
 4. [ ] Watch video on CloudFormation Outputs and cross-stack references
 
 ### This Week (Week 1 Plan)
@@ -8156,7 +8156,7 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 ### Before Next Practice Test (Week 3)
 1. [ ] Complete full 3-week study plan
 2. [ ] Take all section quizzes again (aim for 80%+)
-3. [ ] Review [ULTRA-FAST-LEARN guides](../../14-Practice/ULTRA-FAST-LEARN.md)
+3. [ ] Review [ULTRA-FAST-LEARN guides](../../13-Practice/ULTRA-FAST-LEARN.md)
 4. [ ] Create cheat sheet for exam day
 
 ---
@@ -8240,7 +8240,7 @@ Good luck with your studies! 💪
 
 ---
 
-[← Back to Exam Reviews](../README.md) | [Study Plan →](../../14-Practice/STUDY-NOTES.md)
+[← Back to Exam Reviews](../README.md) | [Study Plan →](../../13-Practice/STUDY-NOTES.md)
 
 ---
 

@@ -62,5 +62,5 @@ CloudFront integrates with WAF and terminates SSL/TLS at the edge. Global Accele
 ## Related Topics
 
 - [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
-- [ALB vs NLB vs GWLB Decision Matrix](alb-vs-nlb-vs-gwlb.md)
 - [Amazon Aurora vs Amazon RDS Decision Matrix](aurora-vs-rds.md)
+- [AWS DMS vs AWS Application Migration Service (MGN) Decision Matrix](dms-vs-mgn.md)

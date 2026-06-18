@@ -104,4 +104,3 @@ Use QuickSight to embed interactive charts and business dashboards into external
 ## Related Topics
 
 - [Amazon OpenSearch Serverless](Amazon OpenSearch Serverless.md)
-- [Amazon OpenSearch](Amazon OpenSearch.md)

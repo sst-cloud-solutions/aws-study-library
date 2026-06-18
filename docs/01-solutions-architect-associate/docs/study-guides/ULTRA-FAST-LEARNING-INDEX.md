@@ -19,8 +19,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ## 📖 Ultra Fast Learning Documents
 
-### Module 01: AWS Fundamentals
-**File**: [01-AWS-Fundamentals/ULTRA-FAST-LEARN.md](../../01-AWS-Fundamentals/ULTRA-FAST-LEARN.md)
+### AWS Fundamentals
+**File**: [01-AWS-Fundamentals/ULTRA-FAST-LEARN.md](../../../00-it-foundation/10-aws-fundamentals/README.md#9-🚀-ultra-fast-learning-cheat-sheet)
 
 **Topics Covered**:
 - ✅ AWS Global Infrastructure (Regions, AZs, Edge Locations)
@@ -34,8 +34,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 02: IAM
-**File**: [02-IAM/ULTRA-FAST-LEARN.md](../../02-IAM/ULTRA-FAST-LEARN.md)
+### Module 01: IAM
+**File**: [02-IAM/ULTRA-FAST-LEARN.md](../../01-IAM/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ IAM Users, Groups, Roles
@@ -49,8 +49,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 03: Compute Services
-**File**: [03-Compute/ULTRA-FAST-LEARN.md](../../03-Compute/ULTRA-FAST-LEARN.md)
+### Module 01: Compute Services
+**File**: [03-Compute/ULTRA-FAST-LEARN.md](../../02-Compute/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ EC2 Instance Types (CRAMFGPDI mnemonic)
@@ -66,8 +66,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 04: Storage Services
-**File**: [04-Storage/ULTRA-FAST-LEARN.md](../../04-Storage/ULTRA-FAST-LEARN.md)
+### Module 01: Storage Services
+**File**: [04-Storage/ULTRA-FAST-LEARN.md](../../03-Storage/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ S3 Storage Classes (S-I-S-O-G³ mnemonic)
@@ -83,8 +83,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 05: Database Services
-**File**: [05-Database/ULTRA-FAST-LEARN.md](../../05-Database/ULTRA-FAST-LEARN.md)
+### Module 01: Database Services
+**File**: [05-Database/ULTRA-FAST-LEARN.md](../../04-Database/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ RDS (Multi-AZ, Read Replicas, Backups)
@@ -98,8 +98,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 06: Networking & Content Delivery
-**File**: [06-Networking/ULTRA-FAST-LEARN.md](../../06-Networking/ULTRA-FAST-LEARN.md)
+### Module 01: Networking & Content Delivery
+**File**: [06-Networking/ULTRA-FAST-LEARN.md](../../05-Networking/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ VPC Basics (CIDR, Subnets, Route Tables)
@@ -113,8 +113,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 07: Security & Compliance
-**File**: [07-Security/ULTRA-FAST-LEARN.md](../../07-Security/ULTRA-FAST-LEARN.md)
+### Module 01: Security & Compliance
+**File**: [07-Security/ULTRA-FAST-LEARN.md](../../06-Security/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ KMS (Key Management, Envelope Encryption)
@@ -131,8 +131,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 08: Application Integration
-**File**: [08-Application-Integration/ULTRA-FAST-LEARN.md](../../08-Application-Integration/ULTRA-FAST-LEARN.md)
+### Module 01: Application Integration
+**File**: [08-Application-Integration/ULTRA-FAST-LEARN.md](../../07-Application-Integration/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ SQS (Standard vs FIFO, Visibility Timeout)
@@ -146,8 +146,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 09: Monitoring & Management
-**File**: [09-Monitoring/ULTRA-FAST-LEARN.md](../../09-Monitoring/ULTRA-FAST-LEARN.md)
+### Module 01: Monitoring & Management
+**File**: [09-Monitoring/ULTRA-FAST-LEARN.md](../../08-Monitoring/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ CloudWatch (Metrics, Alarms, Logs, Dashboards)
@@ -162,8 +162,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 10: Migration & Transfer
-**File**: [10-Migration/ULTRA-FAST-LEARN.md](../../10-Migration/ULTRA-FAST-LEARN.md)
+### Module 01: Migration & Transfer
+**File**: [10-Migration/ULTRA-FAST-LEARN.md](../../09-Migration/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ 6 R's Migration Strategies (RRRRRT mnemonic)
@@ -179,8 +179,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 11: Analytics Services
-**File**: [11-Analytics/ULTRA-FAST-LEARN.md](../../11-Analytics/ULTRA-FAST-LEARN.md)
+### Module 01: Analytics Services
+**File**: [11-Analytics/ULTRA-FAST-LEARN.md](../../10-Analytics/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ Athena (Serverless SQL on S3)
@@ -196,8 +196,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 12: Architecture Patterns
-**File**: [12-Architecture-Patterns/ULTRA-FAST-LEARN.md](../../12-Architecture-Patterns/ULTRA-FAST-LEARN.md)
+### Module 01: Architecture Patterns
+**File**: [12-Architecture-Patterns/ULTRA-FAST-LEARN.md](../../11-Architecture-Patterns/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ Well-Architected Framework (6 Pillars Deep Dive)
@@ -215,8 +215,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 13: Cost Optimization
-**File**: [13-Cost-Optimization/ULTRA-FAST-LEARN.md](../../13-Cost-Optimization/ULTRA-FAST-LEARN.md)
+### Module 01: Cost Optimization
+**File**: [13-Cost-Optimization/ULTRA-FAST-LEARN.md](../../12-Cost-Optimization/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ AWS Pricing Fundamentals
@@ -233,8 +233,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-### Module 14: Practice & Exam Prep
-**File**: [14-Practice/ULTRA-FAST-LEARN.md](../../14-Practice/ULTRA-FAST-LEARN.md)
+### Module 01: Practice & Exam Prep
+**File**: [14-Practice/ULTRA-FAST-LEARN.md](../../13-Practice/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
 - ✅ Exam Format & Details
@@ -278,16 +278,16 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - **Day 4**: Modules 08-09 (Integration, Monitoring)
 - **Day 5**: Modules 10-11 (Migration, Analytics)
 - **Day 6**: Modules 12-13 (Architecture, Cost)
-- **Day 7**: Module 14 (Practice) + Full Review
+- **Day 7**: Module 01 (Practice) + Full Review
 
 ### 3-Day Crash Course
 - **Day 1**: Modules 02-05 (IAM, Compute, Storage, Database)
 - **Day 2**: Modules 06-07, 12 (Networking, Security, Architecture)
-- **Day 3**: Module 13-14 (Cost, Practice) + Review All
+- **Day 3**: Module 01-14 (Cost, Practice) + Review All
 
 ### Pre-Exam (Same Day)
 - **2-3 hours before**: Read all ULTRA-FAST-LEARN docs
-- **1 hour before**: Review Module 14 (Exam tips, keywords, numbers)
+- **1 hour before**: Review Module 01 (Exam tips, keywords, numbers)
 - **30 min before**: Deep breathing, stay calm 😌
 
 ---
@@ -313,20 +313,20 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 ## 📈 Progress Tracking
 
 ### Checklist
-- [ ] Module 01: AWS Fundamentals
-- [ ] Module 02: IAM
-- [ ] Module 03: Compute Services
-- [ ] Module 04: Storage Services
-- [ ] Module 05: Database Services
-- [ ] Module 06: Networking
-- [ ] Module 07: Security & Compliance
-- [ ] Module 08: Application Integration
-- [ ] Module 09: Monitoring & Management
-- [ ] Module 10: Migration & Transfer
-- [ ] Module 11: Analytics Services
-- [ ] Module 12: Architecture Patterns
-- [ ] Module 13: Cost Optimization
-- [ ] Module 14: Practice & Exam Prep
+- [ ] AWS Fundamentals
+- [ ] Module 01: IAM
+- [ ] Module 01: Compute Services
+- [ ] Module 01: Storage Services
+- [ ] Module 01: Database Services
+- [ ] Module 01: Networking
+- [ ] Module 01: Security & Compliance
+- [ ] Module 01: Application Integration
+- [ ] Module 01: Monitoring & Management
+- [ ] Module 01: Migration & Transfer
+- [ ] Module 01: Analytics Services
+- [ ] Module 01: Architecture Patterns
+- [ ] Module 01: Cost Optimization
+- [ ] Module 01: Practice & Exam Prep
 
 ### Confidence Level
 Rate your confidence for each module (1-5 stars):
@@ -367,7 +367,7 @@ Remember:
 
 ## Prerequisites
 
-- [Cost Optimization - Practice Questions](../../13-Cost-Optimization/PRACTICE-QUESTIONS.md)
+- [Cost Optimization - Practice Questions](../../12-Cost-Optimization/PRACTICE-QUESTIONS.md)
 
 ## Recommended Next Topics
 

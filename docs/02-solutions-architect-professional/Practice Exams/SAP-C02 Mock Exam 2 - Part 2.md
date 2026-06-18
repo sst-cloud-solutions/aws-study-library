@@ -513,7 +513,7 @@ A database administrator wants to set up a multi-region disaster recovery databa
 **Correct Answer: B**
 
 ### Explanation:
-Amazon Aurora Global Database provides fast cross-region replication (< 150 ms latency) and allows read-only scaling in the secondary regions, satisfying the RPO and read-scaling goals.
+Amazon Aurora Global Database provides fast cross-region replication (\< 150 ms latency) and allows read-only scaling in the secondary regions, satisfying the RPO and read-scaling goals.
 </details>
 
 ---

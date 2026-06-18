@@ -443,9 +443,9 @@ Correct Cross-Account S3 Access:
 ```
 
 **Study Resources:**
-- [Module 02: IAM - SCPs](../../02-IAM/README.md#service-control-policies)
-- [Module 04: Storage - S3 Policies](../../04-Storage/README.md#bucket-policies)
-- [Module 07: Security - Cross-Account Access](../../07-Security/README.md#cross-account)
+- [Module 01: IAM - SCPs](../../01-IAM/README.md#service-control-policies)
+- [Module 01: Storage - S3 Policies](../../03-Storage/README.md#bucket-policies)
+- [Module 01: Security - Cross-Account Access](../../06-Security/README.md#cross-account)
 
 ##### 3. VPN & Encryption ⚠️
 **Topics to review:**
@@ -455,7 +455,7 @@ Correct Cross-Account S3 Access:
 - Direct Connect + VPN for encryption
 
 **Study Resources:**
-- [Module 06: Networking - VPN](../../06-Networking/README.md#vpn)
+- [Module 01: Networking - VPN](../../05-Networking/README.md#vpn)
 
 ##### 4. IAM Roles & Federation ⚠️
 **Topics to review:**
@@ -465,8 +465,8 @@ Correct Cross-Account S3 Access:
 - Cross-account roles
 
 **Study Resources:**
-- [Module 02: IAM - Roles](../../02-IAM/README.md#iam-roles)
-- [Module 07: Security - Federation](../../07-Security/README.md#federation)
+- [Module 01: IAM - Roles](../../01-IAM/README.md#iam-roles)
+- [Module 01: Security - Federation](../../06-Security/README.md#federation)
 
 ---
 
@@ -482,7 +482,7 @@ Correct Cross-Account S3 Access:
 - S3 Select & Glacier Select
 
 **Study Resources:**
-- [Module 04: Storage - S3 Performance](../../04-Storage/README.md#s3-performance)
+- [Module 01: Storage - S3 Performance](../../03-Storage/README.md#s3-performance)
 
 ##### 2. Database Caching Strategies ⚠️
 **Topics to review:**
@@ -492,7 +492,7 @@ Correct Cross-Account S3 Access:
 - Application-level caching
 
 **Study Resources:**
-- [Module 05: Database - Caching](../../05-Database/README.md#caching)
+- [Module 01: Database - Caching](../../04-Database/README.md#caching)
 
 ##### 3. Network Performance ⚠️
 **Topics to review:**
@@ -502,7 +502,7 @@ Correct Cross-Account S3 Access:
 - VPC Flow Logs
 
 **Study Resources:**
-- [Module 06: Networking - Performance](../../06-Networking/README.md#performance)
+- [Module 01: Networking - Performance](../../05-Networking/README.md#performance)
 
 ---
 
@@ -536,8 +536,8 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 - **Millisecond access needed:** Instant Retrieval (but expensive)
 
 **Study Resources:**
-- [Module 04: Storage - Glacier](../../04-Storage/README.md#glacier)
-- [Module 13: Cost Optimization - Storage](../../13-Cost-Optimization/README.md#storage-costs)
+- [Module 01: Storage - Glacier](../../03-Storage/README.md#glacier)
+- [Module 01: Cost Optimization - Storage](../../12-Cost-Optimization/README.md#storage-costs)
 
 ---
 
@@ -1140,10 +1140,10 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ---
 
 **Study Resources:**
-- [Module 04: Storage - Glacier](../../04-Storage/README.md#glacier)
-- [Module 13: Cost Optimization - Storage](../../13-Cost-Optimization/README.md#storage-costs)
-- [Module 03: Compute - Pricing](../../03-Compute/README.md#ec2-pricing)
-- [Module 13: Cost Optimization - Compute](../../13-Cost-Optimization/README.md)
+- [Module 01: Storage - Glacier](../../03-Storage/README.md#glacier)
+- [Module 01: Cost Optimization - Storage](../../12-Cost-Optimization/README.md#storage-costs)
+- [Module 01: Compute - Pricing](../../02-Compute/README.md#ec2-pricing)
+- [Module 01: Cost Optimization - Compute](../../12-Cost-Optimization/README.md)
 
 ---
 
@@ -1152,29 +1152,29 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ### Week 1: Fix Security Knowledge Gap (56% → 80%+)
 
 #### Days 1-2: CloudFront, ACM, and HTTPS
-- [ ] Read [Module 06: Networking - CloudFront](../../06-Networking/README.md#cloudfront)
-- [ ] Read [Module 07: Security - ACM](../../07-Security/README.md#certificate-manager)
+- [ ] Read [Module 01: Networking - CloudFront](../../05-Networking/README.md#cloudfront)
+- [ ] Read [Module 01: Security - ACM](../../06-Security/README.md#certificate-manager)
 - [ ] **Memorize:** CloudFront certificates MUST be in us-east-1
 - [ ] Complete CloudFront + ACM labs
 - [ ] Practice HTTPS/SSL questions
 
 #### Days 3-4: Cross-Account Access & IAM
-- [ ] Read [Module 02: IAM](../../02-IAM/README.md)
+- [ ] Read [Module 01: IAM](../../01-IAM/README.md)
 - [ ] Focus on cross-account access patterns
 - [ ] Understand bucket policies vs IAM policies vs SCPs
 - [ ] Complete cross-account access labs
 - [ ] Practice IAM policy questions
 
 #### Days 5-6: VPN & Encryption
-- [ ] Read [Module 06: Networking - VPN](../../06-Networking/README.md#vpn)
-- [ ] Read [Module 07: Security - Encryption](../../07-Security/README.md#encryption)
+- [ ] Read [Module 01: Networking - VPN](../../05-Networking/README.md#vpn)
+- [ ] Read [Module 01: Security - Encryption](../../06-Security/README.md#encryption)
 - [ ] Complete Site-to-Site VPN labs
 - [ ] Review Direct Connect + VPN
 - [ ] Practice encryption questions
 
 #### Day 7: Security Domain Practice
-- [ ] Complete all [Module 07 Practice Questions](../../07-Security/PRACTICE-QUESTIONS.md)
-- [ ] Complete [Module 02 Practice Questions](../../02-IAM/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 01 Practice Questions](../../06-Security/PRACTICE-QUESTIONS.md)
+- [ ] Complete [Module 01 Practice Questions](../../01-IAM/PRACTICE-QUESTIONS.md)
 - [ ] Review incorrect answers
 - [ ] Create flashcards for security concepts
 
@@ -1183,26 +1183,26 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ### Week 2: Improve High-Performing Knowledge (75% → 85%+)
 
 #### Days 8-9: S3 Performance
-- [ ] Read [Module 04: Storage - S3 Performance](../../04-Storage/README.md#s3-performance)
+- [ ] Read [Module 01: Storage - S3 Performance](../../03-Storage/README.md#s3-performance)
 - [ ] Complete S3 Transfer Acceleration lab
 - [ ] Review multipart upload strategies
 - [ ] Practice S3 performance questions
 
 #### Days 10-11: Database & Caching
-- [ ] Read [Module 05: Database - Caching](../../05-Database/README.md#caching)
+- [ ] Read [Module 01: Database - Caching](../../04-Database/README.md#caching)
 - [ ] Complete ElastiCache labs (Redis & Memcached)
 - [ ] Review DAX for DynamoDB
 - [ ] Practice database performance questions
 
 #### Days 12-13: Network Performance
-- [ ] Read [Module 06: Networking - Performance](../../06-Networking/README.md#performance)
+- [ ] Read [Module 01: Networking - Performance](../../05-Networking/README.md#performance)
 - [ ] Review Enhanced Networking (ENA, EFA)
 - [ ] Study Placement Groups
 - [ ] Practice network performance questions
 
 #### Day 14: High-Performance Domain Practice
-- [ ] Complete all [Module 04 Practice Questions](../../04-Storage/PRACTICE-QUESTIONS.md)
-- [ ] Complete all [Module 05 Practice Questions](../../05-Database/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 01 Practice Questions](../../03-Storage/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 01 Practice Questions](../../04-Database/PRACTICE-QUESTIONS.md)
 - [ ] Review all flagged questions
 - [ ] Take Practice Test 3
 
@@ -1322,12 +1322,12 @@ SCP (Organizations):
 1. ✅ Review this document completely
 2. [ ] **MEMORIZE:** CloudFront certificates = us-east-1 ONLY
 3. [ ] **UNDERSTAND:** SCP vs Bucket Policy for cross-account
-4. [ ] Read [Module 07: Security - CloudFront](../../07-Security/README.md#cloudfront-security)
+4. [ ] Read [Module 01: Security - CloudFront](../../06-Security/README.md#cloudfront-security)
 
 ### This Week (Priority: Security)
 1. [ ] Follow Week 1 study plan (Security focus)
-2. [ ] Complete all Module 07 practice questions
-3. [ ] Complete all Module 02 practice questions (IAM)
+2. [ ] Complete all Module 01 practice questions
+3. [ ] Complete all Module 01 practice questions (IAM)
 4. [ ] Create security flashcards
 
 ### Before Next Test
@@ -1382,11 +1382,11 @@ Cost-Optimized           100%  →  86%  →  90%
 ## 🔗 Related Resources
 
 ### Study Materials
-- [Module 02: IAM](../../02-IAM/README.md) - Identity & Access Management
-- [Module 07: Security](../../07-Security/README.md) - Security services
-- [Module 06: Networking](../../06-Networking/README.md) - CloudFront, VPN
-- [Module 04: Storage](../../04-Storage/README.md) - S3, Glacier
-- [Module 13: Cost Optimization](../../13-Cost-Optimization/README.md) - Cost strategies
+- [Module 01: IAM](../../01-IAM/README.md) - Identity & Access Management
+- [Module 01: Security](../../06-Security/README.md) - Security services
+- [Module 01: Networking](../../05-Networking/README.md) - CloudFront, VPN
+- [Module 01: Storage](../../03-Storage/README.md) - S3, Glacier
+- [Module 01: Cost Optimization](../../12-Cost-Optimization/README.md) - Cost strategies
 
 ### Quick References
 - [Fast Learn Guide](../../docs/study-guides/FAST-LEARN-GUIDE.md) - Quick review
