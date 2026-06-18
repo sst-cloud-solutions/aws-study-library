@@ -96,3 +96,108 @@
   background-color: rgba(224, 109, 67, 0.12) !important;
 }
 
+/* Ensure navbar contents fill 100% height and align perfectly vertically */
+.navbar__inner {
+  height: 100%;
+}
+
+.navbar__brand {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0 !important;
+}
+
+.navbar__logo {
+  height: 1.5rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0 !important;
+}
+
+.navbar__items {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 997px) {
+  .navbar__item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Restrict search input size dynamically on medium viewports to save space */
+.navbar__search-input {
+  transition: width 0.2s ease !important;
+}
+
+/* Responsive Navbar overrides to prevent overlapping/wrapping on medium/large screens */
+@media screen and (min-width: 1250px) and (max-width: 1480px) {
+  :root {
+    --ifm-navbar-item-padding-horizontal: 0.5rem;
+  }
+  .navbar__logo {
+    height: 1.4rem;
+  }
+  .navbar__brand {
+    margin-right: 0.75rem;
+  }
+  .navbar__item {
+    font-size: 0.9rem;
+  }
+  .navbar__search-input {
+    width: 150px !important;
+  }
+  .navbar__search-input:focus {
+    width: 180px !important;
+  }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1250px) {
+  :root {
+    --ifm-navbar-item-padding-horizontal: 0.35rem;
+  }
+  .navbar__logo {
+    height: 1.3rem;
+  }
+  .navbar__brand {
+    margin-right: 0.5rem;
+  }
+  .navbar__item {
+    font-size: 0.85rem;
+  }
+  .navbar__search-input {
+    width: 120px !important;
+  }
+  .navbar__search-input:focus {
+    width: 150px !important;
+  }
+}
+
+@media screen and (min-width: 997px) and (max-width: 1100px) {
+  :root {
+    --ifm-navbar-item-padding-horizontal: 0.2rem;
+  }
+  .navbar__logo {
+    height: 1.15rem;
+  }
+  .navbar__brand {
+    margin-right: 0.3rem;
+  }
+  .navbar__item {
+    font-size: 0.78rem;
+  }
+  .navbar__link--dropdown::after {
+    margin-left: 0.15rem;
+  }
+  .navbar__search-input {
+    width: 90px !important;
+  }
+  .navbar__search-input:focus {
+    width: 120px !important;
+  }
+}
+
+
